@@ -1,47 +1,66 @@
 # fe-esthetic-project
-Webpage for esthetic purposes
 
-Install the Angular CLI
-You can use the Angular CLI to create projects, generate application and library code, and perform a variety of ongoing development tasks such as testing, bundling, and deployment.
+Landing page for the Fe Esthetic studio, built with Angular 17. It supports server-side rendering (SSR) and prerendering, and uses parallax and scroll animations.
 
-To install the Angular CLI, open a terminal window and run the following command:
+The Angular app lives in [`fe-esthetic/`](fe-esthetic/). The root `package.json` only forwards commands to it.
 
-content_copy
-npm install -g @angular/cli
-On Windows client computers, the execution of PowerShell scripts is disabled by default. To allow the execution of PowerShell scripts, which is needed for npm global binaries, you must set the following execution policy:
+## Requirements
 
-content_copy
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-Carefully read the message displayed after executing the command and follow the instructions. Make sure you understand the implications of setting an execution policy.
+- Node.js 18.13+ or 20 (Node 22 also works in this environment)
+- npm
 
-Create a workspace and initial application
-You develop apps in the context of an Angular workspace.
+## Quick start
 
-To create a new workspace and initial starter app:
+From the repo root:
 
-Run the CLI command ng new and provide the name my-app, as shown here:
+```bash
+npm install     # runs the app's install via postinstall
+npm start       # serves the app at http://localhost:4200
+```
 
-content_copy
-ng new my-app
-The ng new command prompts you for information about features to include in the initial app. Accept the defaults by pressing the Enter or Return key.
+Or work inside the app folder directly:
 
-The Angular CLI installs the necessary Angular npm packages and other dependencies. This can take a few minutes.
+```bash
+cd fe-esthetic
+npm install
+npm start
+```
 
-The CLI creates a new workspace and a simple Welcome app, ready to run.
+`npm start` opens the dev server at http://localhost:4200.
 
+## Production build and SSR
 
-Run the application
-The Angular CLI includes a server, for you to build and serve your app locally.
+```bash
+npm run build          # production build, including the server bundle and prerendering
+npm run serve:ssr      # serves the SSR build at http://localhost:4000
+```
 
-Navigate to the workspace folder, such as my-app.
+## Tests
 
-Run the following command:
+```bash
+npm test
+```
 
-content_copy
-cd my-app
-ng serve --open
-The ng serve command launches the server, watches your files, and rebuilds the app as you make changes to those files.
+This runs the Angular test runner (`ng test`) from `fe-esthetic/`.
 
-The --open (or just -o) option automatically opens your browser to http://localhost:4200/.
+## Project structure
 
-If your installation and setup was successful, you should see a page similar to the following.
+```
+fe-esthetic-project/
+├── package.json          # root scripts that forward to fe-esthetic/
+├── fe-esthetic/
+│   ├── angular.json      # build, prerender and test configuration
+│   ├── server.ts         # Express server for SSR
+│   └── src/
+│       ├── app/          # root component, routes and app config
+│       ├── styles.css    # global styles and design tokens
+│       └── ...
+└── README.md
+```
+
+- `src/app/` holds the root component, routes and app configuration. Shared `components/` and `directives/` folders (for the parallax and reveal directives) are not in the tree yet.
+- `src/styles.css` holds the global styles and design tokens.
+
+## Accessibility
+
+Animations are meant to respect `prefers-reduced-motion`, so users who ask for less motion get a static page. This is not implemented yet. No `prefers-reduced-motion` rules exist in `fe-esthetic/src` at the moment.
