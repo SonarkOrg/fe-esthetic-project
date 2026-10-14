@@ -52,15 +52,20 @@ fe-esthetic-project/
 │   ├── angular.json      # build, prerender and test configuration
 │   ├── server.ts         # Express server for SSR
 │   └── src/
-│       ├── app/          # root component, routes and app config
+│       ├── app/
+│       │   ├── components/   # page sections: nav, hero, about, services, quote,
+│       │   │                 # stats, testimonials, contact, footer
+│       │   ├── directives/   # parallax.service + parallax, reveal and count-up directives
+│       │   ├── app.component.* / app.routes.ts / app.config*.ts
 │       ├── styles.css    # global styles and design tokens
 │       └── ...
 └── README.md
 ```
 
-- `src/app/` holds the root component, routes and app configuration. Shared `components/` and `directives/` folders (for the parallax and reveal directives) are not in the tree yet.
+- `src/app/components/` holds one folder per page section, composed in `app.component.html`.
+- `src/app/directives/` holds the animation directives: `appReveal` (scroll reveal), `appParallax` (driven by the shared `parallax.service`), and `appCountUp` (number count-up in the results section).
 - `src/styles.css` holds the global styles and design tokens.
 
 ## Accessibility
 
-Animations are meant to respect `prefers-reduced-motion`, so users who ask for less motion get a static page. This is not implemented yet. No `prefers-reduced-motion` rules exist in `fe-esthetic/src` at the moment.
+Animations respect `prefers-reduced-motion`. When the user has reduced motion enabled, parallax is switched off, the count-up shows the final value, and reveal elements appear immediately without the slide-in motion (see the `prefers-reduced-motion` block in `fe-esthetic/src/styles.css`).

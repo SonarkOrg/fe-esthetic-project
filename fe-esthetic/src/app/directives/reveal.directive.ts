@@ -1,4 +1,4 @@
-import { DestroyRef, Directive, ElementRef, Input, NgZone, Renderer2, afterNextRender, inject } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, Input, NgZone, Renderer2, RendererStyleFlags2, afterNextRender, inject } from '@angular/core';
 
 /** Fades/slides the host in once it enters the viewport. Hidden state only applies under `.js`. */
 @Directive({ selector: '[appReveal]', standalone: true, host: { class: 'reveal' } })
@@ -14,7 +14,7 @@ export class RevealDirective {
     const destroyRef = inject(DestroyRef);
     afterNextRender(() => {
       const d = Number(this.delay) || 0;
-      if (d) this.renderer.setStyle(this.el, '--reveal-delay', `${d}ms`);
+      if (d) this.renderer.setStyle(this.el, '--reveal-delay', `${d}ms`, RendererStyleFlags2.DashCase);
       if (typeof IntersectionObserver === 'undefined') {
         this.renderer.addClass(this.el, 'is-visible');
         return;

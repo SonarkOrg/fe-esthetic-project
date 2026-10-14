@@ -20,8 +20,8 @@ import { ParallaxDirective } from '../../directives/parallax.directive';
         <div class="hero__copy" [appParallax]="0.06">
           <p class="eyebrow hero-in" style="--i:0">Skin &amp; beauty studio</p>
           <h1 id="hero-title" class="hero__title">
-            <span class="word"><span style="--i:1">Radiance,</span></span>
-            <span class="word"><span style="--i:2">gently</span></span>
+            <span class="word"><span style="--i:1">Radiance,</span></span>&ngsp;
+            <span class="word"><span style="--i:2">gently</span></span>&ngsp;
             <span class="word"><span style="--i:3"><em>revealed.</em></span></span>
           </h1>
           <p class="lead hero-in" style="--i:4">Personalised facials, advanced skin therapies and quiet, restorative rituals, crafted to bring out the healthiest version of your skin.</p>

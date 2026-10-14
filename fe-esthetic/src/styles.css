@@ -136,7 +136,7 @@ app-nav.is-scrolled .nav {
 .hero__grid { position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 40px; }
 .hero__copy { position: relative; will-change: transform; }
 .hero__title { font-size: clamp(3.2rem, 8.5vw, 6.6rem); color: var(--plum); margin-bottom: 1.5rem; letter-spacing: -0.01em; }
-.hero__title .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-right: 0.22em; }
+.hero__title .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; }
 .hero__title .word > span { display: inline-block; animation: wordUp 1.1s var(--ease) both; animation-delay: calc(0.15s + var(--i) * 0.14s); }
 .hero__title em { color: var(--gold); font-style: italic; }
 .hero-in { animation: fadeUp 1s var(--ease) both; animation-delay: calc(0.15s + var(--i, 0) * 0.14s); }
