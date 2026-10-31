@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
+import { SITE, phoneHref } from '../../site.config';
+import { FORM_HEADERS, formContext, mailtoUrl } from '../../form-submit';
+
+type FormState = 'idle' | 'sending' | 'success' | 'error' | 'mailto';
 
 @Component({
   selector: 'app-contact',
@@ -8,11 +13,16 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
+  readonly site = SITE;
+  readonly telHref = phoneHref(SITE.phone);
   myForm: FormGroup;
-  sent = false;
+  state: FormState = 'idle';
 
-  constructor(private fb: FormBuilder, private titleService: Title) {
-    this.titleService.setTitle('Contact us');
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: object,
+  ) {
     this.myForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -29,7 +39,27 @@ export class ContactComponent {
       this.myForm.markAllAsTouched();
       return;
     }
-    this.sent = true;
-    this.myForm.reset();
+    if (this.state === 'sending') return;
+    const { name, email, message } = this.myForm.value;
+
+    if (SITE.forms.contactEndpoint) {
+      this.state = 'sending';
+      this.http
+        .post(SITE.forms.contactEndpoint, { name, email, message }, { headers: FORM_HEADERS, context: formContext() })
+        .subscribe({
+          next: () => {
+            this.state = 'success';
+            this.myForm.reset();
+          },
+          error: () => (this.state = 'error'),
+        });
+      return;
+    }
+
+    const body = `${message}\n\nReply to: ${email}`;
+    if (isPlatformBrowser(this.platformId)) {
+      window.location.href = mailtoUrl(SITE.email, `Enquiry from ${name}`, body);
+    }
+    this.state = 'mailto';
   }
 }

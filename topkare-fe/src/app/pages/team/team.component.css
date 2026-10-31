@@ -34,3 +34,6 @@
   .grid__item:nth-child(3n + 2) { margin-top: var(--s-8); }
   .hero__inner { grid-template-columns: 1.2fr 1fr; gap: var(--s-8); }
 }
+
+.member__photo { position: relative; display: grid; place-items: center; background: linear-gradient(160deg, var(--c-sage-100), var(--c-sage)); overflow: hidden; }
+.member__mono { font-family: var(--font-display); font-size: clamp(3rem, 2rem + 4vw, 5rem); letter-spacing: 0.04em; color: var(--c-green); }

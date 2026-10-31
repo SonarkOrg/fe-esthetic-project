@@ -1,0 +1,13 @@
+/
+/classes
+/services
+/contact
+/team
+/privacy
+/cookies
+/specific-class/1
+/specific-class/2
+/specific-class/3
+/specific-service/1
+/specific-service/2
+/specific-service/3

@@ -8,3 +8,5 @@
 .top__content { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding-bottom: var(--s-7); }
 .top__title { max-width: 16em; color: #fff; text-align: left; font-size: var(--fs-h1); line-height: 1.15; text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35); }
 @media (max-width: 599px) { .top__content { padding-bottom: var(--s-5); } }
+.missing { padding-block: var(--section-y); text-align: center; }
+.missing p { max-width: 46ch; margin: 0 auto var(--s-5); font-size: var(--fs-lead); color: var(--c-muted); }

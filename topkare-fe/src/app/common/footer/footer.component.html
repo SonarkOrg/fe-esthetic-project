@@ -8,9 +8,13 @@
         <form class="newsletter" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
           <label class="visually-hidden" for="footer-email">Email address</label>
           <input id="footer-email" class="newsletter__input" type="email" placeholder="Your email" autocomplete="email" formControlName="userName" required />
-          <button class="newsletter__btn" type="submit">{{ submitted ? 'Thank you' : 'Subscribe' }}</button>
+          <button class="newsletter__btn" type="submit" [disabled]="state === 'sending'">{{ state === 'sending' ? 'Sending…' : 'Subscribe' }}</button>
         </form>
-        <p class="footer__note">By subscribing you agree to receive updates from Topkare.</p>
+        <p class="footer__err" *ngIf="myForm.controls['userName'].touched && myForm.controls['userName'].invalid">Please enter a valid email address.</p>
+        <p class="footer__note footer__status" role="status" *ngIf="state === 'success'">Thank you, you're on the list.</p>
+        <p class="footer__note footer__status" role="status" *ngIf="state === 'mailto'">Your email app should open with a sign-up message ready to send. If it doesn't, email us at <a [href]="'mailto:' + site.email">{{ site.email }}</a>.</p>
+        <p class="footer__note footer__status" role="alert" *ngIf="state === 'error'">Sorry, we couldn't sign you up just now. Please try again, or email us at <a [href]="'mailto:' + site.email">{{ site.email }}</a>.</p>
+        <p class="footer__note">By subscribing you agree to receive updates from Topkare. See our <a routerLink="/privacy">Privacy policy</a>.</p>
       </div>
 
       <div class="footer__cols">
@@ -27,19 +31,19 @@
           <a [routerLink]="['/specific-service', 1]">Laser</a>
         </nav>
         <ul class="socials" aria-label="Social media">
-          <li><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/img/footer/instagram.svg" alt="" /></a></li>
-          <li><a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"><img src="assets/img/footer/twitter.svg" alt="" /></a></li>
-          <li><a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/img/footer/facebook.svg" alt="" /></a></li>
+          <li *ngIf="site.socials.instagram"><a [href]="site.socials.instagram" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/img/footer/instagram.svg" alt="" /></a></li>
+          <li *ngIf="site.socials.x"><a [href]="site.socials.x" target="_blank" rel="noopener" aria-label="X (Twitter)"><img src="assets/img/footer/twitter.svg" alt="" /></a></li>
+          <li *ngIf="site.socials.facebook"><a [href]="site.socials.facebook" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/img/footer/facebook.svg" alt="" /></a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer__bottom">
       <div class="footer__policies">
-        <a href="#">Privacy policy</a>
-        <a href="#">Cookie policy</a>
+        <a routerLink="/privacy">Privacy policy</a>
+        <a routerLink="/cookies">Cookie policy</a>
       </div>
-      <p class="footer__copy">&copy;2024 Topkare. All rights reserved | BinaryTech</p>
+      <p class="footer__copy">&copy;{{ year }} Topkare. All rights reserved | BinaryTech</p>
     </div>
   </div>
 </footer>

@@ -1,7 +1,23 @@
 <app-header></app-header>
 <main>
-  <app-under-header-book [service]="service"></app-under-header-book>
-  <app-details-section [service]="service"></app-details-section>
-  <app-masonry></app-masonry>
+  <ng-container *ngIf="!notFound; else missing">
+    <app-under-header-book [service]="service"></app-under-header-book>
+    <app-details-section [service]="service"></app-details-section>
+    <app-masonry></app-masonry>
+  </ng-container>
+  <ng-template #missing>
+    <section class="banner">
+      <div class="wrap">
+        <a class="back-link" routerLink="/services"><img src="assets/img/header/arrow-left.svg" alt="" /> Back to services</a>
+        <hr />
+        <span class="banner__eyebrow">Services</span>
+        <h1 class="banner__title">We couldn't find <span class="accent">that service</span></h1>
+      </div>
+    </section>
+    <section class="missing wrap">
+      <p>That service doesn't exist or is no longer offered. See everything we offer instead.</p>
+      <a class="pill pill--lg" routerLink="/services">See all services</a>
+    </section>
+  </ng-template>
 </main>
 <app-footer></app-footer>

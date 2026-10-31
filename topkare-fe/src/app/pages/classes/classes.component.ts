@@ -13,6 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class ClassesComponent {
   constructor(private titleService: Title){
-    this.titleService.setTitle('Classes')
+    this.titleService.setTitle('Classes | Topkare');
   }
 }

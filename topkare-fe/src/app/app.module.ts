@@ -47,6 +47,9 @@ import { LoaderService } from './Services/LoaderService/loader.service';
 import { ParallaxDirective } from './directives/parallax.directive';
 import { RevealDirective } from './directives/reveal.directive';
 import { SidebarmenuComponent } from './common/sidebarmenu/sidebarmenu.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PrivacyComponent } from './pages/legal/privacy.component';
+import { CookiesComponent } from './pages/legal/cookies.component';
 import { DescriptionServicesComponent } from './pages/services/description-services/description-services.component';
 
 @NgModule({
@@ -83,6 +86,9 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
     TeamComponent,
     TestimonialSliderComponent,
     DescriptionServicesComponent,
+    NotFoundComponent,
+    PrivacyComponent,
+    CookiesComponent,
     ],
   imports: [
     BrowserModule,
@@ -106,7 +112,8 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    LoaderService
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

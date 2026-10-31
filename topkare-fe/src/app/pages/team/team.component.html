@@ -29,10 +29,8 @@
     <div class="grid">
       <div class="grid__item" *ngFor="let m of visible; let i = index" [appReveal]="i * 140">
         <article class="member">
-          <div class="member__photo plx zoom">
-            <div class="plx__layer" [appParallax]="0.1">
-              <img [src]="m.img" [alt]="'Portrait of ' + m.firstName + ' ' + m.name" loading="lazy" />
-            </div>
+          <div class="member__photo">
+            <span class="member__mono" aria-hidden="true">{{ initials(m) }}</span>
             <button type="button" class="member__more" [attr.aria-label]="'Read more about ' + m.firstName" (click)="openModal(m)">
               <img src="assets/img/team/plus.svg" alt="" />
             </button>

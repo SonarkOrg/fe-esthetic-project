@@ -12,8 +12,8 @@
     </div>
   </div>
   <div class="modal__media">
-    <img class="modal__img" [src]="data.image || 'assets/img/services/service-1.jpg'" [alt]="'Portrait of ' + data.firstName" />
-    <a class="modal__follow" href="https://www.instagram.com" target="_blank" rel="noopener">
+    <span class="modal__mono" aria-hidden="true">{{ initials }}</span>
+    <a class="modal__follow" *ngIf="site.socials.instagram" [href]="site.socials.instagram" target="_blank" rel="noopener">
       Follow me <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
     </a>
   </div>

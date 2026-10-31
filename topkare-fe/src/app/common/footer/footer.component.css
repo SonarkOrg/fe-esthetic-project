@@ -113,3 +113,7 @@
   .socials { margin-top: var(--s-3); }
   .footer__bottom { flex-direction: row; justify-content: space-between; align-items: center; }
 }
+.footer__err { margin: var(--s-2) 0 0; font-size: var(--fs-small); color: var(--c-orange); }
+.footer__status { opacity: 1; }
+.footer__note a, .footer__status a { color: inherit; text-underline-offset: 3px; }
+.newsletter__btn[disabled] { opacity: 0.7; cursor: progress; transform: none; }
