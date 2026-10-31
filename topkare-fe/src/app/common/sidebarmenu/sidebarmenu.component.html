@@ -1,18 +1,29 @@
-<div *ngIf="isOpen" class="container">
-  <div class="left" (click)="toggleContainer()">
-      <!-- Your left content goes here -->
-  </div>
-  <div class="right">
-    <img class="close" src="assets/img/sidebar/close.svg" alt="" (click)="toggleContainer()">
-    <a class="logo" href="/"><img src="assets/img/logo/logo-black.png" alt="logo-image"></a>
-      <a href="/">HOME</a>
-      <a href="/classes">CLASSES</a>
-      <a href="/services">SERVICES</a>
-      <a href="/contact">CONTACT</a>
-      <a href="/team">ABOUT US</a>
-      <!--<a href="/contact">ABOUT USE</a>-->
-      <p>©2024 COMPANY. ALL RIGHTS RESERVED | BINARYTECH</p>
-  </div>
-  <div class="overlay" (click)="toggleContainer()"></div>
+<div
+  class="menu"
+  id="mobile-menu"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Site menu"
+  [class.is-open]="open"
+  [attr.aria-hidden]="!open"
+  [attr.inert]="open ? null : ''"
+>
+  <div class="menu__backdrop" (click)="close()"></div>
+  <aside class="menu__panel">
+    <button type="button" class="menu__close" aria-label="Close menu" (click)="close()">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <a class="menu__logo" routerLink="/" (click)="close()">
+      <img src="assets/img/logo/logo-black.png" alt="Topkare" width="150" height="51" />
+    </a>
+    <nav class="menu__links" aria-label="Mobile navigation">
+      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="close()">Home</a>
+      <a routerLink="/classes" routerLinkActive="is-active" (click)="close()">Classes</a>
+      <a routerLink="/services" routerLinkActive="is-active" (click)="close()">Services</a>
+      <a routerLink="/contact" routerLinkActive="is-active" (click)="close()">Contact</a>
+      <a routerLink="/team" routerLinkActive="is-active" (click)="close()">About us</a>
+    </nav>
+    <a class="pill pill--cream pill--lg menu__cta" routerLink="/specific-service/1" (click)="close()">Book now</a>
+    <p class="menu__legal">&copy;2024 Topkare. All rights reserved</p>
+  </aside>
 </div>
-

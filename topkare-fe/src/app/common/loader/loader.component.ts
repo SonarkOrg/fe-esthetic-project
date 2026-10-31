@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoaderService } from '../../Services/LoaderService/loader.service';
 
@@ -7,14 +7,15 @@ import { LoaderService } from '../../Services/LoaderService/loader.service';
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.css']
 })
-export class LoaderComponent implements OnDestroy {
+export class LoaderComponent implements OnInit, OnDestroy {
   loading: boolean = false;
-  private loadingSubscription: Subscription;
+  private loadingSubscription?: Subscription;
 
-  constructor(private loaderService: LoaderService, private cdRef: ChangeDetectorRef) {
+  constructor(private loaderService: LoaderService) {}
+
+  ngOnInit(): void {
     this.loadingSubscription = this.loaderService.isLoading.subscribe((isLoading) => {
       this.loading = isLoading;
-      this.cdRef.detectChanges(); // Manually trigger change detection
     });
   }
 

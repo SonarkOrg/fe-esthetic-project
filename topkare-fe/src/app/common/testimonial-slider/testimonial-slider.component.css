@@ -1,261 +1,87 @@
-.container{
-  height: 500px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.testimonial{
+.testi { padding-block: 0 var(--section-y); }
+.testi__card {
   position: relative;
-  max-width: 900px;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-  width: 100%;
-  padding: 50px 0;
+  max-width: 920px;
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(3.5rem, 9vw, 6rem) clamp(3.5rem, 6vw, 4.5rem);
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(420px 220px at 0% 0%, rgba(173, 193, 120, 0.25), transparent 70%),
+    var(--c-green);
+  color: var(--c-cream);
+  box-shadow: var(--shadow-lg);
 }
-
-.testimonial .image{
-  height: 170px;
-  width: 170px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.testimonial .slide{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  row-gap: 30px;
-  flex-direction: column;
-}
-
-.slide p{
-  padding: 0 100px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  color: #FEFAE0;
-}
-
-.slide .quote-icon{
-  font-size: 30px;
-  color: #FEFAE0;
-}
-
-.slide .details{
+.testi__slides { display: grid; }
+.testi__slide {
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.details .name{
-  font-size: 14px;
-  font-weight: 600;
-  color: #FEFAE0;
-}
-
-.details .job{
-  font-size: 14px;
-  font-weight: 400;
-  color: #FEFAE0;
-}
-
-/*   SLIDER CSS               */
-.carousel-container{
-  position: relative;
-  margin: auto;
+  margin: 0;
   text-align: center;
-  width: 70%;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px #dce1e1;
-  margin-bottom: 40px;
-  border-radius: 24px;
-  background-color: #3A5A40;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), visibility 0s linear 0.6s;
 }
-
-img{
-  object-fit: cover;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-container img.image-active{
-  display: block;
-  animation-name: slideIn;
-  transition: 0.5s ease;
-}
-
-.carousel-container p.image-active{
-  display: block;
-  height: 20px;
-  width: 60%;
-  animation-name: slideIn;
-  transition: 0.5s ease;
-}
-
-.carousel-container span.image-active{
-  display: block;
-  height: 20px;
-  width: 100%;
-  animation-name: slideIn;
-  transition: 0.5s ease;
-}
-
-.carousel-container img{
-  display: none;
-}
-
-.carousel-container p{
-  display: none;
-}
-
-.carousel-container span{
-  display: none;
-}
-
-.carousel-dot-container{
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  margin-bottom: 1rem;
-}
-
-.dot{
-  cursor: pointer;
-  height: 13px;
-  width: 13px;
-  margin: 0 5px;
-  background-color: #FEFAE0;
-  border-radius: 50%;
-  display: inline-block;
-  transition: opacity 0.6s ease;
-  opacity: 0.5;
-}
-
-.active,
-.dot:hover{
+.testi__slide.is-active {
   opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
 }
-
-.fade{
-  animation-name: fade;
-  animation-duration: 1.5s;
+.testi__avatar {
+  width: clamp(84px, 14vw, 120px);
+  height: clamp(84px, 14vw, 120px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--c-sage);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
 }
-
-@keyframes fade {
-  from{
-    opacity: 0.4;
-  }
-  to{
-    opacity: 1;
-  }
+.testi__quote-icon { margin: var(--s-5) 0 var(--s-3); font-size: 1.5rem; color: var(--c-sage); }
+.testi__text {
+  max-width: 56ch;
+  margin: 0 0 var(--s-5);
+  font-size: var(--fs-lead);
+  font-style: italic;
+  line-height: 1.6;
 }
+.testi__who { display: flex; flex-direction: column; gap: 2px; }
+.testi__name { font-family: var(--font-display); font-size: var(--fs-small); letter-spacing: 0.06em; }
+.testi__service { font-size: var(--fs-small); color: var(--c-sage); }
 
-@keyframes slideIn {
-  from {
-      transform: translateX(-100%);
-      opacity: 0;
-  }
-  to {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-
-@keyframes slideOut {
-  from {
-      transform: translateX(100%);
-      opacity: 1;
-  }
-  to {
-      transform: translateX(0);
-      opacity: 0;
-  }
-}
-
-.btn-carousel{
+.testi__arrow {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15%;
-  padding: 0;
-  color: #000;
-  text-align: center;
-  background: 0 0;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  margin-top: -22px;
   border: 0;
+  border-radius: 50%;
+  background: rgba(254, 250, 224, 0.14);
+  color: var(--c-cream);
   cursor: pointer;
+  transition: background-color var(--t-fast), transform var(--t-fast);
 }
+.testi__arrow:hover { background: var(--c-sage); color: var(--c-green-900); transform: scale(1.1); }
+.testi__arrow--prev { left: clamp(0.5rem, 2vw, 1.5rem); }
+.testi__arrow--next { right: clamp(0.5rem, 2vw, 1.5rem); }
 
-.btn-prev{
-  left: 0;
+.testi__dots { position: absolute; left: 0; right: 0; bottom: 1.4rem; display: flex; justify-content: center; gap: 8px; }
+.testi__dot {
+  width: 10px; height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: rgba(254, 250, 224, 0.4);
+  cursor: pointer;
+  transition: width var(--t-base), background-color var(--t-fast);
 }
+.testi__dot.is-active { width: 28px; background: var(--c-cream); }
 
-.btn-next{
-  right: 0;
-}
-
-.icon-carousel{
-  color: #FEFAE0;
-  opacity: 0.5;
-  transition: all 0.15s ease;
-}
-
-.icon-carousel:hover{
-  opacity: 0.9;
-}
-
-.icon-carousel:active{
-  opacity: 0.5;
-}
-
-.icon-prev,
-.icon-next{
-  font-size: 45px;
-}
-
-@media screen and (max-width: 1100px){
-  .testimonial .image{
-    width: 100px;
-    height: 100px;
-  }
-
-  .testimonial .slide{
-    row-gap: 50px;
-  }
-
-  .slide p{
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 788px){
-  .testimonial .slide{
-    row-gap: 70px;
-  }
-
-  .slide .quote-icon{
-    margin-top: 20px;
-  }
-}
-
-@media screen and (max-width: 499px) {
-  .carousel-container{
-    width: 80%;
-  }
-
-  .testimonial .slide{
-    row-gap: 40px;
-  }
-
-  .slide .quote-icon{
-    margin-top: 95px;
-  }
+@media (max-width: 599px) {
+  .testi__arrow { top: auto; bottom: 0.9rem; margin: 0; width: 38px; height: 38px; }
+  .testi__dots { bottom: 1.8rem; }
+  .testi__card { padding-bottom: 5rem; padding-inline: 1.25rem; }
 }

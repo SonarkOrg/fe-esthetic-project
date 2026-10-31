@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-testimonial-slider',
   templateUrl: './testimonial-slider.component.html',
   styleUrl: './testimonial-slider.component.css'
 })
-export class TestimonialSliderComponent {
+export class TestimonialSliderComponent implements OnInit, OnDestroy {
   @Input() testimonies: any[] = []
 
   @Input() indicator = true;
@@ -14,17 +15,34 @@ export class TestimonialSliderComponent {
   @Input() slideInterval = 2000;
 
   selectedIndex = 0;
+  private slideTimer: ReturnType<typeof setInterval> | null = null;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+
   ngOnInit(): void {
-    if(this.autoSlide){
+    // Timers must not run during SSR / prerender, or rendering never settles.
+    if (this.autoSlide && isPlatformBrowser(this.platformId)) {
       this.autoSlideImages();
     }
   }
 
-  // Change image every 4 seconds
+  ngOnDestroy(): void {
+    this.stopAutoSlide();
+  }
+
+  // Change image every slideInterval ms
   autoSlideImages(): void{
-    setInterval(() =>{
+    this.stopAutoSlide();
+    this.slideTimer = setInterval(() =>{
       this.onNext();
     }, this.slideInterval);
+  }
+
+  private stopAutoSlide(): void {
+    if (this.slideTimer !== null) {
+      clearInterval(this.slideTimer);
+      this.slideTimer = null;
+    }
   }
 
   selectImg(index : number): void{
@@ -32,15 +50,23 @@ export class TestimonialSliderComponent {
   }
 
   onPrev(): void{
+    const count = this.testimonies?.length ?? 0;
+    if (count === 0) {
+      return;
+    }
     if(this.selectedIndex === 0){
-      this.selectedIndex = this.testimonies.length - 1;
+      this.selectedIndex = count - 1;
     } else {
       this.selectedIndex --;
     }
   }
 
   onNext(): void{
-    if(this.selectedIndex === this.testimonies.length - 1){
+    const count = this.testimonies?.length ?? 0;
+    if (count === 0) {
+      return;
+    }
+    if(this.selectedIndex === count - 1){
       this.selectedIndex = 0;
     } else {
       this.selectedIndex ++;

@@ -1,191 +1,23 @@
-.section-container{
-  display: flex;
-  justify-content: center;
-}
-
-.contact-container{
+.cta { padding-block: 0 var(--section-y); }
+.cta__box {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
-  min-height: 320px;
-  width: 70%;
-  background-color: #3A5A40;
-  border-radius: 35px;
+  max-width: 920px;
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 5vw, 4rem);
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(500px 260px at 100% 0%, rgba(173, 193, 120, 0.28), transparent 70%),
+    radial-gradient(400px 240px at 0% 100%, rgba(221, 161, 94, 0.18), transparent 70%),
+    var(--c-green);
+  color: var(--c-cream);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
 }
-
-.header-contact{
-  margin-top: 4%;
-  color: #FEFAE0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-p.unbolded{
-  display: flex;
-  justify-content: center;
-  font-family: 'Krona One';
-  font-weight: 100;
-  font-size: 15px;
-  margin: 0;
-}
-
-p.bolded{
-  display: flex;
-  justify-content: center;
-  font-family: 'Krona One';
-  font-weight: 800;
-  font-size: 25px;
-  margin: 0;
-}
-
-.contact-desc{
-  display: flex;
-  justify-content: center;
-  width: 60%;
-  color: #FEFAE0;
-  opacity: 80%;
-  font-size: 20px;
-  margin-top: 5%;
-}
-
-.button-section{
-  display: flex;
-  justify-content: flex-start;
-  width: 60%;
-}
-
-a.left-btn{
-  display: flex;
-  justify-content: center;
-  border: 3px;
-  border-style: solid;
-  border-color: #ADC178;
-  background-color: #ADC178;
-  text-decoration: none;
-  border-radius: 24px;
-  padding: 6px;
-  margin: 12px;
-  width: 50%;
-  color: #FEFAE0;
-  font-family: 'Open Sans', sans-serif;
-  transition: 0.7s ease-in-out;
-  -webkit-transition:  0.7s ease-in-out;
-  -moz-transition:  0.7s ease-in-out;
-  -o-transition:  0.7s ease-in-out;}
-
-a.right-btn{
-  display: flex;
-  justify-content: center;
-  border: 3px;
-  border-style: solid;
-  border-color: #ADC178;
-  text-decoration: none;
-  border-radius: 24px;
-  padding: 6px;
-  margin: 12px;
-  width: 50%;
-  color: #FEFAE0;
-  font-family: 'Open Sans', sans-serif;
-  transition: 0.7 ease-in-out;
-  -webkit-transition:  0.7s ease-in-out;
-  -moz-transition:  0.7s ease-in-out;
-  -o-transition:  0.7s ease-in-out;
-}
-
-a.left-btn:hover{
-  transform: scale(110%);
-}
-
-a.right-btn:hover{
-  transform: scale(110%);
-  background-color: #ADC178;
-}
-
-/* Add media query for smaller screens */
-@media screen and (max-width: 1016px) {
-  p{
-    font-size: 14px;
-  }
-
-  .section-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 80px;
-    margin-bottom: 80px;
-  }
-
-  .contact-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    min-height: 320px;
-    width: 70%;
-    background-color: #3A5A40;
-    border-radius: 35px;
-  }
-
-  .header-contact{
-    margin-top: 4%;
-    color: #FEFAE0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  p.unbolded{
-    font-weight: 100;
-    font-size: 15px;
-    margin: 0;
-  }
-
-  p.bolded{
-    font-weight: 800;
-    font-size: 25px;
-    margin: 0;
-  }
-
-  .contact-desc{
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    color: #FEFAE0;
-    opacity: 80%;
-    font-size: 20px;
-    margin-top: 5%;
-  }
-
-  .button-section{
-    display: flex;
-    justify-content: flex-start;
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  p.bolded{
-    font-size: 18px;
-  }
-
-  p.unbolded{
-    font-size: 14px;
-  }
-
-  .button-section{
-    font-size: 10px;
-  }
-
-  .contact-desc{
-    text-align: center;
-  }
-}
-
-@media screen and(max-width: 499px) {
-  p{
-    font-size: 10px;
-  }
-}
+.cta__eyebrow { margin: 0 0 var(--s-2); font-family: var(--font-display); font-size: var(--fs-small); letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-sage); }
+.cta__title { margin-bottom: var(--s-5); font-size: var(--fs-h1); }
+.cta__text { max-width: 58ch; margin-bottom: var(--s-6); opacity: 0.9; }
+.cta__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-3); }
+.cta__buttons .pill { min-width: 170px; }

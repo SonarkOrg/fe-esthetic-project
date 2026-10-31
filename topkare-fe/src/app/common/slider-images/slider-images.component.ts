@@ -1,51 +1,69 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, DestroyRef, Input, NgZone, PLATFORM_ID, afterNextRender, inject } from '@angular/core';
 
 @Component({
   selector: 'app-slider-images',
   templateUrl: './slider-images.component.html',
   styleUrl: './slider-images.component.css',
 })
-export class SliderImagesComponent implements OnInit {
+export class SliderImagesComponent {
   @Input() items: any[] = [];
   @Input() indicator = true;
   @Input() controls = true;
   @Input() autoSlide = false;
-  @Input() slideInterval = 4000;
+  @Input() slideInterval = 6000;
+  /** Optional call-to-action pill laid over the image. */
+  @Input() ctaLabel = '';
+  @Input() ctaLink: string | any[] = '/';
 
   selectedIndex = 0;
-  ngOnInit(): void {
-    if(this.autoSlide){
-      this.autoSlideImages();
-    }
+  private timer?: ReturnType<typeof setInterval>;
+  private readonly zone = inject(NgZone);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+
+  constructor() {
+    // Auto-advance only in the browser (never keep a timer alive during SSR/prerender),
+    // and not for people who prefer reduced motion.
+    afterNextRender(() => {
+      if (!this.autoSlide || !this.isBrowser) return;
+      if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+      this.start();
+    });
+    this.destroyRef.onDestroy(() => this.stop());
   }
 
-  // Change image every 4 seconds
-  autoSlideImages(): void{
-    setInterval(() =>{
-      this.onNext();
-    }, this.slideInterval);
+  private start(): void {
+    this.stop();
+    this.zone.runOutsideAngular(() => {
+      this.timer = setInterval(() => this.zone.run(() => this.onNext()), this.slideInterval);
+    });
   }
 
-  selectImg(index : number): void{
+  private stop(): void {
+    if (this.timer) clearInterval(this.timer);
+    this.timer = undefined;
+  }
+
+  private restart(): void {
+    if (this.timer) this.start();
+  }
+
+  selectImg(index: number): void {
     this.selectedIndex = index;
+    this.restart();
   }
 
-  onPrev(): void{
-    if(this.selectedIndex === 0){
-      this.selectedIndex = this.items.length - 1;
-    } else {
-      this.selectedIndex --;
-    }
+  onPrev(): void {
+    const n = this.items?.length ?? 0;
+    if (!n) return;
+    this.selectedIndex = (this.selectedIndex - 1 + n) % n;
+    this.restart();
   }
 
-  onNext(): void{
-    if(this.selectedIndex === this.items.length - 1){
-      this.selectedIndex = 0;
-    } else {
-      this.selectedIndex ++;
-    }
+  onNext(): void {
+    const n = this.items?.length ?? 0;
+    if (!n) return;
+    this.selectedIndex = (this.selectedIndex + 1) % n;
   }
-
 }

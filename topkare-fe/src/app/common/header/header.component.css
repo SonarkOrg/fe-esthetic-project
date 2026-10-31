@@ -1,114 +1,105 @@
-.top-header{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    left: 0;
-    top: 0;
-    width: 100%;
-    padding: 0px 0px;
-    background-color: #3A5A40;
-    color: white;
-    text-align: center;
-    height: 100px;
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.top-header {
+  background: var(--c-green);
+  color: var(--c-cream);
+  height: var(--header-h);
+  transition: height var(--t-base), background-color var(--t-base), box-shadow var(--t-base),
+    backdrop-filter var(--t-base);
+}
+:host(.is-scrolled) .top-header {
+  height: 64px;
+  background: rgba(47, 74, 52, 0.84);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  backdrop-filter: saturate(160%) blur(14px);
+  box-shadow: 0 8px 28px -10px rgba(20, 35, 24, 0.55);
+}
+.top-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  height: 100%;
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.logo { display: inline-flex; flex: none; }
+.logo img {
+  height: 48px;
+  width: auto;
+  transition: height var(--t-base);
+}
+:host(.is-scrolled) .logo img { height: 40px; }
+
+.nav { display: none; align-items: center; gap: clamp(1rem, 2.4vw, 2.5rem); }
+.nav__link {
+  position: relative;
+  padding: 0.5rem 0.1rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--c-cream);
+  transition: color var(--t-fast);
+}
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--c-sage);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-base);
+}
+.nav__link:hover::after,
+.nav__link.is-active::after { transform: scaleX(1); }
+.nav__link:hover { color: #fff; }
+.nav__cta {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-inline: 1.4rem;
 }
 
-.logo-section{
-    display: flex;
-    transform: scale(0.5);
-    width: 25%;
-    margin-bottom: 5px;
+.mobile-bar { display: flex; align-items: center; gap: var(--s-3); }
+.pill--sm {
+  min-height: 38px;
+  padding: 0.35rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
-
-.text-section{
-    display: flex;
-    justify-content: end;
-    margin-right: 10% !important;
-    width: 75%;
-    a{
-        padding: 20px 30px;
-        color: #FEFAE0;
-        font-family:'Krona One';
-        font-weight: 100;
-        text-decoration: none !important;
-
-    }
-
-}
-
-.normal-button:hover{
-  opacity: 25%;
-}
-
-/*
-media only screen and (max-width: 1116px) {
-    .text-section {
-        display: none;
-    }
-}
-*/
-
-a.special-button{
-    background-color: #FEFAE0 !important;
-    border-radius: 34px;
-    color: #3A5A40 !important;
-    width: 80%;
-    height: 75%;
-    -o-transition:  0.7s ease-in-out;
-    -webkit-transition:  0.7s ease-in-out;
-    -moz-transition:  0.7s ease-in-out;
-    transition: 0.7 ease-in-out;
-  }
-
-a.special-button:hover{
-    background-color: #dda15e !important;
-
-}
-
-.end-section{
-    width: 25%;
-}
-
-.burger{
+.burger {
+  display: inline-grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(254, 250, 224, 0.12);
+  color: var(--c-cream);
+  font-size: 1.15rem;
   cursor: pointer;
-  transition: transform 0.7s ease-in-out;
+  transition: background-color var(--t-fast), transform var(--t-fast);
 }
+.burger:hover { background: rgba(254, 250, 224, 0.24); }
+.burger:active { transform: scale(0.92); }
 
-.burger:hover{
-  transform: scale(1.3);
+@media (min-width: 960px) {
+  .nav { display: flex; }
+  .mobile-bar { display: none; }
 }
-
-.hide-on-mobile {
-  display: none;
-}
-
-.hide-on-desktop {
-  display: none;
-}
-
-@media screen and (max-width: 1219px) {
-  a.special-button{
-    width: 100px !important;
-    font-size: 12px;
-    height: 100%;
-    padding: 20px 2px !important;
-    margin-right: 10px;
-  }
-}
-
-@media screen and (max-width: 1219px) {
-  a.special-button{
-    width: 100px !important;
-  }
-
-  .logo-section{
-    display: flex;
-    transform: scale(0.35);
-    width: 15%;
-}
-}
-
-@media screen and (max-width: 476px) {
-  .logo-section{
-    transform: scale(0.20);
-}
+@media (max-width: 380px) {
+  .logo img { height: 40px; }
+  .pill--sm { padding-inline: 0.8rem; }
 }

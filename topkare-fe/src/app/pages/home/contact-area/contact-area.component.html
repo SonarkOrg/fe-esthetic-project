@@ -1,19 +1,15 @@
-<div class="section-container">
-  <div class="contact-container">
-    <div class="header-contact">
-      <p class="unbolded">MAKE BETTER</p>
-      <p class="bolded">Beauty Decisions</p>
-    </div>
-    <div class="contact-desc">
-      <p>Empower yourself to make informed decisions about your beauty journey. Our
-        expert guidance and personalized consultations ensure you receive the best
-        treatments tailored to your needs and goals. Take the first step towards enhancing
-        your natural beauty and confidence by booking an appointment or contacting us today.
-      </p>
-    </div>
-    <div class="button-section">
-        <a class="left-btn" href="">BOOK NOW</a>
-        <a class="right-btn" href="contact">REACH OUT</a>
+<section class="cta wrap" aria-labelledby="cta-title">
+  <div class="cta__box" appReveal revealVariant="zoom">
+    <p class="cta__eyebrow">Make better</p>
+    <h2 class="cta__title" id="cta-title">Beauty decisions</h2>
+    <p class="cta__text">
+      Empower yourself to make informed decisions about your beauty journey. Our expert guidance and personalized
+      consultations ensure you receive the best treatments tailored to your needs and goals. Take the first step
+      towards enhancing your natural beauty and confidence by booking an appointment or contacting us today.
+    </p>
+    <div class="cta__buttons">
+      <a class="pill pill--sage pill--lg" [routerLink]="['/specific-service', 1]">Book now</a>
+      <a class="pill pill--outline pill--lg" routerLink="/contact">Reach out</a>
     </div>
   </div>
-</div>
+</section>

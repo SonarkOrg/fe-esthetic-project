@@ -1,11 +1,357 @@
-/* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
 @import '@fontsource/krona-one/index.css';
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
 @import '@fortawesome/fontawesome-free/css/all.css';
 
-html, body { height: 100%; width: auto; overflow-x: hidden;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.cdk-global-scrollblock{
-  top: 0 !important;
+/* ------------------------------------------------------------------
+   Design tokens
+------------------------------------------------------------------ */
+:root {
+  /* colour */
+  --c-green: #3a5a40;
+  --c-green-700: #2f4a34;
+  --c-green-900: #1f3324;
+  --c-sage: #adc178;
+  --c-sage-300: #cdd9a6;
+  --c-sage-100: #eef2dc;
+  --c-cream: #fefae0;
+  --c-cream-200: #f6f1cd;
+  --c-orange: #dda15e;
+  --c-orange-600: #c98a43;
+  --c-ink: #1d2a21;
+  --c-muted: #4f6054;
+  --c-line: rgba(58, 90, 64, 0.16);
+  --c-white: #ffffff;
+
+  /* type */
+  --font-display: 'Krona One', 'Arial Black', system-ui, sans-serif;
+  --font-body: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-small: 0.875rem;
+  --fs-xs: 0.75rem;
+  --fs-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --fs-h3: clamp(1.125rem, 1.02rem + 0.5vw, 1.5rem);
+  --fs-h2: clamp(1.5rem, 1.1rem + 1.8vw, 2.5rem);
+  --fs-h1: clamp(1.875rem, 1.1rem + 3.4vw, 3.75rem);
+  --fs-display: clamp(2rem, 1rem + 4.6vw, 4.5rem);
+
+  /* spacing */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4.5rem;
+  --section-y: clamp(3.5rem, 2rem + 5.5vw, 7rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3.5vw, 3rem);
+  --container: 1200px;
+  --header-h: 76px;
+
+  /* shape */
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 32px;
+  --r-pill: 999px;
+
+  /* depth */
+  --shadow-sm: 0 2px 8px rgba(31, 51, 36, 0.08);
+  --shadow-md: 0 10px 30px -10px rgba(31, 51, 36, 0.25);
+  --shadow-lg: 0 24px 60px -20px rgba(31, 51, 36, 0.38);
+
+  /* motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 0.2s var(--ease);
+  --t-base: 0.4s var(--ease);
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  /* clip (not hidden) keeps the window as the scroll container */
+  overflow-x: clip;
+  background: var(--c-white);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { margin: 0 0 var(--s-4); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; }
+
+::selection { background: var(--c-sage); color: var(--c-green-900); }
+
+:focus-visible {
+  outline: 3px solid var(--c-orange);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Scroll locks: the window is the scroller. The mobile menu sets html.menu-open;
+   Material dialogs use .cdk-global-scrollblock (position:fixed + inline top keeps the scroll offset). */
+html.menu-open { overflow: hidden; }
+
+/* ------------------------------------------------------------------
+   Layout helpers
+------------------------------------------------------------------ */
+.wrap {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.section { padding-block: var(--section-y); }
+.section--tight { padding-block: calc(var(--section-y) * 0.6); }
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: var(--s-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-green);
+}
+.section-title {
+  text-align: center;
+  color: var(--c-green);
+  margin-bottom: var(--s-7);
+}
+.accent { color: var(--c-sage); }
+.accent-green { color: var(--c-green); }
+
+/* ------------------------------------------------------------------
+   Buttons (pill)
+------------------------------------------------------------------ */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  padding: 0.6rem 1.6rem;
+  border: 2px solid transparent;
+  border-radius: var(--r-pill);
+  background: var(--c-green);
+  color: var(--c-cream);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--t-fast), background-color var(--t-fast), color var(--t-fast),
+    border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.pill:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); background: var(--c-green-700); }
+.pill:active { transform: translateY(0) scale(0.98); box-shadow: none; }
+.pill--lg { min-height: 52px; padding: 0.8rem 2.2rem; font-size: 1rem; }
+.pill--sage { background: var(--c-sage); color: var(--c-green-900); }
+.pill--sage:hover { background: var(--c-sage-300); }
+.pill--cream { background: var(--c-cream); color: var(--c-green); }
+.pill--cream:hover { background: var(--c-orange); color: var(--c-green-900); }
+.pill--outline { background: transparent; color: var(--c-cream); border-color: var(--c-sage); }
+.pill--outline:hover { background: var(--c-sage); color: var(--c-green-900); }
+.pill--dark-outline { background: transparent; color: var(--c-green); border-color: var(--c-green); }
+.pill--dark-outline:hover { background: var(--c-green); color: var(--c-cream); }
+.pill--orange { background: var(--c-orange); color: var(--c-green-900); }
+.pill--orange:hover { background: var(--c-orange-600); }
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  text-decoration: none;
+  color: var(--c-ink);
+}
+.link-arrow img { width: 28px; transition: transform var(--t-base); }
+.link-arrow:hover img { transform: translateX(6px); }
+
+/* ------------------------------------------------------------------
+   Page banner (sub-page headers)
+------------------------------------------------------------------ */
+.banner {
+  position: relative;
+  margin-top: calc(var(--header-h) * -1);
+  padding: calc(var(--header-h) + var(--s-6)) 0 var(--s-8);
+  background:
+    radial-gradient(900px 400px at 85% 0%, rgba(173, 193, 120, 0.22), transparent 70%),
+    linear-gradient(180deg, var(--c-green-700), var(--c-green));
+  color: var(--c-cream);
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--c-cream);
+  opacity: 0.85;
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
+.back-link:hover { opacity: 1; transform: translateX(-3px); }
+.back-link img { width: 22px; }
+.banner hr { border: 0; border-top: 1px solid rgba(254, 250, 224, 0.3); margin: var(--s-4) 0 var(--s-6); }
+
+/* ------------------------------------------------------------------
+   Parallax layers (see ParallaxDirective)
+------------------------------------------------------------------ */
+.plx { position: relative; overflow: hidden; isolation: isolate; }
+.plx__layer {
+  position: absolute;
+  inset: -18% 0;
+  will-change: transform;
+}
+.plx__layer img,
+.plx__layer .plx__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ------------------------------------------------------------------
+   Reveal on scroll (see RevealDirective). Hidden state only applies when
+   the `js` class has been added from the browser, so content is always
+   visible with no JS / during SSR.
+------------------------------------------------------------------ */
+[data-reveal] {
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+html.js [data-reveal]:not(.is-revealed) { opacity: 0; transform: translate3d(0, 32px, 0); }
+html.js [data-reveal='fade']:not(.is-revealed) { transform: none; }
+html.js [data-reveal='zoom']:not(.is-revealed) { transform: scale(0.94); }
+html.js [data-reveal='left']:not(.is-revealed) { transform: translate3d(-40px, 0, 0); }
+html.js [data-reveal='right']:not(.is-revealed) { transform: translate3d(40px, 0, 0); }
+
+/* ------------------------------------------------------------------
+   Cards + image hover zoom
+------------------------------------------------------------------ */
+.card {
+  background: var(--c-white);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.zoom { overflow: hidden; }
+.zoom img { transition: transform 0.9s var(--ease); }
+.zoom:hover img { transform: scale(1.06); }
+
+/* ------------------------------------------------------------------
+   Carousel stage (home + services carousels)
+------------------------------------------------------------------ */
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  height: clamp(280px, 46vw, 460px);
+  margin-inline: auto;
+}
+.stage__item {
+  position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: clamp(170px, 30vw, 300px);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, 0, 0) scale(0.6);
+  filter: blur(6px);
+  transition: transform 0.7s var(--ease), opacity 0.7s var(--ease), filter 0.7s var(--ease), box-shadow 0.7s var(--ease);
+}
+.stage__item img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.stage__item.is-prev,
+.stage__item.is-next { opacity: 0.75; pointer-events: auto; filter: blur(3px); }
+.stage__item.is-prev { transform: translate3d(calc(-50% - 78%), 0, 0) scale(0.82); }
+.stage__item.is-next { transform: translate3d(calc(-50% + 78%), 0, 0) scale(0.82); }
+.stage__item.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  filter: none;
+  z-index: 2;
+  transform: translate3d(-50%, 0, 0) scale(1);
+  box-shadow: var(--shadow-lg);
+}
+.stage-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-5);
+  margin-top: var(--s-6);
+  flex-wrap: wrap;
+}
+.round-btn {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 48px; height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--c-green);
+  color: var(--c-cream);
+  cursor: pointer;
+  transition: transform var(--t-fast), background-color var(--t-fast);
+}
+.round-btn:hover { background: var(--c-green-700); transform: scale(1.1); }
+.round-btn:active { transform: scale(0.94); }
+
+@media (max-width: 599px) {
+  .stage__item.is-prev { transform: translate3d(calc(-50% - 66%), 0, 0) scale(0.78); }
+  .stage__item.is-next { transform: translate3d(calc(-50% + 66%), 0, 0) scale(0.78); }
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion
+------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js [data-reveal]:not(.is-revealed) { opacity: 1; transform: none; }
+  [data-reveal] { transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .plx__layer { inset: 0; }
 }
