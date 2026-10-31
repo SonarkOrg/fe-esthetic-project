@@ -32,7 +32,6 @@ export class HomeComponent {
   ngOnInit(): void {
     this.dataService.getTestimony().subscribe(data => {
       this.testimonyData = data;
-      console.log(data)
     });
 
     this.dataService.getServices().subscribe(data => {
@@ -56,9 +55,9 @@ export class HomeComponent {
     });
   }
   topSlider = [
-    {id: 1, img: 'assets/img/home/home-1.jpg'},
-    {id: 2, img: 'assets/img/home/home-2.jpg'},
-    {id: 3, img: 'assets/img/home/home-3.jpg'}
+    {id: 1, img: 'assets/img/home/home-1.jpg', alt: 'Smiling woman wearing a crown of fresh flowers'},
+    {id: 2, img: 'assets/img/home/home-2.jpg', alt: 'Woman relaxing in tall green grass'},
+    {id: 3, img: 'assets/img/home/home-3.jpg', alt: 'Jade facial roller being used on skin'}
   ]
 
   carouselItems = [
@@ -68,13 +67,4 @@ export class HomeComponent {
     // Add more items as needed
   ];
 
-  clientFeedback = [
-    { id: 1, service: 'Makeup' ,desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. amet consectetur adipisicing elit. amet consectetur adipisicing elit. amet consectetur adipisicing elit.', name: 'Leah Laluz' },
-    { id: 2, service: 'Makeup' ,desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.', name: 'test2' },
-    { id: 3, service: 'Makeup' ,desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.', name: 'test3' },
-    { id: 4, service: 'Makeup' ,desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.', name: 'test4' },
-    { id: 5, service: 'Makeup' ,desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.', name: 'test5' },
-    { id: 6, service: 'Makeup' ,desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.', name: 'test6' },
-    // Add more items as needed
-  ];
 }

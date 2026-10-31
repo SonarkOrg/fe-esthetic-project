@@ -1,10 +1,16 @@
 <app-header></app-header>
-<div [style.background-image]="'url(' + itemData.img + ')'"
-      class="top"
->
-  <h2>You're Happy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br> We're Happy</h2>
-</div>
-<app-philosophy-section [item]="itemData"></app-philosophy-section>
-<app-card-section [item]="itemData"></app-card-section>
-<app-overall-desc [item]="itemData.classDesc"></app-overall-desc>
+<main>
+  <section class="top plx">
+    <div class="plx__layer" [appParallax]="0.3">
+      <img [src]="itemData?.img" alt="" />
+    </div>
+    <div class="top__shade" aria-hidden="true"></div>
+    <div class="top__content wrap">
+      <h1 class="top__title" appReveal revealVariant="fade">You're happy,<br /><span class="top__second">we're happy</span></h1>
+    </div>
+  </section>
+  <app-philosophy-section [item]="itemData"></app-philosophy-section>
+  <app-card-section [item]="itemData"></app-card-section>
+  <app-overall-desc [item]="itemData?.classDesc"></app-overall-desc>
+</main>
 <app-footer></app-footer>

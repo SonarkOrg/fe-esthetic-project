@@ -17,7 +17,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './services.component.css'
 })
 export class ServicesComponent {
-  itemData: any;
+  itemData: any[] = [];
   serviceId: number | null = null; // You can convert this to number based on your needs
   imgUrl: any;
 

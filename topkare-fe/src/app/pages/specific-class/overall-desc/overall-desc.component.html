@@ -1,27 +1,15 @@
-<div class="main-container">
-  <div class="section-container">
-    <div class="left-container">
-      <div class="left-header">
-        <h3>THE BEST CARE AND <br>SERVICES <span class="bold">FOR OUR CUSTOMERS</span></h3>
-      </div>
-      <div class="left-btn">
-        <a href="https://www.fresha.com/fr/for-business">BOOK</a>
-      </div>
-    </div>
-    <div class="right-container">
-      <div class="item" *ngFor="let item of item">
-        <div class="top-header">
-          <div class="number">
-            <h2>{{ item.id }}.</h2>
-          </div>
-          <div class="title">
-            <h2>{{ item.title }}</h2>
-          </div>
-        </div>
-        <div class="desc">
-          <p>{{ item.desc }}</p>
-        </div>
-      </div>
-    </div>
+<section class="steps wrap">
+  <div class="steps__left">
+    <h2 class="steps__title" appReveal>The best care and services <span class="accent">for our customers</span></h2>
+    <a class="pill pill--lg" href="https://www.fresha.com/fr/for-business" target="_blank" rel="noopener">Book</a>
   </div>
-</div>
+  <ol class="steps__list">
+    <li class="step" *ngFor="let step of item; let i = index" [appReveal]="i * 100">
+      <span class="step__num">{{ step.id }}.</span>
+      <div>
+        <h3 class="step__title">{{ step.title }}</h3>
+        <p class="step__desc">{{ step.desc }}</p>
+      </div>
+    </li>
+  </ol>
+</section>

@@ -1,9 +1,15 @@
-<div class="description-container">
-  <div class="left-top">
-    <h3 class="unbolded-text">A Complete approach to<br> <b>your beauty<br>routine</b></h3>
+<section class="intro wrap">
+  <h2 class="intro__title" appReveal>
+    <span class="intro__light">A complete approach to</span>
+    <strong class="intro__bold">your beauty routine</strong>
+  </h2>
+  <div class="intro__body" [appReveal]="120">
+    <p class="intro__text">
+      Our mission is to redefine your beauty experience with precision, innovation, and personalized care.
+      From luxurious spa treatments to cutting-edge laser solutions, we're dedicated to enhancing your natural
+      beauty and confidence. Trust us to elevate your beauty journey with top-tier services tailored to your
+      unique needs and goals.
+    </p>
+    <a class="pill pill--lg" routerLink="/classes">Schedule a class with us</a>
   </div>
-  <div class="right-top">
-      <p class="desc-text">Our mission is to redefine your beauty experience with precision, innovation, and personalized care. From luxurious spa treatments to cutting-edge laser solutions, we're dedicated to enhancing your natural beauty and confidence. Trust us to elevate your beauty journey with top-tier services tailored to your unique needs and goals. Step into a world of beauty excellence with Topkare today.</p>
-      <a href="/classes">Schedule a class with us</a>
-  </div>
-</div>
+</section>

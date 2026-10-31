@@ -1,9 +1,13 @@
 <app-header></app-header>
+<main>
   <app-under-header-services></app-under-header-services>
   <app-description-services></app-description-services>
   <app-carousel-services [items]="itemData"></app-carousel-services>
-  <div class="image-container">
-    <img class="img-separator" src="assets/img/home/home-1.jpg" alt="">
+  <div class="band plx" role="img" aria-label="Jade facial roller resting on a green leaf">
+    <div class="plx__layer" [appParallax]="0.25">
+      <img src="assets/img/home/home-3.jpg" alt="" loading="lazy" />
+    </div>
   </div>
   <app-cards-section></app-cards-section>
+</main>
 <app-footer></app-footer>

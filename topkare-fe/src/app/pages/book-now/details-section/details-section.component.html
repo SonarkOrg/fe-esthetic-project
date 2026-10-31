@@ -1,34 +1,16 @@
-<div class="container">
-  <div class="img-container">
-    <img class="first" src="assets/img/services/service-2.jpg" alt="">
-  </div>
-  <div class="text-container">
-    <div class="header">
-      <h4>THIS IS WHAT WE OFFER</h4>
+<section class="details wrap">
+  <article class="detail" *ngFor="let d of details; let i = index" [class.detail--flip]="i % 2 === 1">
+    <div class="detail__media" [appReveal]="0" [revealVariant]="i % 2 ? 'right' : 'left'">
+      <div class="detail__img plx">
+        <div class="plx__layer" [appParallax]="0.14">
+          <img [src]="d.img" [alt]="d.alt" loading="lazy" />
+        </div>
+      </div>
     </div>
-    <div class="desc">
-      <p>We believe in adopting consumer insights and strategic thinking to empower businesses. Our mission is to support thriving organisations through customised business strategies that bring value and drive growth.</p>
+    <div class="detail__text" [appReveal]="140">
+      <h2 class="detail__title">{{ d.title }}</h2>
+      <p>{{ d.text }}</p>
+      <a class="pill pill--sage" routerLink="/contact">Discover what we can do for you</a>
     </div>
-    <div class="btn">
-      <a class="effect" href="">Discover what we can do for you</a>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="text-container-2">
-    <div class="header">
-      <h4>THIS IS WHAT WE OFFER</h4>
-    </div>
-    <div class="desc">
-      <p>We believe in adopting consumer insights and strategic thinking to empower businesses. Our mission is to support thriving organisations through customised business strategies that bring value and drive growth.</p>
-    </div>
-    <div class="btn">
-      <a class="effect" href="">Discover what we can do for you</a>
-    </div>
-  </div>
-  <div class="img-container-2">
-    <img class="second" src="assets/img/services/service-2.jpg" alt="">
-  </div>
-</div>
-
-
+  </article>
+</section>

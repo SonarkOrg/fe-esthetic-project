@@ -1,62 +1,45 @@
-<div class="whole-container">
-  <div class="bottom">
-      <div class="left-container">
-          <div class="top-logo">
-              <img class="logo" src="assets/img/logo/logo-black.png" alt="">
-          </div>
-          <div class="newsletter-container">
-            <h4 class="newsletter-header">
-              JOIN OUR NEWSLETTER
-            </h4>
-            <form class="rounded-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-              <label for="email">Email:</label>
-              <input class="newsletter-input" type="text" id="email" placeholder="EMAIL" formControlName="userName" required>
-              <button class="newsletter-submit" type="submit">Submit</button>
-            </form>
-            <p>By Subscribing you comply with COMPANY
-                and agree to receive updates
-            </p>
-          </div>
-          <div class="policies">
-              <a class="privacy-link" href="#">Privacy Policy</a>
-              <a class="cookie-link" href="#">Cookie Policy</a>
-          </div>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a routerLink="/" aria-label="Topkare, home"><img class="footer__logo" src="assets/img/logo/logo-black.png" alt="Topkare" width="210" height="72" /></a>
+
+        <h2 class="footer__heading">Join our newsletter</h2>
+        <form class="newsletter" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+          <label class="visually-hidden" for="footer-email">Email address</label>
+          <input id="footer-email" class="newsletter__input" type="email" placeholder="Your email" autocomplete="email" formControlName="userName" required />
+          <button class="newsletter__btn" type="submit">{{ submitted ? 'Thank you' : 'Subscribe' }}</button>
+        </form>
+        <p class="footer__note">By subscribing you agree to receive updates from Topkare.</p>
       </div>
-      <div class="right-container">
-          <div class="links-container">
-              <div class="left-links">
-                <h3 class="link-header">COMPANY</h3>
-                <div>
-                  <a href="#">EXPERTISE</a>
-                </div>
-                <div>
-                  <a href="#">WHY BOOK</a>
-                </div>
-                <div>
-                  <a href="team">ABOUT US</a>
-                </div>
-              </div>
-              <div class="right-links"><!-- Look at the Figma to understand-->
-                <h3 class="link-header">SERVICES</h3>
-                <div>
-                  <a href="#">Lashes</a>
-                </div>
-                <div>
-                  <a href="#">Nails</a>
-                </div>
-                <div>
-                  <a href="#">Laser</a>
-                </div>
-              </div>
-          </div>
-          <div class="icons-container">
-              <img src="assets/img/footer/instagram.svg" alt="">
-              <img src="assets/img/footer/twitter.svg" alt="">
-              <img src="assets/img/footer/facebook.svg" alt="">
-          </div>
-          <div class="company-info">
-            <a class="privacy-link" href="#">&copy;2024 COMPANY. ALL RIGHTS RESERVED | BINARYTECH</a>
-          </div>
+
+      <div class="footer__cols">
+        <nav class="footer__col" aria-label="Company">
+          <h2 class="footer__heading">Company</h2>
+          <a routerLink="/classes">Expertise</a>
+          <a routerLink="/services">Why book</a>
+          <a routerLink="/team">About us</a>
+        </nav>
+        <nav class="footer__col" aria-label="Services">
+          <h2 class="footer__heading">Services</h2>
+          <a [routerLink]="['/specific-service', 2]">Lashes</a>
+          <a [routerLink]="['/specific-service', 3]">Nails</a>
+          <a [routerLink]="['/specific-service', 1]">Laser</a>
+        </nav>
+        <ul class="socials" aria-label="Social media">
+          <li><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/img/footer/instagram.svg" alt="" /></a></li>
+          <li><a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"><img src="assets/img/footer/twitter.svg" alt="" /></a></li>
+          <li><a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/img/footer/facebook.svg" alt="" /></a></li>
+        </ul>
       </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__policies">
+        <a href="#">Privacy policy</a>
+        <a href="#">Cookie policy</a>
+      </div>
+      <p class="footer__copy">&copy;2024 Topkare. All rights reserved | BinaryTech</p>
+    </div>
   </div>
-</div>
+</footer>

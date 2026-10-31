@@ -1,113 +1,90 @@
-.carousel-container{
-  position: relative;
-  margin: auto;
-  text-align: center;
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px #dce1e1;
-
+:host { display: block; }
+.hero {
+  height: clamp(420px, 66vh, 680px);
+  background: var(--c-green-900);
 }
-
-img{
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
+  object-position: center 30%;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.2s var(--ease), transform 6s ease-out;
 }
+.hero__slide.is-active { opacity: 1; transform: scale(1); }
 
-.carousel-container img.image-active{
-  display: block;
-  width: 100%;
-}
-
-.carousel-container img{
-  display: none;
-}
-
-.carousel-dot-container{
+.hero__shade {
   position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  margin-bottom: 1rem;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(20, 35, 24, 0.28) 0%, rgba(20, 35, 24, 0) 30%),
+    linear-gradient(0deg, rgba(20, 35, 24, 0.7) 0%, rgba(20, 35, 24, 0.25) 38%, rgba(20, 35, 24, 0) 65%);
+  pointer-events: none;
 }
+.hero__content {
+  position: absolute;
+  z-index: 2;
+  left: var(--gutter);
+  bottom: clamp(3.5rem, 9vh, 5.5rem);
+}
+.hero__cta {
+  background: var(--c-green);
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+.hero__cta:hover { background: var(--c-orange); color: var(--c-green-900); }
 
-.dot{
-  cursor: pointer;
-  height: 13px;
-  width: 13px;
-  margin: 0 5px;
-  background-color: #fff;
+.hero__arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px; height: 48px;
+  margin-top: -24px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
-  display: inline-block;
-  transition: opacity 0.6s ease;
-  opacity: 0.5;
-}
-
-.active,
-.dot:hover{
-  opacity: 1;
-}
-
-.fade{
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from{
-    opacity: 0.4;
-  }
-  to{
-    opacity: 1;
-  }
-}
-
-.btn-carousel{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15%;
-  padding: 0;
+  background: rgba(20, 35, 24, 0.35);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   color: #fff;
-  text-align: center;
-  background: 0 0;
-  border: 0;
   cursor: pointer;
+  transition: background-color var(--t-fast), transform var(--t-fast);
 }
+.hero__arrow:hover { background: var(--c-green); transform: scale(1.08); }
+.hero__arrow--prev { left: var(--gutter); }
+.hero__arrow--next { right: var(--gutter); }
 
-.btn-prev{
-  left: 0;
+.hero__dots {
+  position: absolute;
+  z-index: 3;
+  right: var(--gutter);
+  bottom: 1.4rem;
+  display: flex;
+  gap: 8px;
 }
-
-.btn-next{
-  right: 0;
+.hero__dot {
+  width: 10px; height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: width var(--t-base), background-color var(--t-fast);
 }
+.hero__dot.is-active { width: 30px; background: #fff; }
+.hero__dot:hover { background: #fff; }
 
-.icon-carousel{
-  color: #fff;
-  opacity: 0.5;
-  transition: all 0.15s ease;
-}
-
-.icon-carousel:hover{
-  opacity: 0.9;
-}
-
-.icon-carousel:active{
-  opacity: 0.5;
-}
-
-.icon-prev{
-  font-size: 45px;
-}
-
-.icon-next{
-  font-size: 45px;
+@media (max-width: 599px) {
+  .hero { height: clamp(380px, 62vh, 520px); }
+  .hero__arrow { top: auto; bottom: 1rem; margin: 0; width: 40px; height: 40px; }
+  .hero__arrow--prev { left: var(--gutter); }
+  .hero__arrow--next { left: calc(var(--gutter) + 52px); right: auto; }
+  .hero__content { bottom: 4.5rem; }
 }

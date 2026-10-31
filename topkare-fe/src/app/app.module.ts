@@ -44,6 +44,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TestimonialSliderComponent } from './common/testimonial-slider/testimonial-slider.component';
 import { LoadingInterceptor } from './Interceptor/loading.interceptor';
 import { LoaderService } from './Services/LoaderService/loader.service';
+import { ParallaxDirective } from './directives/parallax.directive';
+import { RevealDirective } from './directives/reveal.directive';
+import { SidebarmenuComponent } from './common/sidebarmenu/sidebarmenu.component';
 import { DescriptionServicesComponent } from './pages/services/description-services/description-services.component';
 
 @NgModule({
@@ -71,10 +74,8 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
     CarouselComponent,
     TestimoniesAreaComponent,
     ServicesComponent,
-    CarouselComponent,
     CarouselServicesComponent,
     SpecificClassComponent,
-    CardsDescComponent,
     PhilosophySectionComponent,
     CardSectionComponent,
     CardsSectionComponent,
@@ -98,6 +99,9 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
     NgbCarousel,
     NgbCarouselModule,
     FontAwesomeModule,
+    ParallaxDirective,
+    RevealDirective,
+    SidebarmenuComponent,
   ],
   providers: [
     provideClientHydration(),

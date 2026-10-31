@@ -1,33 +1,9 @@
-h2{
-  font-family: 'Krona One';
-  text-align: end;
-  font-size: 32px;
+.top { height: clamp(260px, 38vw, 440px); background: var(--c-green-900); }
+.top__shade {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(0deg, rgba(20, 35, 24, 0.72), rgba(20, 35, 24, 0.15) 70%);
 }
-
-.top{
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  object-fit: cover;
-  height: 300px;
-}
-
-@media screen and (max-width: 1016px) {
-  h2{
-    font-size: 26px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  h2{
-    font-size: 12px;
-  }
-
-  .top{
-    min-height: 150px;
-  }
-}
+.top__content { position: absolute; inset: 0; z-index: 2; display: flex; align-items: flex-end; justify-content: flex-end; padding-bottom: var(--s-7); }
+.top__title { max-width: 14em; color: #fff; text-align: right; font-size: var(--fs-display); line-height: 1.1; text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35); }
+.top__second { color: var(--c-sage); }
+@media (max-width: 599px) { .top__content { justify-content: flex-start; } .top__title { text-align: left; } }

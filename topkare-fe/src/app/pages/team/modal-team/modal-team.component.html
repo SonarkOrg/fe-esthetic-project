@@ -1,32 +1,20 @@
-<div class="modal-overlay">
-  <div class="modal-content">
-    <div class="left">
-      <div class="name">
-        <h1>{{ data.name }}<br> {{ data.firstName }}</h1>
-      </div>
-      <div class="location">
-        <h4>{{ data.location }}<span class="fade">{{ data.position }}</span></h4>
-      </div>
-      <div class="content">
-      <p>{{ data.content }}</p>
-      </div>
-      <div class="facts">
-        <div class="item1">
-          <p>{{ data.funFact1 }}</p>
-        </div>
-        <div class="item2">
-          <p>{{ data.funFact2 }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="right">
-      <i (click)="closeModal()" class="fa-solid fa-xmark close-icon"></i>
-      <img class="center-image" src="assets/img/services/service-1.jpg" alt="">
-      <div class="under-image">
-        <a class="follow-me" href="">FOLLOW ME&nbsp;<i class="fa-solid fa-circle-chevron-right"></i></a>
-      </div>
+<div class="modal">
+  <button type="button" class="modal__close" aria-label="Close" (click)="closeModal()">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="modal__text">
+    <h1 class="modal__name">{{ data.firstName }}<br />{{ data.name }}</h1>
+    <p class="modal__where">{{ data.location }}<span class="modal__role">{{ data.position }}</span></p>
+    <p class="modal__quote">{{ data.content }}</p>
+    <div class="modal__facts">
+      <p>{{ data.funFact1 }}</p>
+      <p>{{ data.funFact2 }}</p>
     </div>
   </div>
-
+  <div class="modal__media">
+    <img class="modal__img" [src]="data.image || 'assets/img/services/service-1.jpg'" [alt]="'Portrait of ' + data.firstName" />
+    <a class="modal__follow" href="https://www.instagram.com" target="_blank" rel="noopener">
+      Follow me <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </a>
+  </div>
 </div>

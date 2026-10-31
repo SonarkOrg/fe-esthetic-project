@@ -1,30 +1,38 @@
-<div *ngIf="items && items.length > 0" class="carousel-container">
-  <img *ngFor="let item of items; let i = index"
-       [src]="item.img" alt="item.id"
-       [ngClass]="{'image-active' : selectedIndex === i}"
-       class="fade"
-  >
-  <div *ngIf="indicator" class="carousel-dot-container">
-    <span *ngFor="let dot of items; let i = index"
-          class="dot"
-          [ngClass]="{'active' : selectedIndex === i}"
-          (click)="selectImg(i)"
-    >
-    </span>
+<section *ngIf="items && items.length > 0" class="hero plx" aria-roledescription="carousel" aria-label="Featured">
+  <div class="plx__layer" [appParallax]="0.25">
+    <img
+      *ngFor="let item of items; let i = index"
+      class="hero__slide"
+      [class.is-active]="selectedIndex === i"
+      [src]="item.img"
+      [alt]="item.alt || ''"
+      [attr.aria-hidden]="selectedIndex === i ? null : 'true'"
+      [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+      [attr.fetchpriority]="i === 0 ? 'high' : null"
+    />
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+
+  <div class="hero__content" *ngIf="ctaLabel">
+    <a class="pill pill--lg hero__cta" [routerLink]="ctaLink">{{ ctaLabel }}</a>
   </div>
 
-  <div *ngIf="controls" class="btn-carousel btn-prev">
-    <i class="fas fa-solid fa-circle-chevron-left icon-carousel icon-prev"
-      (click)="onPrev()"
-    >
-    </i>
-  </div>
+  <button *ngIf="controls" type="button" class="hero__arrow hero__arrow--prev" aria-label="Previous slide" (click)="onPrev()">
+    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+  </button>
+  <button *ngIf="controls" type="button" class="hero__arrow hero__arrow--next" aria-label="Next slide" (click)="onNext()">
+    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+  </button>
 
-  <div class="btn-carousel btn-next">
-    <i class="fas fa-solid fa-circle-chevron-right icon-carousel icon-next"
-    (click)="onNext()"
-    >
-    </i>
+  <div *ngIf="indicator" class="hero__dots">
+    <button
+      *ngFor="let dot of items; let i = index"
+      type="button"
+      class="hero__dot"
+      [class.is-active]="selectedIndex === i"
+      [attr.aria-label]="'Show slide ' + (i + 1)"
+      [attr.aria-current]="selectedIndex === i"
+      (click)="selectImg(i)"
+    ></button>
   </div>
-
-</div>
+</section>

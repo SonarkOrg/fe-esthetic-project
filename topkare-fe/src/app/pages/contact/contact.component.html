@@ -1,43 +1,46 @@
 <app-header></app-header>
-<app-under-header-contact></app-under-header-contact>
-<div class="contact-container">
-  <div class="left-container">
-    <div class="text-container">
-      <p>WE’RE OPEN TO TALK TO GOOD PEOPLE. JUST SAY HELLO AND WE’LL
-        START A PRODUCTIVE COOPERATION.
+<main>
+  <app-under-header-contact></app-under-header-contact>
+  <section class="contact wrap">
+    <div class="contact__info" appReveal>
+      <p class="contact__lead">We're open to talk to good people. Just say hello and we'll start a productive cooperation.</p>
+      <p class="contact__lines">
+        Call us: <a href="tel:+18376528800">+1 837 652 8800</a><br />
+        Say hi: <a href="mailto:support@bestlooker.pro">support&#64;bestlooker.pro</a>
       </p>
-      <p>CALL US: +1 837 652 8800<br>
-        SAY HI: SUPPORT&#64;BESTLOOKER.PRO
-      </p>
+      <ul class="contact__socials" aria-label="Social media">
+        <li><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/img/footer/instagram.svg" alt="" /></a></li>
+        <li><a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"><img src="assets/img/footer/twitter.svg" alt="" /></a></li>
+        <li><a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/img/footer/facebook.svg" alt="" /></a></li>
+      </ul>
     </div>
-    <div class="img-container">
-      <img src="assets/img/footer/instagram.svg" alt="">
-      <img src="assets/img/footer/twitter.svg" alt="">
-      <img src="assets/img/footer/facebook.svg" alt="">
-    </div>
-  </div>
-  <div class="right-container">
-    <div class="form-container">
-      <form class="rounded-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <div class="space-between">
-          <label for="name"></label>
-          <input class="input-rounded-l" type="text" id="name" placeholder="NAME" formControlName="userName" required>
-          <label for="email"></label>
-          <input class="input-rounded" type="text" id="email" placeholder="EMAIL" formControlName="userName" required>
+
+    <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate [appReveal]="120">
+      <div class="form__row">
+        <div class="field">
+          <label class="visually-hidden" for="c-name">Name</label>
+          <input id="c-name" type="text" placeholder="Name" autocomplete="name" formControlName="name" required />
+          <span class="field__err" *ngIf="f['name'].touched && f['name'].invalid">Please enter your name</span>
         </div>
-        <label for="message"></label>
-        <input class="message-rounded" type="text" id="message" placeholder="MESSAGE" formControlName="userName" required>
-        <div class="bottom-container">
-          <div class="bottom-left">
-            <button class="rounded-submit" type="submit">Submit</button>
-          </div>
-          <div class="info-container">
-            <img class="position" src="assets/img/contact/info.svg" alt="">
-            <p class="smaller">All the fields are required. By sending the form you agree to the Terms & Conditions and Privacy Policy.</p>
-          </div>
+        <div class="field">
+          <label class="visually-hidden" for="c-email">Email</label>
+          <input id="c-email" type="email" placeholder="Email" autocomplete="email" formControlName="email" required />
+          <span class="field__err" *ngIf="f['email'].touched && f['email'].invalid">Please enter a valid email</span>
         </div>
-      </form>
-    </div>
-  </div>
-</div>
+      </div>
+      <div class="field">
+        <label class="visually-hidden" for="c-msg">Message</label>
+        <textarea id="c-msg" rows="5" placeholder="Message" formControlName="message" required></textarea>
+        <span class="field__err" *ngIf="f['message'].touched && f['message'].invalid">Please write a message</span>
+      </div>
+      <div class="form__bottom">
+        <button class="pill pill--lg" type="submit">{{ sent ? 'Message sent' : 'Send message' }}</button>
+        <p class="form__legal">
+          <img src="assets/img/contact/info.svg" alt="" width="18" height="18" />
+          All the fields are required. By sending the form you agree to the Terms &amp; Conditions and Privacy Policy.
+        </p>
+      </div>
+    </form>
+  </section>
+</main>
 <app-footer></app-footer>

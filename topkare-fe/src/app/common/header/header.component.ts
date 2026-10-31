@@ -1,43 +1,25 @@
-import { ChangeDetectorRef, Component, ComponentFactoryResolver, ComponentRef, HostListener, NgZone, OnInit, ViewContainerRef } from '@angular/core';
-import { NgClass, NgIf, NgStyle } from '@angular/common';
-import { SidebarmenuComponent } from '../sidebarmenu/sidebarmenu.component';
+import { Component, DestroyRef, ElementRef, NgZone, afterNextRender, inject } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  isMobile = false;
-  sidebarRef: ComponentRef<SidebarmenuComponent> | null = null;
+  menuOpen = false;
 
-  constructor(private resolver: ComponentFactoryResolver,
-     private viewContainerRef: ViewContainerRef,
-      private ngZone: NgZone,
-      private cdRef: ChangeDetectorRef
-    ) {}
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly zone = inject(NgZone);
+  private readonly destroyRef = inject(DestroyRef);
 
-  ngOnInit() {
-    this.checkMobile();
+  constructor() {
+    // Browser only: toggles `is-scrolled` on the host without triggering change detection.
+    afterNextRender(() => {
+      const el = this.host.nativeElement;
+      const update = () => el.classList.toggle('is-scrolled', window.scrollY > 8);
+      update();
+      this.zone.runOutsideAngular(() => window.addEventListener('scroll', update, { passive: true }));
+      this.destroyRef.onDestroy(() => window.removeEventListener('scroll', update));
+    });
   }
-
-  private checkMobile() {
-    if (typeof window !== 'undefined') {
-      this.isMobile = window.innerWidth < 1220;
-      this.ngZone.run(() => {}); // Run change detection
-      this.cdRef.detectChanges(); // Manually trigger change detection
-    }
-    console.log(this.isMobile)
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    this.checkMobile();
-  }
-
-  toggleMobileMenu() {
-      // Open the sidebar by creating a dynamic component
-      const factory = this.resolver.resolveComponentFactory(SidebarmenuComponent);
-      this.sidebarRef = this.viewContainerRef.createComponent(factory);
-    }
 }

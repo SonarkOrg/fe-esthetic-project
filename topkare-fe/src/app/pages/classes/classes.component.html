@@ -1,7 +1,11 @@
 <app-header></app-header>
+<main>
   <app-courses-section></app-courses-section>
-  <div class="image-container">
-    <img class="img-separator" src="assets/img/home/home-1.jpg" alt="">
+  <div class="band plx" role="img" aria-label="Smiling woman wearing a flower crown">
+    <div class="plx__layer" [appParallax]="0.25">
+      <img src="assets/img/home/home-1.jpg" alt="" loading="lazy" />
+    </div>
   </div>
   <app-cards-desc></app-cards-desc>
+</main>
 <app-footer></app-footer>

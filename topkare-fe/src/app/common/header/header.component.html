@@ -1,16 +1,30 @@
-<div class="top-header">
-    <div class="logo-section">
-        <a href="/"><img style="cursor: pointer;" src="assets/img/logo/logo-black.png" alt=""></a>
+<header class="top-header">
+  <div class="top-header__inner">
+    <a class="logo" routerLink="/" aria-label="Topkare, home">
+      <img src="assets/img/logo/logo-black.png" alt="Topkare" width="140" height="48" />
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav__link" routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a class="nav__link" routerLink="/classes" routerLinkActive="is-active">Classes</a>
+      <a class="nav__link" routerLink="/services" routerLinkActive="is-active">Services</a>
+      <a class="nav__link" routerLink="/contact" routerLinkActive="is-active">Contact</a>
+      <a class="pill pill--cream nav__cta" routerLink="/specific-service/1">Book now</a>
+    </nav>
+
+    <div class="mobile-bar">
+      <a class="pill pill--cream pill--sm" routerLink="/specific-service/1">Book now</a>
+      <button
+        type="button"
+        class="burger"
+        aria-label="Open menu"
+        aria-controls="mobile-menu"
+        [attr.aria-expanded]="menuOpen"
+        (click)="menuOpen = true"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
-    <div class="text-section" [ngClass]="{ 'hide-on-desktop': isMobile }">
-        <a class="normal-button" href="/">HOME</a>
-        <a class="normal-button" href="/classes">CLASSES</a>
-        <a class="normal-button" href="services">SERVICES</a>
-        <a class="normal-button" href="/contact">CONTACT</a>
-        <a class="special-button" href="/book">BOOK NOW</a>
-    </div>
-    <div class="text-section" [ngClass]="{ 'hide-on-desktop': !isMobile }">
-          <a class="special-button" href="/book">BOOK NOW</a>
-      <img class="burger" src="assets/img/header/menu.svg" alt="" (click)="toggleMobileMenu()">
   </div>
-</div>
+</header>
+<app-sidebarmenu [open]="menuOpen" (closed)="menuOpen = false"></app-sidebarmenu>
