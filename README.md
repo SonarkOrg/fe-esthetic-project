@@ -1,71 +1,47 @@
 # fe-esthetic-project
+Webpage for esthetic purposes
 
-Landing page for the Fe Esthetic studio, built with Angular 17. It supports server-side rendering (SSR) and prerendering, and uses parallax and scroll animations.
+Install the Angular CLI
+You can use the Angular CLI to create projects, generate application and library code, and perform a variety of ongoing development tasks such as testing, bundling, and deployment.
 
-The Angular app lives in [`fe-esthetic/`](fe-esthetic/). The root `package.json` only forwards commands to it.
+To install the Angular CLI, open a terminal window and run the following command:
 
-## Requirements
+content_copy
+npm install -g @angular/cli
+On Windows client computers, the execution of PowerShell scripts is disabled by default. To allow the execution of PowerShell scripts, which is needed for npm global binaries, you must set the following execution policy:
 
-- Node.js 18.13+ or 20 (Node 22 also works in this environment)
-- npm
+content_copy
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+Carefully read the message displayed after executing the command and follow the instructions. Make sure you understand the implications of setting an execution policy.
 
-## Quick start
+Create a workspace and initial application
+You develop apps in the context of an Angular workspace.
 
-From the repo root:
+To create a new workspace and initial starter app:
 
-```bash
-npm install     # runs the app's install via postinstall
-npm start       # serves the app at http://localhost:4200
-```
+Run the CLI command ng new and provide the name my-app, as shown here:
 
-Or work inside the app folder directly:
+content_copy
+ng new my-app
+The ng new command prompts you for information about features to include in the initial app. Accept the defaults by pressing the Enter or Return key.
 
-```bash
-cd fe-esthetic
-npm install
-npm start
-```
+The Angular CLI installs the necessary Angular npm packages and other dependencies. This can take a few minutes.
 
-`npm start` opens the dev server at http://localhost:4200.
+The CLI creates a new workspace and a simple Welcome app, ready to run.
 
-## Production build and SSR
 
-```bash
-npm run build          # production build, including the server bundle and prerendering
-npm run serve:ssr      # serves the SSR build at http://localhost:4000
-```
+Run the application
+The Angular CLI includes a server, for you to build and serve your app locally.
 
-## Tests
+Navigate to the workspace folder, such as my-app.
 
-```bash
-npm test
-```
+Run the following command:
 
-This runs the Angular test runner (`ng test`) from `fe-esthetic/`.
+content_copy
+cd my-app
+ng serve --open
+The ng serve command launches the server, watches your files, and rebuilds the app as you make changes to those files.
 
-## Project structure
+The --open (or just -o) option automatically opens your browser to http://localhost:4200/.
 
-```
-fe-esthetic-project/
-├── package.json          # root scripts that forward to fe-esthetic/
-├── fe-esthetic/
-│   ├── angular.json      # build, prerender and test configuration
-│   ├── server.ts         # Express server for SSR
-│   └── src/
-│       ├── app/
-│       │   ├── components/   # page sections: nav, hero, about, services, quote,
-│       │   │                 # stats, testimonials, contact, footer
-│       │   ├── directives/   # parallax.service + parallax, reveal and count-up directives
-│       │   ├── app.component.* / app.routes.ts / app.config*.ts
-│       ├── styles.css    # global styles and design tokens
-│       └── ...
-└── README.md
-```
-
-- `src/app/components/` holds one folder per page section, composed in `app.component.html`.
-- `src/app/directives/` holds the animation directives: `appReveal` (scroll reveal), `appParallax` (driven by the shared `parallax.service`), and `appCountUp` (number count-up in the results section).
-- `src/styles.css` holds the global styles and design tokens.
-
-## Accessibility
-
-Animations respect `prefers-reduced-motion`. When the user has reduced motion enabled, parallax is switched off, the count-up shows the final value, and reveal elements appear immediately without the slide-in motion (see the `prefers-reduced-motion` block in `fe-esthetic/src/styles.css`).
+If your installation and setup was successful, you should see a page similar to the following.
