@@ -1,10 +1,11 @@
-.steps { display: grid; gap: var(--s-7); }
-.steps__title { margin-bottom: var(--s-6); font-size: var(--fs-h2); text-transform: uppercase; }
+:host { display: block; background: var(--c-cream); }
+.steps { display: grid; gap: var(--s-7); padding-block: var(--section-y); }
+.steps__title { margin-bottom: var(--s-6); font-size: var(--fs-h2); color: var(--c-green); }
 .steps__left { align-self: start; }
 .steps__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--s-6); }
 .step { display: grid; grid-template-columns: auto 1fr; gap: var(--s-4); padding-bottom: var(--s-6); border-bottom: 1px solid var(--c-line); }
 .step:last-child { border-bottom: 0; }
-.step__num { font-family: var(--font-display); font-size: var(--fs-h3); color: var(--c-orange-600); }
+.step__num { font-family: var(--font-display); font-size: var(--fs-h3); color: var(--c-orange-700); }
 .step__title { margin-bottom: var(--s-3); font-family: var(--font-body); font-weight: 700; font-size: var(--fs-h3); color: var(--c-green); }
 .step__desc { margin: 0; color: var(--c-muted); }
 @media (min-width: 900px) {

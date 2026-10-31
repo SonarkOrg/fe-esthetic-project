@@ -1,3 +1,0 @@
-.title { font-size: var(--fs-display); text-transform: uppercase; line-height: 1.1; }
-.title__second { display: inline-block; }
-@media (min-width: 700px) { .title__second { margin-left: 2.2em; } }

@@ -1,0 +1,3 @@
+.nf { padding-block: var(--section-y); text-align: center; }
+.nf__lead { max-width: 46ch; margin: 0 auto var(--s-6); font-size: var(--fs-lead); color: var(--c-muted); }
+.nf__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-3); }

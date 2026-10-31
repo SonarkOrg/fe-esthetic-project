@@ -7,6 +7,6 @@
   color: var(--c-cream);
   box-shadow: var(--shadow-lg);
 }
-.feature__title { font-size: var(--fs-h2); text-transform: uppercase; }
+.feature__title { font-size: var(--fs-h2); }
 .feature__side p { opacity: 0.92; max-width: 60ch; }
 @media (min-width: 900px) { .feature__box { grid-template-columns: 1fr 1.2fr; gap: var(--s-8); } }

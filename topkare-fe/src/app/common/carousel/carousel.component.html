@@ -1,29 +1,15 @@
-<section class="services-carousel wrap" aria-roledescription="carousel" aria-label="Our services">
-  <h2 class="section-title" appReveal>Our services</h2>
-
-  <div class="stage" *ngIf="items?.length" appReveal revealVariant="fade">
-    <button
-      type="button"
-      class="stage__item"
-      *ngFor="let item of items; let i = index"
-      [class.is-active]="i === activeIndex"
-      [class.is-prev]="items.length > 1 && i === (activeIndex - 1 + items.length) % items.length"
-      [class.is-next]="items.length > 1 && i === (activeIndex + 1) % items.length"
-      [attr.aria-label]="item.title"
-      [attr.tabindex]="i === activeIndex ? 0 : -1"
-      (click)="i === (activeIndex + 1) % items.length ? next() : (i === (activeIndex - 1 + items.length) % items.length ? prev() : null)"
-    >
-      <img [src]="item.imageUrl" [alt]="item.title + ' service'" loading="lazy" />
-    </button>
-  </div>
-
-  <div class="stage-controls" *ngIf="items?.[activeIndex] as current">
-    <button type="button" class="round-btn" aria-label="Previous service" (click)="prev()">
-      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-    </button>
-    <a class="pill pill--lg cta" [routerLink]="['/specific-service', current.id]">Learn more about {{ current.title }}</a>
-    <button type="button" class="round-btn" aria-label="Next service" (click)="next()">
-      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-    </button>
-  </div>
+<section class="services wrap" aria-labelledby="services-title">
+  <h2 id="services-title" class="section-title" appReveal>Our services</h2>
+  <ul class="svc-grid" *ngIf="items?.length" role="list">
+    <li *ngFor="let item of items; let i = index" [appReveal]="i * 120">
+      <a class="svc-card" [routerLink]="['/specific-service', item.id]">
+        <div class="svc-card__img"><img [src]="item.imageUrl" [alt]="(item.title | titlecase) + ' service'" loading="lazy" /></div>
+        <div class="svc-card__body">
+          <h3 class="svc-card__title">{{ item.title | titlecase }}</h3>
+          <p class="svc-card__desc">{{ item.shortDesc }}</p>
+          <span class="svc-card__more link-arrow">Learn more <img src="assets/img/home/right-arrow.svg" alt="" /></span>
+        </div>
+      </a>
+    </li>
+  </ul>
 </section>

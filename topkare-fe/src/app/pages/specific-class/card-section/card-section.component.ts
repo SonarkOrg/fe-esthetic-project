@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 
 @Component({

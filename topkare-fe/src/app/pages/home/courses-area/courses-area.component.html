@@ -1,13 +1,16 @@
-<section class="courses wrap" aria-label="Our courses">
-  <div class="courses__item" *ngFor="let item of courses; let i = index" [appReveal]="i * 140">
-    <article class="course card">
-      <span class="course__num" aria-hidden="true">0{{ i + 1 }}</span>
-      <h3 class="course__title">{{ item.name }} Course</h3>
-      <p class="course__desc">{{ item.smallDesc }}</p>
-      <a class="link-arrow" [routerLink]="['/specific-class', item.id]">
-        Learn more
-        <img src="assets/img/home/right-arrow.svg" alt="" />
-      </a>
-    </article>
+<section class="courses wrap" aria-labelledby="courses-title">
+  <h2 id="courses-title" class="section-title" appReveal>Learn the craft</h2>
+  <div class="courses__grid">
+    <div class="courses__item" *ngFor="let item of courses; let i = index" [appReveal]="i * 140">
+      <article class="course card">
+        <span class="course__num" aria-hidden="true">0{{ i + 1 }}</span>
+        <h3 class="course__title">{{ item.name }} Course</h3>
+        <p class="course__desc">{{ item.smallDesc }}</p>
+        <a class="link-arrow" [routerLink]="['/specific-class', item.id]">
+          Learn more
+          <img src="assets/img/home/right-arrow.svg" alt="" />
+        </a>
+      </article>
+    </div>
   </div>
 </section>

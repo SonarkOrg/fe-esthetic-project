@@ -1,13 +1,12 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { GlobalErrorHandler } from './global-error-handler';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoaderComponent } from './common/loader/loader.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { NgClass, NgIf, NgStyle } from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
@@ -27,7 +26,6 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { SliderImagesComponent } from './common/slider-images/slider-images.component';
 import { DescriptionAreaComponent } from './pages/home/description-area/description-area.component';
 import { CarouselComponent } from './common/carousel/carousel.component';
-import { TestimoniesAreaComponent } from './pages/home/testimonies-area/testimonies-area.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { CarouselServicesComponent } from './pages/services/carousel-services/carousel-services.component';
 import { SpecificClassComponent } from './pages/specific-class/specific-class.component';
@@ -35,18 +33,16 @@ import { PhilosophySectionComponent } from './pages/specific-class/philosophy-se
 import { CardSectionComponent } from './pages/specific-class/card-section/card-section.component';
 import { CardsSectionComponent } from './pages/services/cards-section/cards-section.component';
 import { OverallDescComponent } from './pages/specific-class/overall-desc/overall-desc.component';
-import { ModalTeamComponent } from './pages/team/modal-team/modal-team.component';
 import { TeamComponent } from './pages/team/team.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TestimonialSliderComponent } from './common/testimonial-slider/testimonial-slider.component';
-import { LoadingInterceptor } from './Interceptor/loading.interceptor';
 import { LoaderService } from './Services/LoaderService/loader.service';
 import { ParallaxDirective } from './directives/parallax.directive';
 import { RevealDirective } from './directives/reveal.directive';
 import { SidebarmenuComponent } from './common/sidebarmenu/sidebarmenu.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PrivacyComponent } from './pages/legal/privacy.component';
+import { CookiesComponent } from './pages/legal/cookies.component';
 import { DescriptionServicesComponent } from './pages/services/description-services/description-services.component';
 
 @NgModule({
@@ -72,7 +68,6 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
     SliderImagesComponent,
     DescriptionAreaComponent,
     CarouselComponent,
-    TestimoniesAreaComponent,
     ServicesComponent,
     CarouselServicesComponent,
     SpecificClassComponent,
@@ -83,22 +78,16 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
     TeamComponent,
     TestimonialSliderComponent,
     DescriptionServicesComponent,
+    NotFoundComponent,
+    PrivacyComponent,
+    CookiesComponent,
     ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule, // Import FormsModule
-    ReactiveFormsModule, // Import ReactiveFormsModule
-    HttpClientModule,
-    RouterLink,
-    NgClass,
-    NgIf,
-    NgStyle,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    SlickCarouselModule,
-    NgbCarousel,
-    NgbCarouselModule,
-    FontAwesomeModule,
     ParallaxDirective,
     RevealDirective,
     SidebarmenuComponent,
@@ -106,7 +95,8 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    LoaderService
+    LoaderService,
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,5 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-footer-team',
   templateUrl: './footer-team.component.html',
-  styleUrl: './footer-team.component.css',
 })
 export class FooterTeamComponent {}

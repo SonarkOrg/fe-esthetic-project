@@ -1,0 +1,45 @@
+<!-- TODO(owner): have this policy reviewed for your jurisdiction -->
+<app-header></app-header>
+<main>
+  <section class="banner">
+    <div class="wrap">
+      <a class="back-link" routerLink="/"><img src="assets/img/header/arrow-left.svg" alt="" /> Back to home</a>
+      <hr />
+      <span class="banner__eyebrow">Legal</span>
+      <h1 class="banner__title" appReveal>Cookie <span class="accent">policy</span></h1>
+    </div>
+  </section>
+
+  <section class="legal wrap">
+    <div class="legal__prose">
+      <p class="legal__updated">Last updated: {{ site.policyLastUpdated | date: 'longDate' : 'UTC' }}</p>
+
+      <h2>The short version</h2>
+      <p>{{ site.name }} does not set cookies of its own, and the site does not use analytics, advertising or tracking scripts. We do not store anything on your device to remember you between visits.</p>
+
+      <h2>What this means in practice</h2>
+      <ul>
+        <li>No cookies are set by this website.</li>
+        <li>We do not use local storage or similar technologies to track you or remember your preferences.</li>
+        <li>In the rare case that a site update fails to load, the site may briefly note that in your browser's session storage so it does not keep reloading. It contains no personal information and disappears when you close the tab.</li>
+        <li>There is no login, so there is no session cookie.</li>
+      </ul>
+
+      <h2>Fonts loaded from Google</h2>
+      <p>To display the site's body typeface (Open Sans), your browser downloads font files from Google Fonts (fonts.googleapis.com and fonts.gstatic.com). This is a request to Google's servers, so Google receives your IP address and standard browser information, as with any website you visit. We do not control what Google does with that information; you can read how Google handles it in Google's own privacy policy.</p>
+
+      <h2>Links to other sites</h2>
+      <p>Our social media links (Instagram, X and Facebook) lead to third-party websites. Those sites may set their own cookies once you visit them, under their own policies.</p>
+
+      <h2>Your browser settings</h2>
+      <p>You can block or delete cookies in your browser settings, and you can use privacy tools that block third-party requests. The site should continue to work, although the text may appear in a fallback typeface if the font files are blocked.</p>
+
+      <h2>Contact us</h2>
+      <p>Questions about this policy? <ng-container *ngIf="site.email; else viaContact">Email <a [href]="'mailto:' + site.email">{{ site.email }}</a></ng-container><ng-template #viaContact>Contact us through the details on our <a routerLink="/contact">Contact page</a></ng-template>. See also our <a routerLink="/privacy">Privacy policy</a>.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If we add features that use cookies or similar technologies, we will update this policy first. The date at the top of the page shows when it was last changed.</p>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>
