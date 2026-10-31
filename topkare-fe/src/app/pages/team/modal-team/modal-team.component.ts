@@ -1,5 +1,3 @@
-import { NgIf } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { SITE } from '../../../site.config';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';

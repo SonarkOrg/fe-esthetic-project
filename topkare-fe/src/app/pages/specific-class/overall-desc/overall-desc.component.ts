@@ -1,5 +1,3 @@
-import { NgFor } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -14,6 +12,5 @@ export class OverallDescComponent implements OnInit{
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    console.log(this.item + "text")
   }
 }

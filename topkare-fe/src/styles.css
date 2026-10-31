@@ -1,5 +1,4 @@
 @import '@fontsource/krona-one/index.css';
-@import '@fortawesome/fontawesome-free/css/all.css';
 
 /* ------------------------------------------------------------------
    Design tokens
@@ -66,6 +65,27 @@
 }
 
 /* ------------------------------------------------------------------
+   Icons: the five Font Awesome Solid glyphs the site uses, as CSS masks
+   (replaces the full Font Awesome CSS + webfonts). Same markup:
+   <i class="fa-solid fa-bars">. Glyphs are sized/aligned like the font.
+------------------------------------------------------------------ */
+.fa-solid {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  line-height: 1;
+  vertical-align: -0.125em;
+  background-color: currentColor;
+  -webkit-mask: var(--fa-glyph) no-repeat center / 100% 100%;
+  mask: var(--fa-glyph) no-repeat center / 100% 100%;
+}
+.fa-bars { width: 0.875em; --fa-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z'/%3E%3C/svg%3E"); }
+.fa-xmark { width: 0.75em; --fa-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z'/%3E%3C/svg%3E"); }
+.fa-chevron-left { width: 0.625em; --fa-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z'/%3E%3C/svg%3E"); }
+.fa-chevron-right { width: 0.625em; --fa-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z'/%3E%3C/svg%3E"); }
+.fa-quote-left { width: 0.875em; --fa-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z'/%3E%3C/svg%3E"); }
+
+/* ------------------------------------------------------------------
    Base
 ------------------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; }
@@ -86,22 +106,25 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* body copy tracking (previously inherited from Material's body typography: 0.25px at 14px) */
+  letter-spacing: 0.017857142857em;
 }
 
-/* index.html puts .mat-typography on <body>; its Roboto rules would otherwise win. */
-body.mat-typography { font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.65; }
-.mat-typography h1, .mat-typography h2, .mat-typography h3, .mat-typography h4 {
+/* Heading / paragraph rules scoped under body.site. The extra class specificity
+   is intentional: it keeps these winning over single-class component selectors,
+   exactly as the old Material `mat-typography` scope did. */
+.site h1, .site h2, .site h3, .site h4 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.01em;
 }
-.mat-typography h1 { font-size: var(--fs-h1); }
-.mat-typography h2 { font-size: var(--fs-h2); }
-.mat-typography h3 { font-size: var(--fs-h3); }
-.mat-typography p { margin: 0 0 var(--s-4); }
-.mat-typography .section-title { margin-bottom: var(--s-7); }
+.site h1 { font-size: var(--fs-h1); }
+.site h2 { font-size: var(--fs-h2); }
+.site h3 { font-size: var(--fs-h3); }
+.site p { margin: 0 0 var(--s-4); }
+.site .section-title { margin-bottom: var(--s-7); }
 
 h1, h2, h3, h4 {
   margin: 0;
