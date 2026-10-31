@@ -1,7 +1,7 @@
 .contact { display: grid; gap: var(--s-7); padding-block: var(--section-y); }
 .contact__lead { font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.4; color: var(--c-green); }
 .contact__lines { margin: var(--s-6) 0; font-family: var(--font-display); font-size: var(--fs-small); text-transform: uppercase; line-height: 2; }
-.contact__lines a { color: var(--c-green); text-underline-offset: 4px; }
+.contact__lines a { text-transform: none; font-family: var(--font-body); font-size: var(--fs-body); color: var(--c-green); text-underline-offset: 4px; }
 .contact__lines a:hover { color: var(--c-orange-600); }
 .contact__socials { display: flex; gap: var(--s-3); margin: 0; padding: 0; list-style: none; }
 .contact__socials a {

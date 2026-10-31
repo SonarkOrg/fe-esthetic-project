@@ -11,7 +11,7 @@
   padding: var(--s-6);
   border-top: 4px solid var(--c-sage);
 }
-.course__num { font-family: var(--font-display); font-size: var(--fs-small); color: var(--c-orange-600); margin-bottom: var(--s-3); }
+.course__num { font-family: var(--font-display); font-size: var(--fs-small); color: var(--c-orange-700); margin-bottom: var(--s-3); }
 .course__title { margin-bottom: var(--s-3); color: var(--c-green); }
 .course__desc { flex: 1; margin-bottom: var(--s-5); color: var(--c-muted); font-size: 1rem; line-height: 1.7; }
 

@@ -16,6 +16,7 @@
   --c-cream-200: #f6f1cd;
   --c-orange: #dda15e;
   --c-orange-600: #c98a43;
+  --c-orange-700: #8f5a1f;
   --c-ink: #1d2a21;
   --c-muted: #4f6054;
   --c-line: rgba(58, 90, 64, 0.16);
@@ -368,9 +369,8 @@ html.js [data-reveal='right']:not(.is-revealed) { transform: translate3d(40px, 0
 .svc-card__body { display: flex; flex-direction: column; flex: 1; gap: var(--s-2); padding: var(--s-5); }
 .svc-card__title { font-size: var(--fs-h3); color: var(--c-green); }
 .svc-card__desc { flex: 1; margin: 0; font-size: 1rem; color: var(--c-muted); }
-.svc-card__more { display: inline-flex; align-items: center; gap: var(--s-2); margin-top: var(--s-3); font-family: var(--font-display); font-size: var(--fs-small); color: var(--c-ink); }
-.svc-card__more i { transition: transform var(--t-base); }
-.svc-card:hover .svc-card__more i { transform: translateX(6px); }
+.svc-card__more { margin-top: var(--s-3); }
+.svc-card:hover .svc-card__more img { transform: translateX(6px); }
 @media (min-width: 800px) {
   .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6); margin-inline: 0; padding: 0; overflow: visible; }
   .svc-grid > li { flex: none; }

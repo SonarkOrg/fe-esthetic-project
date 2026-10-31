@@ -19,3 +19,5 @@
 .info__head h3 { color: var(--c-green); }
 .info__card p { flex: 1; color: var(--c-ink); }
 @media (min-width: 800px) { .info { grid-template-columns: 1fr 1fr; gap: var(--s-6); } }
+
+.info__head img { filter: brightness(0) saturate(100%) invert(31%) sepia(18%) saturate(900%) hue-rotate(83deg) brightness(92%) contrast(88%); }

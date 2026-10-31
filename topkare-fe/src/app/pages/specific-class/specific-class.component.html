@@ -6,7 +6,8 @@
     </div>
     <div class="top__shade" aria-hidden="true"></div>
     <div class="top__content wrap">
-      <h1 class="top__title" appReveal revealVariant="fade">You're happy,<br /><span class="top__second">we're happy</span></h1>
+      <span class="banner__eyebrow">{{ itemData?.service | titlecase }} course</span>
+      <h1 class="top__title" appReveal revealVariant="fade">{{ itemData?.title }}</h1>
     </div>
   </section>
   <app-philosophy-section [item]="itemData"></app-philosophy-section>

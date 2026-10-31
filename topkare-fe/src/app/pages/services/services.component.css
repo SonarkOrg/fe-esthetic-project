@@ -1,2 +1,1 @@
 .band { height: clamp(220px, 34vw, 420px); }
-.band-gap { height: var(--section-y); background: var(--c-white); }

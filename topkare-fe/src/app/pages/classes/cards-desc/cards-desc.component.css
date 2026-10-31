@@ -27,6 +27,7 @@
 .row__text { max-width: 46ch; color: var(--c-muted); margin: 0; }
 .row__body .pill { margin-top: var(--s-3); }
 .row__img { min-height: 220px; }
+@media (max-width: 899px) { .row__img { aspect-ratio: 4 / 3; min-height: 0; } }
 .row__img img { width: 100%; height: 100%; object-fit: cover; }
 
 @media (min-width: 900px) {

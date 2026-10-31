@@ -13,4 +13,4 @@
 }
 .course__img:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); }
 .course__img img { width: 100%; height: 100%; object-fit: cover; }
-.course__name { font-size: var(--fs-h3); color: var(--c-green); text-transform: capitalize; }
+.course__name { font-size: var(--fs-h3); color: var(--c-green); }

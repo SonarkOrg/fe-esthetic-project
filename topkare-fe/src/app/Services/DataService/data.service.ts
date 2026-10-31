@@ -46,8 +46,8 @@ export class DataService {
   }
 
   getServicesById(id: number): Observable<any> {
-    return this.getCourses().pipe(
-      map(courses => courses.find(course => course.id === id))
+    return this.getServices().pipe(
+      map(services => services.find(service => service.id === id))
     );
   }
 }
