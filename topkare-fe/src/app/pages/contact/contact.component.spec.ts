@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SITE } from '../../site.config';
 import { ContactComponent } from './contact.component';
 
 describe('ContactComponent', () => {
@@ -37,5 +38,16 @@ describe('ContactComponent', () => {
   it('rejects an invalid email', () => {
     component.myForm.setValue({ name: 'Ada', email: 'nope', message: 'Hello' });
     expect(component.f['email'].invalid).toBeTrue();
+  });
+
+  it('reports unavailable when there is neither an endpoint nor an email', () => {
+    const e = SITE.forms.contactEndpoint, m = SITE.email;
+    SITE.forms.contactEndpoint = '';
+    SITE.email = '';
+    component.myForm.setValue({ name: 'Ada', email: 'ada@example.com', message: 'Hello' });
+    component.onSubmit();
+    expect(component.state).toBe('unavailable');
+    SITE.forms.contactEndpoint = e;
+    SITE.email = m;
   });
 });

@@ -3,8 +3,8 @@
   <app-under-header-contact></app-under-header-contact>
   <section class="contact wrap">
     <div class="contact__info" appReveal>
-      <p class="contact__lead">Questions about a treatment or a class? Say hello and we will get back to you within one working day.</p>
-      <p class="contact__lines">
+      <p class="contact__lead">Questions about a treatment or a class? Say hello and we'll get back to you as soon as we can.</p>
+      <p class="contact__lines" *ngIf="hasDetails">
         <ng-container *ngIf="site.phone">Call us: <a [href]="telHref">{{ site.phone }}</a><br /></ng-container>
         <ng-container *ngIf="site.email">Say hi: <a [href]="'mailto:' + site.email">{{ site.email }}</a><br /></ng-container>
         <ng-container *ngIf="site.address">Visit us: <span class="contact__plain">{{ site.address }}</span><br /></ng-container>
@@ -42,9 +42,10 @@
           <span>All the fields are required. See our <a routerLink="/privacy">Privacy policy</a> for how we use your details.</span>
         </p>
       </div>
-      <p class="form__status form__status--ok" role="status" *ngIf="state === 'success'">Thank you, your message has been sent. We will get back to you within one working day.</p>
+      <p class="form__status form__status--ok" role="status" *ngIf="state === 'success'">Thank you, your message has been sent. We'll get back to you as soon as we can.</p>
       <p class="form__status form__status--ok" role="status" *ngIf="state === 'mailto'">Your email app should open with your message ready to send. If it doesn't, email us at <a [href]="'mailto:' + site.email">{{ site.email }}</a>.</p>
-      <p class="form__status form__status--err" role="alert" *ngIf="state === 'error'">Sorry, we couldn't send your message. Please try again, or email us at <a [href]="'mailto:' + site.email">{{ site.email }}</a>.</p>
+      <p class="form__status form__status--err" role="alert" *ngIf="state === 'error'">Sorry, we couldn't send your message. Please try again<ng-container *ngIf="site.email">, or email us at <a [href]="'mailto:' + site.email">{{ site.email }}</a></ng-container>.</p>
+      <p class="form__status form__status--err" role="alert" *ngIf="state === 'unavailable'">Online enquiries aren't available yet. Please reach us on social media or visit the studio.</p>
     </form>
   </section>
 </main>

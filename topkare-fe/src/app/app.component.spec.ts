@@ -33,8 +33,14 @@ import { routes } from './app-routing.module';
 describe('GlobalErrorHandler', () => {
   it('logs and does not throw', () => {
     const spy = spyOn(console, 'error');
-    const h: ErrorHandler = new GlobalErrorHandler();
+    const h: ErrorHandler = new GlobalErrorHandler('browser' as unknown as object);
     expect(() => h.handleError(new Error('boom'))).not.toThrow();
+    expect(spy).toHaveBeenCalled();
+  });
+  it('rethrows on the server so SSR failures reach the 500 page', () => {
+    const spy = spyOn(console, 'error');
+    const err = new Error('render failed');
+    expect(() => new GlobalErrorHandler('server' as unknown as object).handleError(err)).toThrow(err);
     expect(spy).toHaveBeenCalled();
   });
   it('detects chunk load errors', () => {

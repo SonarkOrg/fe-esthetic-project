@@ -16,9 +16,9 @@ export interface SiteConfig {
 // TODO(owner): replace with real details (email, phone, address, opening hours, social profile URLs)
 export const SITE: SiteConfig = {
   name: 'Topkare',
-  // TODO(owner): replace with real details - these are the template's placeholders
-  email: 'support@bestlooker.pro',
-  phone: '+1 837 652 8800',
+  // TODO(owner): replace with real details (the old template placeholders were removed so no message goes to an unrelated address)
+  email: '', // hidden while empty; forms are unavailable without an endpoint or an email
+  phone: '', // hidden while empty
   address: '', // TODO(owner): street address (hidden while empty)
   hours: '', // TODO(owner): opening hours (hidden while empty)
   // TODO(owner): replace with real profile URLs

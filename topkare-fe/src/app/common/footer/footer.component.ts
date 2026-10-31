@@ -3,7 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SITE } from '../../site.config';
-import { FORM_HEADERS, formContext, mailtoUrl } from '../../form-submit';
+import { FORM_HEADERS, mailtoUrl } from '../../form-submit';
 
 @Component({
   selector: 'app-footer',
@@ -14,7 +14,7 @@ export class FooterComponent {
   readonly site = SITE;
   readonly year = new Date().getFullYear();
   myForm: FormGroup;
-  state: 'idle' | 'sending' | 'success' | 'error' | 'mailto' = 'idle';
+  state: 'idle' | 'sending' | 'success' | 'error' | 'mailto' | 'unavailable' = 'idle';
 
   constructor(
     private fb: FormBuilder,
@@ -37,7 +37,7 @@ export class FooterComponent {
     if (SITE.forms.newsletterEndpoint) {
       this.state = 'sending';
       this.http
-        .post(SITE.forms.newsletterEndpoint, { email }, { headers: FORM_HEADERS, context: formContext() })
+        .post(SITE.forms.newsletterEndpoint, { email }, { headers: FORM_HEADERS })
         .subscribe({
           next: () => {
             this.state = 'success';
@@ -45,6 +45,11 @@ export class FooterComponent {
           },
           error: () => (this.state = 'error'),
         });
+      return;
+    }
+
+    if (!SITE.email) {
+      this.state = 'unavailable';
       return;
     }
 

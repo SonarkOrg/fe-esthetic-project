@@ -5,6 +5,7 @@
 /team
 /privacy
 /cookies
+/404
 /specific-class/1
 /specific-class/2
 /specific-class/3

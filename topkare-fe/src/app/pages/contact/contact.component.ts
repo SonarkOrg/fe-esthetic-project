@@ -3,9 +3,9 @@ import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SITE, phoneHref } from '../../site.config';
-import { FORM_HEADERS, formContext, mailtoUrl } from '../../form-submit';
+import { FORM_HEADERS, mailtoUrl } from '../../form-submit';
 
-type FormState = 'idle' | 'sending' | 'success' | 'error' | 'mailto';
+type FormState = 'idle' | 'sending' | 'success' | 'error' | 'mailto' | 'unavailable';
 
 @Component({
   selector: 'app-contact',
@@ -30,6 +30,10 @@ export class ContactComponent {
     });
   }
 
+  get hasDetails(): boolean {
+    return !!(SITE.phone || SITE.email || SITE.address || SITE.hours);
+  }
+
   get f() {
     return this.myForm.controls;
   }
@@ -45,7 +49,7 @@ export class ContactComponent {
     if (SITE.forms.contactEndpoint) {
       this.state = 'sending';
       this.http
-        .post(SITE.forms.contactEndpoint, { name, email, message }, { headers: FORM_HEADERS, context: formContext() })
+        .post(SITE.forms.contactEndpoint, { name, email, message }, { headers: FORM_HEADERS })
         .subscribe({
           next: () => {
             this.state = 'success';
@@ -53,6 +57,11 @@ export class ContactComponent {
           },
           error: () => (this.state = 'error'),
         });
+      return;
+    }
+
+    if (!SITE.email) {
+      this.state = 'unavailable';
       return;
     }
 

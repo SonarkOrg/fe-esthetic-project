@@ -13,7 +13,8 @@
         <p class="footer__err" *ngIf="myForm.controls['userName'].touched && myForm.controls['userName'].invalid">Please enter a valid email address.</p>
         <p class="footer__note footer__status" role="status" *ngIf="state === 'success'">Thank you, you're on the list.</p>
         <p class="footer__note footer__status" role="status" *ngIf="state === 'mailto'">Your email app should open with a sign-up message ready to send. If it doesn't, email us at <a [href]="'mailto:' + site.email">{{ site.email }}</a>.</p>
-        <p class="footer__note footer__status" role="alert" *ngIf="state === 'error'">Sorry, we couldn't sign you up just now. Please try again, or email us at <a [href]="'mailto:' + site.email">{{ site.email }}</a>.</p>
+        <p class="footer__note footer__status" role="alert" *ngIf="state === 'error'">Sorry, we couldn't sign you up just now. Please try again<ng-container *ngIf="site.email">, or email us at <a [href]="'mailto:' + site.email">{{ site.email }}</a></ng-container>.</p>
+        <p class="footer__note footer__status" role="alert" *ngIf="state === 'unavailable'">Newsletter sign-up isn't available yet.</p>
         <p class="footer__note">By subscribing you agree to receive updates from Topkare. See our <a routerLink="/privacy">Privacy policy</a>.</p>
       </div>
 

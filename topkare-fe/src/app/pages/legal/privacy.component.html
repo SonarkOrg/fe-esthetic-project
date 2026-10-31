@@ -15,7 +15,7 @@
       <p class="legal__updated">Last updated: {{ site.policyLastUpdated | date: 'longDate' : 'UTC' }}</p>
 
       <h2>Who we are</h2>
-      <p>This website is run by {{ site.name }}, a beauty studio and academy. This policy explains, in plain English, what personal information the website collects and what we do with it. You can reach us at <a [href]="'mailto:' + site.email">{{ site.email }}</a>.</p>
+      <p>This website is run by {{ site.name }}, a beauty studio and academy. This policy explains, in plain English, what personal information the website collects and what we do with it. You can reach us <ng-container *ngIf="site.email; else viaContact">at <a [href]="'mailto:' + site.email">{{ site.email }}</a></ng-container><ng-template #viaContact>through the details on our <a routerLink="/contact">Contact page</a></ng-template>.</p>
 
       <h2>What we collect</h2>
       <p>We only collect information that you choose to give us:</p>
@@ -26,12 +26,13 @@
       <p>The website has no accounts, no online payments and no booking system, so we do not collect passwords, payment details or similar information through it. We do not use analytics or advertising trackers on this site.</p>
 
       <h2>How the information reaches us</h2>
-      <p>When you use the contact form or the newsletter box, your details are either:</p>
+      <p>When you use the contact form or the newsletter box, your details are handled in one of these ways:</p>
       <ul>
         <li>sent to the form service we have set up for the site, if one is configured, which passes them to us; or</li>
-        <li>placed into an email in your own email app, which you then send to us yourself.</li>
+        <li *ngIf="site.email">where no form service is set up, placed into an email in your own email app, which you then send to us yourself.</li>
+        <li>if neither is available, the forms are switched off and nothing is collected.</li>
       </ul>
-      <p>In both cases the message ends up in our email inbox.</p>
+      <p>Either way, your details reach us only as a message that we receive and read.</p>
 
       <h2>Why we use it</h2>
       <ul>
@@ -47,7 +48,7 @@
 
       <h2>Third-party content and links</h2>
       <ul>
-        <li><strong>Fonts:</strong> the site loads typefaces from Google Fonts (fonts.googleapis.com and fonts.gstatic.com). When your browser fetches them, your IP address and browser details are sent to Google. See our <a routerLink="/cookies">Cookie policy</a> for more.</li>
+        <li><strong>Fonts:</strong> the site loads its body typeface (Open Sans) from Google Fonts (fonts.googleapis.com and fonts.gstatic.com). When your browser fetches them, your IP address and browser details are sent to Google. See our <a routerLink="/cookies">Cookie policy</a> for more.</li>
         <li><strong>Social media:</strong> the links to Instagram, X and Facebook take you to those sites, which have their own privacy policies. We are not responsible for how they handle your information.</li>
       </ul>
 
@@ -59,10 +60,10 @@
         <li>delete your information; and</li>
         <li>stop sending you newsletters.</li>
       </ul>
-      <p>Just email <a [href]="'mailto:' + site.email">{{ site.email }}</a> and we will respond as soon as we reasonably can.</p>
+      <p>Just contact us <ng-container *ngIf="site.email; else viaContact2">by email at <a [href]="'mailto:' + site.email">{{ site.email }}</a></ng-container><ng-template #viaContact2>through the details on our <a routerLink="/contact">Contact page</a></ng-template> and we will respond as soon as we reasonably can.</p>
 
       <h2>Contact us</h2>
-      <p>Questions about this policy? Email <a [href]="'mailto:' + site.email">{{ site.email }}</a><ng-container *ngIf="site.phone"> or call {{ site.phone }}</ng-container><ng-container *ngIf="site.address"> or write to us at {{ site.address }}</ng-container>.</p>
+      <p>Questions about this policy? <ng-container *ngIf="site.email; else viaContact3">Email <a [href]="'mailto:' + site.email">{{ site.email }}</a></ng-container><ng-template #viaContact3>Contact us through the details on our <a routerLink="/contact">Contact page</a></ng-template><ng-container *ngIf="site.phone"> or call {{ site.phone }}</ng-container><ng-container *ngIf="site.address"> or write to us at {{ site.address }}</ng-container>.</p>
 
       <h2>Changes to this policy</h2>
       <p>We may update this policy from time to time. The date at the top of the page shows when it was last changed.</p>

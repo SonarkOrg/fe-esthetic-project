@@ -5,7 +5,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoaderComponent } from './common/loader/loader.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './common/header/header.component';
@@ -36,7 +36,6 @@ import { OverallDescComponent } from './pages/specific-class/overall-desc/overal
 import { TeamComponent } from './pages/team/team.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TestimonialSliderComponent } from './common/testimonial-slider/testimonial-slider.component';
-import { LoadingInterceptor } from './Interceptor/loading.interceptor';
 import { LoaderService } from './Services/LoaderService/loader.service';
 import { ParallaxDirective } from './directives/parallax.directive';
 import { RevealDirective } from './directives/reveal.directive';
@@ -98,7 +97,6 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
     provideAnimationsAsync(),
     LoaderService,
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
