@@ -19,3 +19,4 @@
 .about { max-width: 70ch; margin-inline: auto; text-align: center; }
 .about__title { margin-bottom: var(--s-4); color: var(--c-green); }
 .about__text { margin: 0; font-size: var(--fs-lead); color: var(--c-muted); }
+@media (max-width: 599px) { .about { text-align: left; } }

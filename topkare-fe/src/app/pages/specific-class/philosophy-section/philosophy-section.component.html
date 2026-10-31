@@ -1,7 +1,7 @@
 <section class="philo wrap">
   <div class="philo__media" appReveal revealVariant="left">
     <div class="philo__frame zoom">
-      <img [src]="item?.img || 'assets/img/home/home-2.jpg'" [alt]="(item?.service | titlecase) + ' course in progress'" loading="lazy" />
+      <img [src]="photo.src" [alt]="photo.alt" loading="lazy" />
     </div>
   </div>
   <div class="philo__text" [appReveal]="120">
