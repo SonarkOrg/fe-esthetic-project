@@ -1,8 +1,5 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { DataService } from '../../../Services/DataService/data.service';
-import { RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-courses-area',

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-details-section',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './details-section.component.css'
 })
 export class DetailsSectionComponent {
+  @Input() service: any;
   details = [
     { img: 'assets/img/services/service-2.jpg', alt: 'Lash treatment in progress', title: 'This is what we offer',
       text: 'Every visit starts with a conversation about what you want. We take the time to understand your style, then tailor each treatment to bring out your natural features.' },

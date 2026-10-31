@@ -6,10 +6,10 @@
   <div class="cards">
     <div class="cards__item" *ngFor="let item of items; let i = index" [appReveal]="i * 130">
       <article class="course">
-        <a class="course__img zoom" [routerLink]="['/specific-class', item.id]" [attr.aria-label]="item.service + ' class'">
-          <img [src]="item.img" [alt]="item.service + ' class'" loading="lazy" />
+        <a class="course__img zoom" [routerLink]="['/specific-class', item.id]" [attr.aria-label]="(item.service | titlecase) + ' class'">
+          <img [src]="item.img" [alt]="(item.service | titlecase) + ' class'" loading="lazy" />
         </a>
-        <h2 class="course__name">{{ item.service }}</h2>
+        <h2 class="course__name">{{ item.service | titlecase }}</h2>
         <a class="pill" [routerLink]="['/specific-class', item.id]">Learn more</a>
       </article>
     </div>

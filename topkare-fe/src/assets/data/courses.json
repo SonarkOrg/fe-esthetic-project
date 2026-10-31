@@ -7,26 +7,26 @@
     "title": "Unveil Your Lash Potential!",
     "smallDesc": "Discover the art of luscious lashes with our specialized esthetic course, perfecting the fluttering eye-catching look.",
     "overview": "Elevate your lash game with our Lash Extension Mastery course. Dive into the art of lash application, learn the intricacies of different lash styles, and perfect the techniques for flawless extensions. Join us and unlock the secrets to creating captivating lash looks that dazzle and define!",
-    "showMore": "Immerse yourself in the forefront of skincare innovation as you delve into the science and technology driving laser treatments. Acquire proficiency in advanced equipment usage and refine your technique under expert guidance. Elevate your career trajectory and establish yourself as a leading authority in laser skincare.",
-    "scheduleDesc": "Transform your look and embrace effortless beauty by scheduling an appointment with us for lash services. From natural enhancements to dramatic extensions, our skilled technicians tailor each treatment to enhance your unique features. Experience the advantage of luscious lashes that elevate your confidence and allure.",
+    "showMore": "Go deeper into the craft with hands-on practice on live models. You will refine your isolation, adhesive control and speed under the guidance of working lash artists, and graduate ready to build a loyal clientele of your own.",
+    "scheduleDesc": "Join a small group of no more than six students and learn lash artistry through plenty of hands-on practice on live models. Our working lash artists guide every step, from mapping to application. Get in touch to ask about dates, the kit included and how to enrol.",
     "classDesc": [
       {
         "id": 1,
-        "title": "Precision Lash Extension Techniques:",
+        "title": "Precision Lash Extension Techniques",
         "desc": "Unlock the secrets to flawless lash extensions with our precision-focused classes. Dive into the intricacies of isolation, placement, and adhesive control to achieve seamless, long-lasting results. Learn advanced techniques for volume, length, and curl manipulation, allowing you to create custom lash looks that enhance natural beauty with precision and finesse."
       },
       {
         "id": 2,
-        "title": "Lash Lift and Tint Mastery:",
+        "title": "Lash Lift and Tint Mastery",
         "desc": "Discover the art of lash lift and tint techniques in our comprehensive classes. Master the skills to lift and curl natural lashes, creating the illusion of longer, fuller lashes without extensions. Learn how to expertly tint lashes for added definition and depth, offering clients a low-maintenance yet high-impact enhancement to their natural beauty."
       },
       {
         "id": 3,
-        "title": "Alignment and input workshops",
-        "desc": "In the initial phase, we work closely with you to understand your business needs, objectives, and knowledge gaps. Through interactive workshops, we align on the project scope, discuss the business context, and gather enough input so we can help you define your goals and create the winning strategy."
+        "title": "Lash Mapping and Client Consultation",
+        "desc": "Start every set with confidence. Learn to assess eye shape, natural lash health and lifestyle, then design a custom lash map together with your client. Practise consultation, patch testing and aftercare advice so every client leaves with a look she loves and knows how to keep it beautiful."
       }
       ],
-      "img": "../../../assets/img/home/home-1.jpg"
+      "img": "../../../assets/img/services/service-2.jpg"
     },
   {
     "id": 2,
@@ -37,26 +37,26 @@
     "smallDesc": "Unleash your creativity with our nail esthetic course, mastering the intricate designs for stunning manicures every time.",
     "overview": "Dive into the world of nail artistry with our innovative Nail Design Mastery course. From intricate designs to bold statements, this class will equip you with the techniques and creativity to sculpt stunning nail masterpieces. Join us and unleash your imagination onto the canvas of nails!",
     "showMore": "Discover the latest trends and techniques in nail shaping, color theory, and embellishments while receiving personalized guidance from industry experts. Elevate your skills and join a community of passionate nail artists dedicated to pushing the boundaries of creativity.",
-    "scheduleDesc": "For the ultimate nail experience tailored to your unique style, reach out to us today. Our personalized consultations ensure your nails reflect your personality and preferences, from intricate designs to classic elegance. Experience the advantage of custom nail artistry for a look that truly speaks volumes.",
+    "scheduleDesc": "Our nail classes run in small groups, with plenty of practice time at your own station. You will leave with the techniques, confidence and portfolio pieces to start taking clients. Reach out to ask about upcoming dates and how to enrol.",
     "classDesc": [
       {
         "id": 1,
-        "title": "Innovative Nail Designs:",
+        "title": "Innovative Nail Designs",
         "desc": "Unleash your creativity with our innovative nail design classes. From geometric patterns to 3D embellishments, explore a myriad of artistic possibilities. Learn techniques for intricate detailing, gradient effects, and mixed media applications, allowing you to express your unique style with every manicure."
       },
       {
         "id": 2,
-        "title": "Sculpting Mastery:",
+        "title": "Sculpting Mastery",
         "desc": "Master the art of nail sculpting with our comprehensive classes. Dive deep into acrylic and gel techniques, mastering the skills to create flawless extensions and overlays. Learn precision shaping, apex placement, and seamless blending to sculpt nails that are both durable and visually stunning."
       },
       {
         "id": 3,
-        "title": "Luxurious Spa Treatments:",
+        "title": "Luxurious Spa Treatments",
         "desc": "Indulge in the art of relaxation with our luxurious spa nail treatments. Experience rejuvenating manicures and pedicures designed to pamper and revitalize. From hydrating masks to exfoliating scrubs, our classes cover the latest spa techniques, ensuring your clients leave feeling refreshed, renewed, and utterly pampered."
       }
       ],
     "mainImg": "",
-    "img": "../../../assets/img/home/home-2.jpg"
+    "img": "../../../assets/img/services/service-3.jpg"
   },
   {
     "id": 3,
@@ -66,26 +66,26 @@
     "boldedInv": "",
     "smallDesc": "Explore the science and precision behind laser treatments in our esthetic course, achieving flawless skin rejuvenation techniques.",
     "overview": "Step into the future of skincare with our Laser Technology Essentials course. Explore the science behind laser treatments, master the use of cutting-edge equipment, and gain hands-on experience in delivering safe and effective results. Elevate your career and become a trusted expert in the world of laser skincare!",
-    "showMore": "",
-    "scheduleDesc": "Unlock the door to radiant, flawless skin by contacting us for laser treatments. Benefit from our state-of-the-art equipment and personalized treatment plans, designed to address your specific skincare concerns. Experience the advantage of cutting-edge technology and expertise, bringing out the best version of your skin.",
+    "showMore": "Go beyond the theory with supervised practice on modern devices. You will learn to select the right settings for each skin type, track results over a treatment plan and communicate clearly with clients, so you can deliver safe, confident care from your first day.",
+    "scheduleDesc": "Train on modern laser equipment in a small group, with expert guidance at every stage and plenty of supervised, hands-on practice. Safety and skin analysis are built into the course from day one. Contact us to ask about dates, prerequisites and how to enrol.",
     "classDesc": [
       {
         "id": 1,
-        "title": "Advanced Laser Treatment Techniques:",
+        "title": "Advanced Laser Treatment Techniques",
         "desc": "Delve into the realm of advanced laser treatments with our comprehensive classes. Learn the latest techniques in hair removal, skin rejuvenation, and pigmentation correction. Master the art of laser parameter adjustment, spot sizing, and pulse duration for precise and effective treatment delivery, ensuring optimal results for every client."
       },
       {
         "id": 2,
-        "title": "Safety Protocols and Skin Analysis:",
+        "title": "Safety Protocols and Skin Analysis",
         "desc": "Gain expertise in laser safety protocols and skin analysis techniques essential for successful treatment outcomes. Understand the principles of skin typing, melanin assessment, and contraindication identification to ensure client safety and treatment efficacy. Learn how to conduct thorough consultations and develop customized treatment plans tailored to individual skin concerns and goals."
       },
       {
         "id": 3,
-        "title": "Cutting-Edge Laser Technology Mastery:",
+        "title": "Cutting-Edge Laser Technology Mastery",
         "desc": "Explore the cutting-edge technology driving modern laser treatments in our hands-on classes. Gain proficiency in operating state-of-the-art laser devices, including diode lasers, Nd:YAG lasers, and IPL systems. Learn how to optimize treatment parameters, perform maintenance checks, and troubleshoot common issues, empowering you to deliver superior results and client satisfaction."
       }
       ],
     "mainImg": "",
-    "img": "../../../assets/img/home/home-3.jpg"
+    "img": "../../../assets/img/services/service-1.jpg"
   }
 ]

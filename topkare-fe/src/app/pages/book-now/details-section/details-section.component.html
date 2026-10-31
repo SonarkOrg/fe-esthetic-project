@@ -1,4 +1,9 @@
 <section class="details wrap">
+  <article class="about" *ngIf="service?.desc" appReveal>
+    <span class="eyebrow">About this service</span>
+    <h2 class="about__title">{{ service.title | titlecase }}</h2>
+    <p class="about__text">{{ service.desc }}</p>
+  </article>
   <article class="detail" *ngFor="let d of details; let i = index" [class.detail--flip]="i % 2 === 1">
     <div class="detail__media" [appReveal]="0" [revealVariant]="i % 2 ? 'right' : 'left'">
       <div class="detail__img plx">
@@ -10,7 +15,7 @@
     <div class="detail__text" [appReveal]="140">
       <h2 class="detail__title">{{ d.title }}</h2>
       <p>{{ d.text }}</p>
-      <a class="pill pill--sage" routerLink="/contact">Discover what we can do for you</a>
+      <a class="pill pill--sage" routerLink="/contact">Request an appointment</a>
     </div>
   </article>
 </section>

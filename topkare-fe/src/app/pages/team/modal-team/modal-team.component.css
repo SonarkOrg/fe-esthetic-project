@@ -32,3 +32,5 @@
   .modal { grid-template-columns: 1.2fr 1fr; align-items: center; }
   .modal__facts { grid-template-columns: 1fr 1fr; }
 }
+
+.modal__mono { display: grid; place-items: center; width: min(300px, 70%); aspect-ratio: 3 / 4; border-radius: var(--r-md); background: linear-gradient(160deg, var(--c-sage-100), var(--c-sage)); font-family: var(--font-display); font-size: clamp(3rem, 2rem + 4vw, 5rem); letter-spacing: 0.04em; color: var(--c-green); box-shadow: var(--shadow-lg); }

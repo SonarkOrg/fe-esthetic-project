@@ -13,9 +13,8 @@
 }
 :host(.is-scrolled) .top-header {
   height: 64px;
-  background: rgba(47, 74, 52, 0.84);
-  -webkit-backdrop-filter: saturate(160%) blur(14px);
-  backdrop-filter: saturate(160%) blur(14px);
+  /* solid (not translucent): the logo PNG has a flat green background that must match the bar */
+  background: var(--c-green);
   box-shadow: 0 8px 28px -10px rgba(20, 35, 24, 0.55);
 }
 .top-header__inner {
@@ -31,6 +30,7 @@
 }
 .logo { display: inline-flex; flex: none; }
 .logo img {
+  mix-blend-mode: lighten;
   height: 48px;
   width: auto;
   transition: height var(--t-base);

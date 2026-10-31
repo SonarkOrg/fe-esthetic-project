@@ -9,17 +9,13 @@ export class ModalService {
   constructor(public dialog: MatDialog) {}
 
   openModal(name: string, firstName: string, location: string, position: string, content: string, funFact1: string, funFact2: string, image?: string): void {
-    const dialogRef = this.dialog.open(ModalTeamComponent, {
+    this.dialog.open(ModalTeamComponent, {
       width: '960px',
       maxWidth: '94vw',
       maxHeight: '92vh',
       panelClass: 'team-dialog',
       autoFocus: 'dialog',
       data: { name, firstName, location, position, content, funFact1, funFact2, image },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
     });
   }
 }

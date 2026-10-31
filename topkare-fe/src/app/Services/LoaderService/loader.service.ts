@@ -1,14 +1,11 @@
 // loading.service.ts
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import {
-  NavigationCancel,
-  NavigationEnd,
-  NavigationError,
-  NavigationStart,
-  Router,
-} from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+
+/** The overlay only appears if loading is still in progress after this many ms. */
+export const LOADER_SHOW_DELAY_MS = 300;
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +14,7 @@ export class LoaderService {
   private readonly isBrowser: boolean;
   private _isLoading = new BehaviorSubject<boolean>(false);
   public readonly isLoading = this._isLoading.asObservable();
-  private stopTimer: ReturnType<typeof setTimeout> | null = null;
+  private showTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor(private router: Router, @Inject(PLATFORM_ID) platformId: object) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -31,7 +28,8 @@ export class LoaderService {
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        this.startLoading();
+        // The first navigation is the initial load, already painted by SSR: no overlay.
+        if (event.id !== 1) this.startLoading();
       } else if (
         event instanceof NavigationEnd ||
         event instanceof NavigationCancel ||
@@ -42,29 +40,30 @@ export class LoaderService {
     });
   }
 
+  /** Shows the overlay only if the work is still running after LOADER_SHOW_DELAY_MS. */
   startLoading() {
     if (!this.isBrowser) {
       return;
     }
-    this.clearStopTimer();
-    this._isLoading.next(true);
+    this.clearShowTimer();
+    this.showTimer = setTimeout(() => {
+      this.showTimer = null;
+      this._isLoading.next(true);
+    }, LOADER_SHOW_DELAY_MS);
   }
 
   stopLoading() {
     if (!this.isBrowser) {
       return;
     }
-    this.clearStopTimer();
-    this.stopTimer = setTimeout(() => {
-      this.stopTimer = null;
-      this._isLoading.next(false);
-    }, 250); // Short delay so the overlay does not flicker off instantly
+    this.clearShowTimer();
+    this._isLoading.next(false);
   }
 
-  private clearStopTimer() {
-    if (this.stopTimer !== null) {
-      clearTimeout(this.stopTimer);
-      this.stopTimer = null;
+  private clearShowTimer() {
+    if (this.showTimer !== null) {
+      clearTimeout(this.showTimer);
+      this.showTimer = null;
     }
   }
 }

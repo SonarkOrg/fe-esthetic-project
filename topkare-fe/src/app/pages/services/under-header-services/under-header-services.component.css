@@ -1,5 +1,4 @@
-.grid { display: grid; gap: var(--s-6); align-items: end; }
-.title { font-size: clamp(1.75rem, 1rem + 2.8vw, 3.25rem); line-height: 1.15; text-transform: uppercase; }
+.grid { display: grid; gap: var(--s-5); align-items: end; }
 .side p { max-width: 55ch; opacity: 0.92; }
 .buttons { display: flex; flex-wrap: wrap; gap: var(--s-3); }
 @media (min-width: 900px) { .grid { grid-template-columns: 1.1fr 1fr; gap: var(--s-8); } }

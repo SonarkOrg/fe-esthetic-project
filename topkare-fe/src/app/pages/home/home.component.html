@@ -3,13 +3,18 @@
   <app-slider-images
     [items]="topSlider"
     [autoSlide]="true"
-    ctaLabel="Book Makeup"
+    eyebrow="Beauty studio &amp; academy"
+    heading="A complete approach to your beauty routine"
+    lead="Lashes, nails and laser treatments from a calm, expert team, plus classes for those who want to learn the craft."
+    ctaLabel="Book now"
     [ctaLink]="['/specific-service', 1]"
+    secondaryLabel="Explore classes"
+    secondaryLink="/classes"
   ></app-slider-images>
   <app-description-area></app-description-area>
   <app-courses-area></app-courses-area>
-  <app-contact-area></app-contact-area>
-  <app-carousel [items]="carouselItems"></app-carousel>
+  <app-carousel [items]="servicesData"></app-carousel>
   <app-testimonial-slider [testimonies]="testimonyData"></app-testimonial-slider>
+  <app-contact-area></app-contact-area>
 </main>
 <app-footer></app-footer>

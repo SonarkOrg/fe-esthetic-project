@@ -1,14 +1,9 @@
 <section class="intro wrap">
-  <h2 class="intro__title" appReveal>
-    <span class="intro__light">A complete approach to</span>
-    <strong class="intro__bold">your beauty routine</strong>
-  </h2>
-  <div [appReveal]="120">
-    <p class="intro__text">
-      Our mission is to redefine your beauty experience with precision, innovation, and personalized care. From
-      luxurious spa treatments to cutting-edge laser solutions, we're dedicated to enhancing your natural beauty and
-      confidence. Step into a world of beauty excellence with Topkare today.
-    </p>
-    <a class="pill pill--lg" [routerLink]="['/specific-service', 1]">Schedule an appointment</a>
-  </div>
+  <span class="eyebrow" appReveal revealVariant="fade">What we do</span>
+  <p class="intro__text" [appReveal]="80">
+    From natural-looking lash extensions, lifts and tints, to manicures and nail art, to gentle laser treatments for
+    smooth, even skin, every visit starts with a conversation about you. We choose the technique, products and timing
+    that suit your lifestyle, then take our time to get the details right.
+  </p>
+  <div [appReveal]="160"><a class="pill pill--dark-outline pill--lg" [routerLink]="['/specific-service', 1]">Schedule an appointment</a></div>
 </section>

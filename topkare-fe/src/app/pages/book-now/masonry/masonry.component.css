@@ -1,4 +1,5 @@
-.inspire { padding-block: var(--section-y) 0; }
+:host { display: block; background: var(--c-cream); }
+.inspire { padding-block: var(--section-y); }
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

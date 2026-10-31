@@ -1,16 +1,31 @@
 <app-header></app-header>
 <main>
+  <section class="banner" *ngIf="notFound">
+    <div class="wrap">
+      <a class="back-link" routerLink="/classes"><img src="assets/img/header/arrow-left.svg" alt="" /> Back to classes</a>
+      <hr />
+      <span class="banner__eyebrow">Classes</span>
+      <h1 class="banner__title">We couldn't find <span class="accent">that class</span></h1>
+    </div>
+  </section>
+  <section class="missing wrap" *ngIf="notFound">
+    <p>That class doesn't exist or is no longer offered. Browse everything we teach instead.</p>
+    <a class="pill pill--lg" routerLink="/classes">See all classes</a>
+  </section>
+  <ng-container *ngIf="!notFound">
   <section class="top plx">
     <div class="plx__layer" [appParallax]="0.3">
       <img [src]="itemData?.img" alt="" />
     </div>
     <div class="top__shade" aria-hidden="true"></div>
     <div class="top__content wrap">
-      <h1 class="top__title" appReveal revealVariant="fade">You're happy,<br /><span class="top__second">we're happy</span></h1>
+      <span class="banner__eyebrow">Classes</span>
+      <h1 class="top__title" appReveal revealVariant="fade">{{ itemData?.service | titlecase }} course</h1>
     </div>
   </section>
   <app-philosophy-section [item]="itemData"></app-philosophy-section>
   <app-card-section [item]="itemData"></app-card-section>
   <app-overall-desc [item]="itemData?.classDesc"></app-overall-desc>
+  </ng-container>
 </main>
 <app-footer></app-footer>

@@ -12,9 +12,15 @@ export class SliderImagesComponent {
   @Input() controls = true;
   @Input() autoSlide = false;
   @Input() slideInterval = 6000;
-  /** Optional call-to-action pill laid over the image. */
+  /** Optional hero copy laid over the image. */
+  @Input() eyebrow = '';
+  @Input() heading = '';
+  @Input() lead = '';
+  /** Optional call-to-action pills laid over the image. */
   @Input() ctaLabel = '';
   @Input() ctaLink: string | any[] = '/';
+  @Input() secondaryLabel = '';
+  @Input() secondaryLink: string | any[] = '/';
 
   selectedIndex = 0;
   private timer?: ReturnType<typeof setInterval>;

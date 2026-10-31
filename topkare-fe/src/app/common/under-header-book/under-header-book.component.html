@@ -2,6 +2,10 @@
   <div class="wrap">
     <a class="back-link" routerLink="/"><img src="assets/img/header/arrow-left.svg" alt="" /> Back to home</a>
     <hr />
-    <h1 class="title" appReveal>Come get your<br /><span class="accent title__second">beauty done</span></h1>
+    <span class="banner__eyebrow">Book your visit</span>
+    <h1 class="banner__title" appReveal>
+      <ng-container *ngIf="service?.title; else fallback">{{ service.title | titlecase }}</ng-container>
+      <ng-template #fallback>Come get your <span class="accent">beauty done</span></ng-template>
+    </h1>
   </div>
 </section>
