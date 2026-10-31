@@ -1,0 +1,23 @@
+<!-- carousel.component.html -->
+<div class="carousel">
+  <div class="header">
+    <h1>WHAT THEY SAY ABOUT US</h1>
+  </div>
+  <div class="carousel-items">
+    <div *ngFor="let item of getVisibleTestimonies(); let i = index" class="carousel-item" [ngClass]="{ 'active': i === 1 }">
+      <p *ngIf="i === 0 && activeIndex > 0">{{ testimonies[activeIndex - 1].desc }}</p>
+      <p *ngIf="i === 0 && activeIndex === 0">{{ testimonies[testimonies.length - 1].desc }}</p>
+      <p *ngIf="i === 1">{{ item.desc }}</p>
+      <p *ngIf="i === 2 && activeIndex < testimonies.length - 1">{{ testimonies[activeIndex + 1].desc }}</p>
+      <p *ngIf="i === 2 && activeIndex === testimonies.length - 1">{{ testimonies[0].desc }}</p>
+    </div>
+  </div>
+  <div class="bottom-section" *ngIf="testimonies[activeIndex]">
+    <img src="assets/img/home/carousel/arrow-left.svg" alt="" (click)="prev()" class="arrow left"/>
+    <div class="text-section">
+      <h2>{{ testimonies[activeIndex].service }}</h2>
+      <h3>{{ testimonies[activeIndex].name }}</h3>
+    </div>
+    <img src="assets/img/home/carousel/arrow-right.svg" alt="" (click)="next()" class="arrow right"/>
+  </div>
+</div>

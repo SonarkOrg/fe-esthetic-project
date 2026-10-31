@@ -1,0 +1,45 @@
+<app-header></app-header>
+<main class="team">
+  <section class="hero plx">
+    <div class="plx__layer" [appParallax]="0.3">
+      <img src="assets/img/home/home-2.jpg" alt="" />
+    </div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="hero__inner wrap">
+      <h1 class="hero__title" appReveal>We're one studio,<br />sharing one drive.</h1>
+      <div class="hero__text" [appReveal]="140">
+        <p>We're lash artists, nail technicians, laser specialists and educators. We're plant lovers, early risers, coffee fans and perfectionists, united by the joy of helping people feel like the best version of themselves.</p>
+        <p>And you'll never get only one of us. The combined experience of our team stands behind you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="people wrap" aria-label="Our team">
+    <div class="filters" role="group" aria-label="Filter team by speciality">
+      <button
+        type="button"
+        class="chip"
+        *ngFor="let f of filters"
+        [class.is-active]="activeFilter === f"
+        [attr.aria-pressed]="activeFilter === f"
+        (click)="setFilter(f)"
+      >{{ f }}</button>
+    </div>
+
+    <div class="grid">
+      <div class="grid__item" *ngFor="let m of visible; let i = index" [appReveal]="i * 140">
+        <article class="member">
+          <div class="member__photo">
+            <span class="member__mono" aria-hidden="true">{{ initials(m) }}</span>
+            <button type="button" class="member__more" [attr.aria-label]="'Read more about ' + m.firstName" (click)="openModal(m)">
+              <img src="assets/img/team/plus.svg" alt="" />
+            </button>
+          </div>
+          <h2 class="member__name">{{ m.firstName }} {{ m.name }}</h2>
+          <p class="member__role">{{ m.role }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer-team></app-footer-team>

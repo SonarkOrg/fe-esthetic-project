@@ -1,0 +1,22 @@
+<section class="banner">
+  <div class="wrap">
+    <a class="back-link" routerLink="/"><img src="assets/img/header/arrow-left.svg" alt="" /> Back to home</a>
+    <hr />
+    <div class="grid">
+      <div>
+        <span class="banner__eyebrow">Services</span>
+        <h1 class="banner__title" appReveal>The best care and services, <span class="accent">made for you</span></h1>
+      </div>
+      <div class="side" [appReveal]="120">
+        <p>
+          Get thoughtful and valuable advice on how to care for your skin, lashes and nails. Our specialists will guide
+          you towards a routine that fits your lifestyle, your goals and your budget.
+        </p>
+        <div class="buttons">
+          <a class="pill pill--sage" [routerLink]="['/specific-service', 1]">Book now</a>
+          <a class="pill pill--outline" routerLink="/contact">Reach out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

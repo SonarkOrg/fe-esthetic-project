@@ -1,0 +1,96 @@
+h2{
+  font-family: 'Krona One';
+  text-align: justify;
+  font-size: 35px;
+}
+
+p{
+  font-family: 'Krona One';
+  width: 70%;
+  font-size: 14px;
+}
+
+.philo-container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 400px;
+  flex-wrap: wrap;
+}
+
+.img-container{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.img{
+  width: 60%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: -16px -16px #3A5A40, -26px -26px rgba(173, 193, 120, 0.45);
+}
+
+.text-container{
+  width: 50%;
+}
+
+.btn{
+  display: flex;
+  justify-content: flex-end !important;
+  align-items: center;
+  width: 60%;
+}
+
+.tag{
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.tag:hover{
+  transform: scale(1.4);
+}
+
+@media screen and (max-width: 1016px) {
+  h2{
+    font-size: 30px;
+  }
+
+  p{
+    font-size: 15px;
+    width: 100%;
+  }
+
+  .img{
+    border-radius: 14px;
+    box-shadow: -8px -8px #3A5A40, -16px -16px rgba(173, 193, 120, 0.45);
+  }
+
+  .philo-container{
+    flex-direction: column;
+    margin-top: 50px;
+    min-height: 200px;
+  }
+
+  .img-container,
+  .text-container{
+    margin-top: 15px;
+    width: 90%;
+  }
+
+  .btn{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  h2{
+    font-size: 20px;
+  }
+
+  p{
+    font-size: 10px;
+  }
+}

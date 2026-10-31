@@ -1,0 +1,179 @@
+.section-container{
+  display: flex;
+  justify-content: center;
+}
+
+.contact-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  min-height: 320px;
+  width: 70%;
+  background-color: #3A5A40;
+  border-radius: 35px;
+}
+
+.header-contact{
+  margin-top: 4%;
+  color: #FEFAE0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+p.unbolded{
+  display: flex;
+  justify-content: center;
+  font-family: 'Krona One';
+  font-weight: 100;
+  font-size: 15px;
+  margin: 0;
+}
+
+p.bolded{
+  display: flex;
+  justify-content: center;
+  font-family: 'Krona One';
+  font-weight: 800;
+  font-size: 25px;
+  margin: 0;
+}
+
+.contact-desc{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  color: #FEFAE0;
+  opacity: 80%;
+  font-size: 20px;
+  margin-top: 5%;
+}
+
+.button-section{
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+}
+
+a.left-btn{
+  display: flex;
+  justify-content: center;
+  border: 3px;
+  border-style: solid;
+  border-color: #ADC178;
+  background-color: #ADC178;
+  text-decoration: none;
+  border-radius: 24px;
+  padding: 6px;
+  margin: 12px;
+  width: 50%;
+  color: #FEFAE0;
+  font-family: 'Open Sans', sans-serif;
+  transition: 0.7s ease-in-out;
+  -webkit-transition:  0.7s ease-in-out;
+  -moz-transition:  0.7s ease-in-out;
+  -o-transition:  0.7s ease-in-out;}
+
+a.right-btn{
+  display: flex;
+  justify-content: center;
+  border: 3px;
+  border-style: solid;
+  border-color: #ADC178;
+  text-decoration: none;
+  border-radius: 24px;
+  padding: 6px;
+  margin: 12px;
+  width: 50%;
+  color: #FEFAE0;
+  font-family: 'Open Sans', sans-serif;
+  transition: 0.7 ease-in-out;
+  -webkit-transition:  0.7s ease-in-out;
+  -moz-transition:  0.7s ease-in-out;
+  -o-transition:  0.7s ease-in-out;
+}
+
+a.left-btn:hover{
+  transform: scale(110%);
+}
+
+a.right-btn:hover{
+  transform: scale(110%);
+  background-color: #ADC178;
+}
+
+/* Add media query for smaller screens */
+@media screen and (max-width: 1016px) {
+  .section-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-height: 320px;
+    width: 70%;
+    background-color: #3A5A40;
+    border-radius: 35px;
+  }
+
+  .header-contact{
+    margin-top: 4%;
+    color: #FEFAE0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  p.unbolded{
+    font-weight: 100;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  p.bolded{
+    font-weight: 800;
+    font-size: 25px;
+    margin: 0;
+  }
+
+  .contact-desc{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    color: #FEFAE0;
+    opacity: 80%;
+    font-size: 20px;
+    margin-top: 5%;
+  }
+
+  .button-section{
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  p.bolded{
+    font-size: 18px;
+  }
+
+  p.unbolded{
+    font-size: 14px;
+  }
+
+  .button-section{
+    font-size: 10px;
+  }
+
+  .contact-desc{
+    text-align: center;
+  }
+}

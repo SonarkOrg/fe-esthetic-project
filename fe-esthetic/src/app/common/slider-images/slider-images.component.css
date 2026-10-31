@@ -1,0 +1,65 @@
+/* Add this to your styles.css or component-specific CSS file */
+.container-item {
+  /* Add any other styles for .container-item */
+}
+
+.flex-container {
+  position: relative;
+}
+
+.top-img {
+  width: 100%; /* Take the whole width */
+  transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  -webkit-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  -moz-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  transition-duration: 1.5s;
+}
+
+.button-container {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10%;
+  width: 80%;
+  transform: translateY(-50%);
+  transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  -webkit-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  -moz-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  transition-duration: 1.5s;
+}
+
+.arrow {
+  /* Add any styles for .arrow */
+  cursor: pointer;
+}
+
+/* Add keyframe animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Apply keyframe animations on activeIndex change */
+.container-item.ng-enter {
+  animation: slideIn 0.7s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.container-item.ng-leave {
+  animation: slideOut 0.7s ease-in-out, filter 0.5s ease-in-out;
+}

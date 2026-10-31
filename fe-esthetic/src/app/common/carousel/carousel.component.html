@@ -1,0 +1,19 @@
+<!-- carousel.component.html -->
+<div class="carousel">
+  <div class="header">
+    <h1>OUR SERVICES</h1>
+  </div>
+  <div class="carousel-items" >
+    <div *ngFor="let item of items; let i = index" class="carousel-item" [ngClass]="{ 'active': i === activeIndex }">
+      <img [src]="item.imageUrl" alt="Carousel Item {{ item.id }}" />
+      <!-- <button *ngIf="i === activeIndex" (click)="prev()" class="arrow left">&lt;</button>
+      <button *ngIf="i === activeIndex" (click)="next()" class="arrow right">&gt;</button> -->
+    </div>
+  </div>
+  <div class="bottom-section" *ngIf="items[activeIndex]">
+    <img src="assets/img/home/carousel/testimony-arrow-left.svg" alt="" (click)="prev();" class="arrow left"/>
+    <a href="">Learn More About {{ items[activeIndex].title }}</a>
+    <img src="assets/img/home/carousel/testimony-arrow-right.svg" alt="" (click)="next();" class="arrow right"/>
+  </div>
+
+</div>

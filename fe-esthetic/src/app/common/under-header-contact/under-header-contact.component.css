@@ -1,0 +1,74 @@
+h1{
+  color: #FEFAE0;
+  font-family: 'Krona One', sans-serif;
+  text-align: end;
+  font-size: 50px;
+}
+
+a{
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  color: #FEFAE0;
+  width: 30%;
+}
+
+.text-container:hover{
+  transform: scale(1.2);
+  transform: translateX(-3%);
+  opacity: 0.60;
+}
+
+p{
+  color: #FEFAE0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+hr{
+  color: #FEFAE0;
+  background-color: #FEFAE0;
+  margin-right: 13%;
+  width: 70%;
+  margin-left: 20%;
+  border-color: #FEFAE0;
+}
+
+.under-header{
+  background-color: #3A5A40;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  border-radius: 0px 0px 24px 24px;
+}
+
+.text-container{
+  display: flex;
+  align-items: center;
+  margin-left: 25%;
+  width: 75%;
+  -webkit-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  -moz-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out, filter 0.5s ease-in-out;
+  transition-duration: 1.5s;
+  transition: transform 0.7s ease-in-out;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  margin-right: 12%;
+  padding: 0px;
+}
+
+.color{
+  color: #ADC178;
+}
+
+@media screen and (max-width: 576px){
+  h1{
+    font-size: 25px;
+  }
+
+  .under-header{
+    min-height: 180px;
+  }
+}

@@ -1,0 +1,36 @@
+:host { display: block; }
+.modal {
+  position: relative;
+  display: grid;
+  gap: var(--s-6);
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  background: linear-gradient(145deg, #0f1c13, #1f3324 70%);
+  color: var(--c-cream);
+}
+.modal__close {
+  position: absolute; top: var(--s-4); right: var(--s-4); z-index: 2;
+  display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: rgba(254, 250, 224, 0.12); color: var(--c-cream); font-size: 1.2rem; cursor: pointer;
+  transition: transform var(--t-base), background-color var(--t-fast);
+}
+.modal__close:hover { background: rgba(254, 250, 224, 0.25); transform: rotate(90deg); }
+.modal__name { font-size: clamp(1.5rem, 1rem + 2.5vw, 2.5rem); text-transform: uppercase; margin-bottom: var(--s-4); }
+.modal__where { font-style: italic; margin-bottom: var(--s-5); }
+.modal__role { opacity: 0.6; }
+.modal__quote { font-size: 1rem; line-height: 1.75; }
+.modal__facts { display: grid; gap: var(--s-4); margin-top: var(--s-5); font-size: var(--fs-small); font-style: italic; opacity: 0.65; }
+.modal__facts p { margin: 0; }
+.modal__media { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); }
+.modal__img { width: min(300px, 70%); aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-md); box-shadow: var(--shadow-lg); }
+.modal__follow {
+  display: inline-flex; align-items: center; gap: var(--s-3); font-family: var(--font-display); font-size: var(--fs-small);
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--c-cream);
+  transition: color var(--t-fast), gap var(--t-base);
+}
+.modal__follow:hover { color: var(--c-sage); gap: var(--s-4); }
+@media (min-width: 760px) {
+  .modal { grid-template-columns: 1.2fr 1fr; align-items: center; }
+  .modal__facts { grid-template-columns: 1fr 1fr; }
+}
+
+.modal__mono { display: grid; place-items: center; width: min(300px, 70%); aspect-ratio: 3 / 4; border-radius: var(--r-md); background: linear-gradient(160deg, var(--c-sage-100), var(--c-sage)); font-family: var(--font-display); font-size: clamp(3rem, 2rem + 4vw, 5rem); letter-spacing: 0.04em; color: var(--c-green); box-shadow: var(--shadow-lg); }

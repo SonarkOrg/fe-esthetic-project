@@ -1,0 +1,14 @@
+.image-container{
+  width: 100%;
+  background-color: red;
+  overflow: hidden;
+  height: 300px;
+}
+
+.img-separator{
+  width: 100%; /* Allow the image to take the full width of its container */
+  height: 100%; /* Set the height to 100% to maintain aspect ratio */
+  object-fit: cover; /* Clip the image to cover the container while maintaining its aspect ratio */
+  object-position: top; /* Show only the top portion of the image */
+  display: block; /* Remove extra space below inline images */
+}

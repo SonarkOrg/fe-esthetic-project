@@ -1,0 +1,3 @@
+:host { display: block; background: var(--c-white); }
+.services { padding-block: var(--section-y); }
+.services .section-title { margin-bottom: var(--s-7); }

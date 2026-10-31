@@ -1,0 +1,25 @@
+<div class="container">
+  <!-- carousel.component.html -->
+  <div class="carousel">
+    <!--<div class="header">
+      <h1>OUR SERVICES</h1>
+    </div>-->
+    <div class="carousel-items" >
+      <div *ngFor="let item of items; let i = index" class="carousel-item" [ngClass]="{ 'active': i === activeIndex }">
+        <img [src]="item.imageUrl" alt="Carousel Item {{ item.id }}" />
+        <!-- <button *ngIf="i === activeIndex" (click)="prev()" class="arrow left">&lt;</button>
+        <button *ngIf="i === activeIndex" (click)="next()" class="arrow right">&gt;</button> -->
+      </div>
+    </div>
+    <div class="bottom-section" *ngIf="items[activeIndex]">
+      <img src="assets/img/home/carousel/testimony-arrow-left.svg" alt="" (click)="prev();" class="arrow left"/>
+      <div class="desc">
+        <h3 class="top-left">LASHES</h3>
+        <p class="full-desc">We offer a lash service to give you the look you have always dreamed of and we make sure that all your refills and aesthetic preferences are saved inyour client file for a seamless and perfect service</p>
+      </div>
+      <!--<a href="">Learn More About {{ items[activeIndex].title }}</a>-->
+      <img src="assets/img/home/carousel/testimony-arrow-right.svg" alt="" (click)="next();" class="arrow right"/>
+    </div>
+
+  </div>
+</div>

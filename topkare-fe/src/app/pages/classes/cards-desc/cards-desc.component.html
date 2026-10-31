@@ -1,0 +1,13 @@
+<section class="rows wrap" aria-label="Class details">
+  <div class="row-item" *ngFor="let r of rows; let i = index" [appReveal]="0">
+    <article class="row" [class.row--flip]="i % 2 === 1">
+      <div class="row__badge">{{ r.badge }}</div>
+      <div class="row__body">
+        <h2 class="row__title">{{ r.title }}</h2>
+        <p class="row__text">{{ r.text }}</p>
+        <a class="pill pill--sage" [routerLink]="['/specific-class', r.id]">Schedule a call</a>
+      </div>
+      <div class="row__img zoom"><img [src]="r.img" [alt]="r.alt" loading="lazy" /></div>
+    </article>
+  </div>
+</section>

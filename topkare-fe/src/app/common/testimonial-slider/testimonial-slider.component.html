@@ -1,0 +1,43 @@
+<section *ngIf="testimonies && testimonies.length > 0" class="testi" aria-roledescription="carousel" aria-label="Client testimonials">
+  <div class="wrap">
+  <h2 class="section-title" appReveal>What they say about us</h2>
+
+  <div class="testi__card" appReveal revealVariant="zoom">
+    <div class="testi__slides" aria-live="polite">
+      <figure
+        class="testi__slide"
+        *ngFor="let item of testimonies; let i = index"
+        [class.is-active]="selectedIndex === i"
+        [attr.aria-hidden]="selectedIndex === i ? null : 'true'"
+      >
+        <span class="testi__avatar" aria-hidden="true">{{ initials(item.name) }}</span>
+        <i class="fa-solid fa-quote-left testi__quote-icon" aria-hidden="true"></i>
+        <blockquote class="testi__text">{{ item.desc }}</blockquote>
+        <figcaption class="testi__who">
+          <span class="testi__name">{{ item.name }}</span>
+          <span class="testi__service">{{ item.service }} service</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <button *ngIf="controls" type="button" class="testi__arrow testi__arrow--prev" aria-label="Previous testimonial" (click)="onPrev()">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button *ngIf="controls" type="button" class="testi__arrow testi__arrow--next" aria-label="Next testimonial" (click)="onNext()">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+
+    <div *ngIf="indicator" class="testi__dots">
+      <button
+        *ngFor="let dot of testimonies; let i = index"
+        type="button"
+        class="testi__dot"
+        [class.is-active]="selectedIndex === i"
+        [attr.aria-label]="'Show testimonial ' + (i + 1)"
+        [attr.aria-current]="selectedIndex === i"
+        (click)="selectImg(i)"
+      ></button>
+    </div>
+  </div>
+  </div>
+</section>

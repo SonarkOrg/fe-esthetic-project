@@ -1,0 +1,62 @@
+<div class="whole-container">
+  <div class="bottom">
+      <div class="left-container">
+          <div class="top-logo">
+              <img src="assets/img/logo/logo-black.png" alt="">
+          </div>
+          <div class="newsletter-container">
+            <h4 class="newsletter-header">
+              JOIN OUR NEWSLETTER
+            </h4>
+            <form class="rounded-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+              <label for="email">Email:</label>
+              <input class="newsletter-input" type="text" id="email" placeholder="EMAIL" formControlName="userName" required>
+              <button class="newsletter-submit" type="submit">Submit</button>
+            </form>
+            <p>By Subscribing you comply with COMPANY <br>
+                and agree to receive updates
+            </p>
+          </div>
+          <div class="policies">
+              <a class="privacy-link" href="#">Privacy Policy</a>
+              <a class="cookie-link" href="#">Cookie Policy</a>
+          </div>
+      </div>
+      <div class="right-container">
+          <div class="links-container">
+              <div class="left-links">
+                <h3 class="link-header">COMPANY</h3>
+                <div>
+                  <a href="#">Expertise</a>
+                </div>
+                <div>
+                  <a href="#">Why Book</a>
+                </div>
+                <div>
+                  <a href="#">About us</a>
+                </div>
+              </div>
+              <div class="right-links"><!-- Look at the Figma to understand-->
+                <h3 class="link-header">SERVICES</h3>
+                <div>
+                  <a href="#">Lashes</a>
+                </div>
+                <div>
+                  <a href="#">Nails</a>
+                </div>
+                <div>
+                  <a href="#">Laser</a>
+                </div>
+              </div>
+          </div>
+          <div class="icons-container">
+              <img src="assets/img/footer/instagram.svg" alt="">
+              <img src="assets/img/footer/twitter.svg" alt="">
+              <img src="assets/img/footer/facebook.svg" alt="">
+          </div>
+          <div class="company-info">
+            <a class="privacy-link" href="#">&copy;2024 COMPANY. ALL RIGHTS RESERVED | BINARYTECH</a>
+          </div>
+      </div>
+  </div>
+</div>

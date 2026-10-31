@@ -1,0 +1,113 @@
+.top-header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0px 0px;
+    background-color: #3A5A40;
+    color: white;
+    text-align: center;
+}
+
+.logo-section{
+    display: flex;
+    transform: scale(0.5);
+    width: 25%;
+    margin-bottom: 5px;
+}
+
+.text-section{
+    display: flex;
+    justify-content: end;
+    margin-right: 10% !important;
+    width: 75%;
+    a{
+        padding: 20px 30px;
+        color: #FEFAE0;
+        font-family:'Krona One';
+        font-weight: 100;
+        text-decoration: none !important;
+
+    }
+
+}
+
+.normal-button:hover{
+  opacity: 25%;
+}
+
+/*
+media only screen and (max-width: 1116px) {
+    .text-section {
+        display: none;
+    }
+}
+*/
+
+a.special-button{
+    background-color: #FEFAE0 !important;
+    border-radius: 34px;
+    color: #3A5A40 !important;
+    width: 80%;
+    height: 75%;
+    -o-transition:  0.7s ease-in-out;
+    -webkit-transition:  0.7s ease-in-out;
+    -moz-transition:  0.7s ease-in-out;
+    transition: 0.7 ease-in-out;
+  }
+
+a.special-button:hover{
+    background-color: #dda15e !important;
+
+}
+
+.end-section{
+    width: 25%;
+}
+
+.burger{
+  cursor: pointer;
+  transition: transform 0.7s ease-in-out;
+}
+
+.burger:hover{
+  transform: scale(1.3);
+}
+
+.hide-on-mobile {
+  display: none;
+}
+
+.hide-on-desktop {
+  display: none;
+}
+
+@media screen and (max-width: 1219px) {
+  a.special-button{
+    width: 100px !important;
+    font-size: 12px;
+    height: 100%;
+    padding: 20px 2px !important;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 1219px) {
+  a.special-button{
+    width: 100px !important;
+  }
+
+  .logo-section{
+    display: flex;
+    transform: scale(0.35);
+    width: 15%;
+}
+}
+
+@media screen and (max-width: 476px) {
+  .logo-section{
+    transform: scale(0.20);
+}
+}

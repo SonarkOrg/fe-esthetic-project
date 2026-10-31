@@ -1,0 +1,140 @@
+a{
+  background-color: #3A5A40;
+  border-radius: 24px;
+  color: #FEFAE0;
+  padding: 10px 25px;
+  margin-left: 5px;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  transition: transform 0.8 ease-in-out;
+}
+
+a:hover{
+  opacity: 85%;
+  color: black;
+}
+
+h3{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
+  font-weight: lighter;
+  line-height: 100%;
+}
+
+h3.unbolded-text{
+  margin-left: 30%;
+  margin-top: 20px;
+}
+
+b{
+  font-weight: 600;
+  font-size: larger;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+p.desc-text{
+  width: 85%;
+}
+
+.description-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-height: 400px;
+  margin-top: 5%;
+}
+
+.left-top{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+}
+
+.right-top{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+}
+
+/* Add media query for smaller screens */
+@media screen and (max-width: 1016px) {
+  a{
+    background-color: #3A5A40;
+    border-radius: 24px;
+    color: #FEFAE0;
+    padding: 10px 25px;
+    margin-left: 5px;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    transition: transform 0.8 ease-in-out;
+  }
+
+  a:hover{
+    opacity: 85%;
+    color: black;
+  }
+
+  h3{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 55px;
+    font-weight: lighter;
+  }
+
+  h3.unbolded-text{
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  b{
+    font-weight: 600;
+    font-size: larger;
+  }
+
+  p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+  }
+
+  p.desc-text{
+    width: 100%;
+  }
+
+  .description-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    margin-top: 5%;
+    width: 100%;
+  }
+
+  .left-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .right-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+  }
+}

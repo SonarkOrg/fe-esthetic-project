@@ -1,0 +1,16 @@
+.courses { padding-block: var(--section-y) var(--s-6); }
+.courses__title { margin-bottom: var(--s-8); font-size: var(--fs-h1); text-transform: none; color: var(--c-ink); }
+.courses__ink { color: var(--c-ink); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--s-7) var(--s-5); }
+.course { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); text-align: center; }
+.course__img {
+  display: block;
+  width: min(240px, 100%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--t-base), transform var(--t-base);
+}
+.course__img:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+.course__img img { width: 100%; height: 100%; object-fit: cover; }
+.course__name { font-size: var(--fs-h3); color: var(--c-green); }

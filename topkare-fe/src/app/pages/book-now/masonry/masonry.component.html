@@ -1,0 +1,12 @@
+<section class="inspire wrap">
+  <h2 class="section-title" appReveal>Get inspired</h2>
+  <div class="grid">
+    <div class="tile" *ngFor="let t of tiles; let i = index" [class]="'tile ' + t.cls" [appReveal]="(i % 4) * 90" revealVariant="zoom">
+      <div class="tile__box plx zoom">
+        <div class="plx__layer" [appParallax]="0.08">
+          <img [src]="t.url" [alt]="t.alt" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

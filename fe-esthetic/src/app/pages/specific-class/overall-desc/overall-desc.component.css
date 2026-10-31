@@ -1,0 +1,142 @@
+h3{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+a{
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  color: #FEFAE0;
+}
+
+h2{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #579262;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ADC178;
+  opacity: 85%;
+}
+
+.main-container{
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.section-container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 400px;
+}
+
+.left-container{
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.left-header{
+
+}
+
+.bold{
+  color: #ADC178;
+  font-weight: 800;
+}
+
+.left-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  background-color: #3A4A40;
+  padding: 10px;
+  border-radius: 24px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.left-btn:hover{
+  transform: scale(1.2);
+}
+
+.right-container{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  min-height: 300px;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 5%;
+}
+
+.top-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.number{
+
+}
+
+.title{
+
+}
+
+.desc{
+  width: 60%;
+  margin-left: 6%;
+}
+
+@media screen and (max-width: 576px) {
+  .section-container{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left-container{
+    width: 90%;
+  }
+
+  h3{
+    font-size: 18px;
+  }
+
+  .right-container{
+    margin-top: 20px;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .item{
+    align-items: center;
+  }
+
+  .top-header,
+  .desc{
+    width: 90%;
+  }
+}

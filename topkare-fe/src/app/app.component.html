@@ -1,0 +1,5 @@
+<!-- app.component.html -->
+<app-loader></app-loader>
+<div [class.content-wrapper]="loaderService.isLoading | async" class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>

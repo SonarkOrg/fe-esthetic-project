@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Lashes",
+    "smallDesc": "Discover the art of luscious lashes with our specialized esthetic course, perfecting the fluttering eye-catching look.",
+    "url": "specific-class/lashes"
+  },
+  {
+    "id": 2,
+    "title": "Nails",
+    "smallDesc": "Unleash your creativity with our nail esthetic course, mastering the intricate designs for stunning manicures every time.",
+    "url": "specific-class/nails"
+  },
+  {
+    "id": 3,
+    "title": "laser",
+    "smallDesc": "Explore the science and precision behind laser treatments in our esthetic course, achieving flawless skin rejuvenation techniques.",
+    "url": "specific-class/laser"
+  }
+]

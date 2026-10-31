@@ -1,0 +1,43 @@
+<app-header></app-header>
+<app-under-header-contact></app-under-header-contact>
+<div class="contact-container">
+  <div class="left-container">
+    <div class="text-container">
+      <p>WE’RE OPEN TO TALK TO GOOD PEOPLE. JUST SAY HELLO AND WE’LL
+        START A PRODUCTIVE COOPERATION.
+      </p>
+      <p>CALL US: +1 837 652 8800<br>
+        SAY HI: SUPPORT&#64;BESTLOOKER.PRO
+      </p>
+    </div>
+    <div class="img-container">
+      <img src="assets/img/footer/instagram.svg" alt="">
+      <img src="assets/img/footer/twitter.svg" alt="">
+      <img src="assets/img/footer/facebook.svg" alt="">
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="form-container">
+      <form class="rounded-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="space-between">
+          <label for="name"></label>
+          <input class="input-rounded-l" type="text" id="name" placeholder="NAME" formControlName="userName" required>
+          <label for="email"></label>
+          <input class="input-rounded" type="text" id="email" placeholder="EMAIL" formControlName="userName" required>
+        </div>
+        <label for="message"></label>
+        <input class="message-rounded" type="text" id="message" placeholder="MESSAGE" formControlName="userName" required>
+        <div class="bottom-container">
+          <div class="bottom-left">
+            <button class="rounded-submit" type="submit">Submit</button>
+          </div>
+          <div class="info-container">
+            <img class="position" src="assets/img/contact/info.svg" alt="">
+            <p class="smaller">All the fields are required. By sending the form you agree to the Terms & Conditions and Privacy Policy.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

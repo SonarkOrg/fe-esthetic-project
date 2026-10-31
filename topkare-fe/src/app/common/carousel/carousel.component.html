@@ -1,0 +1,15 @@
+<section class="services wrap" aria-labelledby="services-title">
+  <h2 id="services-title" class="section-title" appReveal>Our services</h2>
+  <ul class="svc-grid" *ngIf="items?.length" role="list">
+    <li *ngFor="let item of items; let i = index" [appReveal]="i * 120">
+      <a class="svc-card" [routerLink]="['/specific-service', item.id]">
+        <div class="svc-card__img"><img [src]="item.imageUrl" [alt]="(item.title | titlecase) + ' service'" loading="lazy" /></div>
+        <div class="svc-card__body">
+          <h3 class="svc-card__title">{{ item.title | titlecase }}</h3>
+          <p class="svc-card__desc">{{ item.shortDesc }}</p>
+          <span class="svc-card__more link-arrow">Learn more <img src="assets/img/home/right-arrow.svg" alt="" /></span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</section>

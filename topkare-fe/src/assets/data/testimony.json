@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "img": "../../../assets/img/home/home-1.jpg",
+    "service": "Nails",
+    "desc": "I am so happy to have received my care from Leah. She was so delicate, took the time to ask me what I wanted and showed me examples of what I could like. My nails have never looked better.",
+    "name": "Sophia Johnson"
+  },
+  {
+    "id": 2,
+    "img": "../../../assets/img/home/home-2.jpg",
+    "service": "Lashes",
+    "desc": "I was nervous before my first lash appointment, but Leah put me at ease right away. She listened, suggested the perfect curl for my eyes, and the result looks natural and glamorous.",
+    "name": "Emma Thompson"
+  },
+  {
+    "id": 3,
+    "service": "Laser",
+    "img": "../../../assets/img/home/home-3.jpg",
+    "desc": "Everything was explained clearly before we started and I never felt rushed. My skin is smoother after just a few sessions, and I feel so much more confident. Thank you, Topkare.",
+    "name": "Michael Chen"
+  },
+  {
+    "id": 4,
+    "img": "../../../assets/img/services/service-1.jpg",
+    "service": "Nails",
+    "desc": "Such a calm, welcoming space. Leah took her time with every detail and the design she created was even better than the inspiration photo I brought. I left feeling pampered.",
+    "name": "Ava Martinez"
+  },
+  {
+    "id": 5,
+    "img": "../../../assets/img/services/service-2.jpg",
+    "service": "Lashes",
+    "desc": "Gentle hands, careful advice and a beautiful finish. She asked what I wanted, showed me a few styles and my lashes still look perfect weeks later. I will definitely be back.",
+    "name": "Olivia White"
+  },
+  {
+    "id": 6,
+    "img": "../../../assets/img/services/service-3.jpg",
+    "service": "Nails",
+    "desc": "The care and attention to detail were wonderful. I felt listened to from the first minute to the last, and my manicure has lasted far longer than any I have had before.",
+    "name": "Daniel Kim"
+  }
+]

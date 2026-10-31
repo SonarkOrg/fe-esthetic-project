@@ -1,0 +1,15 @@
+<section class="steps wrap">
+  <div class="steps__left">
+    <h2 class="steps__title" appReveal>What you will <span class="accent-green">learn</span></h2>
+    <a class="pill pill--lg" routerLink="/contact">Enquire about this class</a>
+  </div>
+  <ol class="steps__list">
+    <li class="step" *ngFor="let step of item; let i = index" [appReveal]="i * 100">
+      <span class="step__num">{{ step.id }}.</span>
+      <div>
+        <h3 class="step__title">{{ step.title }}</h3>
+        <p class="step__desc">{{ step.desc }}</p>
+      </div>
+    </li>
+  </ol>
+</section>

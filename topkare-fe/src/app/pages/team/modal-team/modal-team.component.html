@@ -1,0 +1,20 @@
+<div class="modal">
+  <button type="button" class="modal__close" aria-label="Close" (click)="closeModal()">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <div class="modal__text">
+    <h1 class="modal__name">{{ data.firstName }}<br />{{ data.name }}</h1>
+    <p class="modal__where">{{ data.location }}<span class="modal__role">{{ data.position }}</span></p>
+    <p class="modal__quote">{{ data.content }}</p>
+    <div class="modal__facts">
+      <p>{{ data.funFact1 }}</p>
+      <p>{{ data.funFact2 }}</p>
+    </div>
+  </div>
+  <div class="modal__media">
+    <span class="modal__mono" aria-hidden="true">{{ initials }}</span>
+    <a class="modal__follow" *ngIf="site.socials.instagram" [href]="site.socials.instagram" target="_blank" rel="noopener">
+      Follow me <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>

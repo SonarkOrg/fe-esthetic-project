@@ -1,0 +1,182 @@
+p{
+  width: 70%;
+  font-family: 'Krona One', sans-serif;
+}
+
+img{
+  cursor: pointer;
+  transition: transform 0.7s ease-in-out;
+}
+
+button{
+  border: 50%;
+  align-self: flex-start;
+}
+
+img:hover{
+  transform: scale(1.4);
+}
+
+.contact-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 600px;
+  flex-wrap: wrap;
+}
+
+.left-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 48%;
+}
+
+.text-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.img-container{
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.right-container{
+  display: flex;
+  width: 48%;
+}
+
+.form-container{
+  width: 100%;
+}
+
+.rounded-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.space-between{
+  display: flex;
+  width: 90%;
+}
+
+.input-rounded-l{
+  border-radius: 34px;
+  height: 45px;
+  width: 45%;
+  margin-right: 5%;
+}
+
+.input-rounded{
+  border-radius: 34px;
+  height: 45px;
+  width: 45%;
+}
+
+.message-rounded{
+  margin-top: 20px;
+  height: 150px;
+  border-radius: 100px;
+  width: 90%;
+}
+
+.rounded-submit{
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  text-decoration: none;
+  margin-top: 30px;
+  background-color: #000;
+  color: #ffff;
+  font-family: 'Krona One', sans-serif;
+  transition: transform 0.7s ease-in-out;
+  cursor: pointer;
+}
+
+.rounded-submit:hover{
+  transform: scale(1.2);
+}
+
+.bottom-container{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.bottom-left{
+  width: 25%;
+}
+
+.info-container{
+  display: flex;
+  align-items: center;
+  width: 70%;
+}
+
+img.position{
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+::placeholder {
+  text-align: center;
+  font-family: 'Krona One', sans-serif;
+}
+
+p.smaller{
+  font-size: 9px;
+}
+
+
+
+@media screen and (max-width: 1016px){
+  .contact-container{
+    flex-direction: column;
+  }
+
+  .left-container{
+    margin-top: 20px;
+    width: 100%;
+    align-items: center;
+  }
+
+  p{
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .right-container{
+    align-items: center;
+    width: 100%;
+  }
+
+  .rounded-form{
+    width: 100%;
+  }
+
+  .bottom-container{
+    margin-bottom: 30px;
+  }
+
+  .rounded-submit{
+    height: 100px;
+    width: 100px;
+  }
+
+  p.smaller{
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,122 @@
+img{
+  width: 200px;
+  padding: 20px;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+a{
+  background-color: #ffff;
+  color: black;
+  border-radius: 24px;
+  padding: 8px;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+  background-color: #FAD793;
+  min-height: 800px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-container{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-around;
+  align-content: center;
+  min-height: 460px;
+}
+
+.left-container{
+  font-size: 35px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: end;
+  width: 60%;
+}
+
+.right-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+
+.bottom-container{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.filters{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 25%;
+}
+
+.btn{
+  width: 150px;
+}
+
+.filter-text{
+  display: flex;
+  align-items: flex-start;
+  width: 60%;
+  padding: 20px;
+}
+
+.members{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.first{
+  margin-top: 80px;
+}
+
+.second{
+
+}
+
+.member-img{
+  justify-self: flex-end;
+}
+
+.member-container {
+  position: relative;
+  display: inline-block;
+}
+
+.show-more {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px; /* Adjust the size of the icon */
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.7s ease-in-out;
+}
+
+.member-img-2{
+  transition: transform 0.7s ease-in-out;
+}
+
+.show-more:hover{
+  transform: scale(1.4);
+}

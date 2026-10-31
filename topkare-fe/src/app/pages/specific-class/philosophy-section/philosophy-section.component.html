@@ -1,0 +1,23 @@
+<section class="philo wrap">
+  <div class="philo__media" appReveal revealVariant="left">
+    <div class="philo__frame zoom">
+      <img [src]="photo.src" [alt]="photo.alt" loading="lazy" />
+    </div>
+  </div>
+  <div class="philo__text" [appReveal]="120">
+    <span class="eyebrow">Our philosophy</span>
+    <h2>{{ item?.title }}</h2>
+    <p>{{ item?.overview }}</p>
+    <p class="philo__more" *ngIf="showMoreInfo">{{ item?.showMore }}</p>
+    <button
+      type="button"
+      class="philo__toggle"
+      [class.is-open]="showMoreInfo"
+      [attr.aria-expanded]="showMoreInfo"
+      [attr.aria-label]="showMoreInfo ? 'Show less' : 'Show more'"
+      (click)="toggleMoreInfo()"
+    >
+      <img src="assets/img/specific-classes/plus.svg" alt="" />
+    </button>
+  </div>
+</section>

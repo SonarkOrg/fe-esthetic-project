@@ -1,0 +1,12 @@
+.feature { padding-bottom: var(--section-y); }
+.feature__box {
+  display: grid; gap: var(--s-5); align-items: center;
+  padding: clamp(1.75rem, 5vw, 4rem);
+  border-radius: var(--r-lg);
+  background: radial-gradient(500px 260px at 100% 0%, rgba(173, 193, 120, 0.25), transparent 70%), var(--c-green);
+  color: var(--c-cream);
+  box-shadow: var(--shadow-lg);
+}
+.feature__title { font-size: var(--fs-h2); }
+.feature__side p { opacity: 0.92; max-width: 60ch; }
+@media (min-width: 900px) { .feature__box { grid-template-columns: 1fr 1.2fr; gap: var(--s-8); } }

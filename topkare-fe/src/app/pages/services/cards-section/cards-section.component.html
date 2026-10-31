@@ -1,0 +1,13 @@
+<section class="info wrap" aria-label="Good to know">
+  <h2 class="visually-hidden">Good to know</h2>
+  <div class="info__item" *ngFor="let c of cards; let i = index" [appReveal]="(i % 2) * 120">
+    <article class="info__card">
+      <div class="info__head">
+        <img [src]="c.icon" alt="" />
+        <h3>{{ c.title }}</h3>
+      </div>
+      <p>{{ c.text }}</p>
+      <a class="link-arrow" [routerLink]="c.link">{{ c.more }} <img src="assets/img/home/right-arrow.svg" alt="" /></a>
+    </article>
+  </div>
+</section>

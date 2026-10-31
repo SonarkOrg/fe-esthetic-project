@@ -1,0 +1,9 @@
+<div *ngFor="let item of items; let i = index" [ngClass]="['container-item', direction === 'prev' ? 'ng-leave' : 'ng-enter']">
+  <div class="flex-container">
+    <img class="top-img" alt="" [src]="item.img" *ngIf="i === activeIndex"/>
+    <div *ngIf="i === activeIndex" class="button-container">
+      <img src="assets/img/home/carousel/arrow-left.svg" alt="" (click)="prev(); setAnimation('prev')" class="arrow left"/>
+      <img src="assets/img/home/carousel/arrow-right.svg" alt="" (click)="next(); setAnimation('next')" class="arrow right"/>
+    </div>
+  </div>
+</div>

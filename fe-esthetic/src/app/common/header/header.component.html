@@ -1,0 +1,16 @@
+<div class="top-header">
+    <div class="logo-section">
+        <a href="/"><img style="cursor: pointer;" src="assets/img/logo/logo-black.png" alt=""></a>
+    </div>
+    <div class="text-section" [ngClass]="{ 'hide-on-desktop': isMobile }">
+        <a class="normal-button" href="/">HOME</a>
+        <a class="normal-button" href="/classes">CLASSES</a>
+        <a class="normal-button" href="services">SERVICES</a>
+        <a class="normal-button" href="/contact">CONTACT</a>
+        <a class="special-button" href="/book">BOOK NOW</a>
+    </div>
+    <div class="text-section" [ngClass]="{ 'hide-on-desktop': !isMobile }">
+          <a class="special-button" href="/book">BOOK NOW</a>
+      <img class="burger" src="assets/img/header/menu.svg" alt="" (click)="toggleMobileMenu()">
+  </div>
+</div>

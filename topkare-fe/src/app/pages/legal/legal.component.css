@@ -1,0 +1,11 @@
+.legal { padding-block: var(--section-y); }
+.legal__prose { max-width: 70ch; margin-inline: auto; }
+.legal__updated { margin-bottom: var(--s-6); font-size: var(--fs-small); color: var(--c-muted); }
+.legal__prose h2 { margin: var(--s-7) 0 var(--s-3); font-size: var(--fs-h3); color: var(--c-green); }
+.legal__prose h2:first-of-type { margin-top: 0; }
+.legal__prose p, .legal__prose li { color: var(--c-ink); }
+.legal__prose ul { margin: 0 0 var(--s-4); padding-left: 1.25rem; }
+.legal__prose li { margin-bottom: var(--s-2); }
+.legal__prose a { color: var(--c-green); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.legal__prose a:hover { color: var(--c-orange-700); }
+.legal__prose strong { color: var(--c-green-900); }
