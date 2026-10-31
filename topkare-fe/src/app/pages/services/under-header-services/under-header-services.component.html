@@ -1,19 +1,19 @@
-<div class="under-header">
-  <div class="text-container">
-    <img src="assets/img/header/arrow-left.svg" alt="">
-    <a href="#">BACK TO HOME</a>
-  </div>
-  <hr>
-  <div class="header-container">
-    <div class="header">
-      <h1>THE BEST CARE AND<br>SERVICES<span class="color"> OF YOU</span></h1>
-    </div>
-    <div class="right-container">
-      <p>Get thoughtful and valuable advice on how to optimise pricing, enhance brand value, develop the right products and target the right customers. Our experts will guide you towards sustainable growth, consumer centricity and boosted profitability.</p>
-      <div class="bottom-container">
-        <a class="background" href="">BOOK NOW</a>
-        <a class="background" href="contact">REACH OUT</a>
+<section class="banner">
+  <div class="wrap">
+    <a class="back-link" routerLink="/"><img src="assets/img/header/arrow-left.svg" alt="" /> Back to home</a>
+    <hr />
+    <div class="grid">
+      <h1 class="title" appReveal>The best care and services <span class="accent">of you</span></h1>
+      <div class="side" [appReveal]="120">
+        <p>
+          Get thoughtful and valuable advice on how to care for your skin, lashes and nails. Our specialists will guide
+          you towards a routine that fits your lifestyle, your goals and your budget.
+        </p>
+        <div class="buttons">
+          <a class="pill pill--sage" [routerLink]="['/specific-service', 1]">Book now</a>
+          <a class="pill pill--outline" routerLink="/contact">Reach out</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

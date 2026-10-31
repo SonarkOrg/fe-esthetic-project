@@ -87,6 +87,21 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* index.html puts .mat-typography on <body>; its Roboto rules would otherwise win. */
+body.mat-typography { font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.65; }
+.mat-typography h1, .mat-typography h2, .mat-typography h3, .mat-typography h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+.mat-typography h1 { font-size: var(--fs-h1); }
+.mat-typography h2 { font-size: var(--fs-h2); }
+.mat-typography h3 { font-size: var(--fs-h3); }
+.mat-typography p { margin: 0 0 var(--s-4); }
+.mat-typography .section-title { margin-bottom: var(--s-7); }
+
 h1, h2, h3, h4 {
   margin: 0;
   font-family: var(--font-display);
@@ -99,6 +114,7 @@ h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 
+main { display: block; padding-bottom: var(--section-y); }
 p { margin: 0 0 var(--s-4); }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
@@ -257,6 +273,11 @@ html.js [data-reveal='fade']:not(.is-revealed) { transform: none; }
 html.js [data-reveal='zoom']:not(.is-revealed) { transform: scale(0.94); }
 html.js [data-reveal='left']:not(.is-revealed) { transform: translate3d(-40px, 0, 0); }
 html.js [data-reveal='right']:not(.is-revealed) { transform: translate3d(40px, 0, 0); }
+/* no sideways motion on narrow screens (would create horizontal overflow) */
+@media (max-width: 899px) {
+  html.js [data-reveal='left']:not(.is-revealed),
+  html.js [data-reveal='right']:not(.is-revealed) { transform: translate3d(0, 32px, 0); }
+}
 
 /* ------------------------------------------------------------------
    Cards + image hover zoom
@@ -337,6 +358,7 @@ html.js [data-reveal='right']:not(.is-revealed) { transform: translate3d(40px, 0
 .round-btn:active { transform: scale(0.94); }
 
 @media (max-width: 599px) {
+  .stage-controls { flex-wrap: nowrap; gap: var(--s-3); }
   .stage__item.is-prev { transform: translate3d(calc(-50% - 66%), 0, 0) scale(0.78); }
   .stage__item.is-next { transform: translate3d(calc(-50% + 66%), 0, 0) scale(0.78); }
 }
@@ -355,3 +377,11 @@ html.js [data-reveal='right']:not(.is-revealed) { transform: translate3d(40px, 0
   }
   .plx__layer { inset: 0; }
 }
+
+/* Team dialog (Material) */
+.team-dialog .mat-mdc-dialog-surface {
+  border-radius: var(--r-lg) !important;
+  background: #0f1c13 !important;
+  overflow: auto;
+}
+.cdk-overlay-dark-backdrop { background: rgba(15, 26, 18, 0.65); }

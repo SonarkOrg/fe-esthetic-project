@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HeaderComponent } from '../../common/header/header.component';
-import { FooterComponent } from '../../common/footer/footer.component';
-import { UnderHeaderContactComponent } from '../../common/under-header-contact/under-header-contact.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -13,17 +9,27 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class ContactComponent {
   myForm: FormGroup;
+  sent = false;
 
   constructor(private fb: FormBuilder, private titleService: Title) {
     this.titleService.setTitle('Contact us');
     this.myForm = this.fb.group({
-      userName: ['', Validators.required]
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required],
     });
   }
 
-  onSubmit() {
-    console.log('User input:', this.myForm.value.userName);
-    // Handle the user input as needed
+  get f() {
+    return this.myForm.controls;
   }
 
+  onSubmit(): void {
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+    this.sent = true;
+    this.myForm.reset();
+  }
 }

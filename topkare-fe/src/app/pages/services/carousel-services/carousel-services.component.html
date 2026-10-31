@@ -27,7 +27,7 @@
     <div class="svc__desc" aria-live="polite">
       <h3 class="svc__title">{{ current.title }}</h3>
       <p class="svc__text">{{ current.desc }}</p>
-      <a class="pill" [routerLink]="['/specific-service', current.id]">Book {{ current.title }}</a>
+      <a class="pill" [routerLink]="['/specific-service', current.id]">Book {{ current.title | titlecase }}</a>
     </div>
   </div>
 </section>

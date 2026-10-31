@@ -8,11 +8,14 @@ import { ModalTeamComponent } from '../../pages/team/modal-team/modal-team.compo
 export class ModalService {
   constructor(public dialog: MatDialog) {}
 
-  openModal(name: string, firstName: string, location: string, position: string, content: string, funFact1: string, funFact2: string): void {
+  openModal(name: string, firstName: string, location: string, position: string, content: string, funFact1: string, funFact2: string, image?: string): void {
     const dialogRef = this.dialog.open(ModalTeamComponent, {
-      width: '70%',
-      height: '90%',
-      data: { name, firstName, location, position, content, funFact1, funFact2 },
+      width: '960px',
+      maxWidth: '94vw',
+      maxHeight: '92vh',
+      panelClass: 'team-dialog',
+      autoFocus: 'dialog',
+      data: { name, firstName, location, position, content, funFact1, funFact2, image },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

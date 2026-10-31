@@ -1,13 +1,9 @@
-<div class="card-container">
-  <div class="card-section">
-    <div class="header">
-      <h4>THE BEST {{ item.service }}<br>SERVICES <span class="font">FOR OUR CUSTOMERS</span></h4>
-    </div>
-    <div class="right-container">
-      <div class="desc">
-        <p>{{ item.scheduleDesc }}</p>
-      </div>
-        <a class="btn" href="https://www.fresha.com/fr/for-business">Reach out now</a>
+<section class="feature wrap">
+  <div class="feature__box" appReveal revealVariant="zoom">
+    <h2 class="feature__title">The best {{ item?.service | lowercase }} services <span class="accent">for our customers</span></h2>
+    <div class="feature__side">
+      <p>{{ item?.scheduleDesc }}</p>
+      <a class="pill pill--sage" href="https://www.fresha.com/fr/for-business" target="_blank" rel="noopener">Reach out now</a>
     </div>
   </div>
-</div>
+</section>

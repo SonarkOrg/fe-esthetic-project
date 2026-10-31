@@ -1,118 +1,12 @@
-h4{
-  font-weight: 300;
-  font-size: 25px;
+.feature { padding-bottom: var(--section-y); }
+.feature__box {
+  display: grid; gap: var(--s-5); align-items: center;
+  padding: clamp(1.75rem, 5vw, 4rem);
+  border-radius: var(--r-lg);
+  background: radial-gradient(500px 260px at 100% 0%, rgba(173, 193, 120, 0.25), transparent 70%), var(--c-green);
+  color: var(--c-cream);
+  box-shadow: var(--shadow-lg);
 }
-
-a{
-  text-decoration: none;
-  color: black;
-}
-
-.card-container{
-  display: flex;
-  min-height: 500px;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-section{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 250px;
-  width: 80%;
-  background-color: #3A5A40;
-  border-radius: 34px;
-  padding: 15px;
-}
-
-.header{
-  font-family: 'Open Sans', sans-serif;
-  font-size: 32px;
-  color: #FEFAE0;
-}
-
-.font{
-  font-weight: bolder;
-}
-
-.right-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 55%;
-  /* background-color: #FEFAE0; */
-}
-
-.desc{
-  display: flex;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
-  opacity: 0.75;
-  width: 80%;
-  color: #FEFAE0;
-}
-
-.btn{
-  background-color: #ADC178;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 24px;
-  text-decoration: none;
-  color: black;
-  font-family: 'Open Sans', sans-serif;
-  width: 40%;
-  transition: transform 0.3s ease-in-out;
-}
-
-.btn:hover{
-  transform: scale(1.2);
-}
-
-@media screen and (max-width: 1016px){
-  a{
-    font-size: 13px;
-  }
-}
-
-@media screen and (max-width: 764px){
-  a{
-    font-size: 11px;
-  }
-
-  h4{
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 610px) {
-  a{
-    font-size: 16px;
-  }
-
-  p{
-    font-size: 12px;
-  }
-
-  .btn{
-    width: 60%;
-  }
-
-  .card-section{
-    flex-direction: column;
-  }
-
-  .right-container{
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 499px) {
-  .card-section{
-    height: 300px;
-  }
-}
+.feature__title { font-size: var(--fs-h2); text-transform: uppercase; }
+.feature__side p { opacity: 0.92; max-width: 60ch; }
+@media (min-width: 900px) { .feature__box { grid-template-columns: 1fr 1.2fr; gap: var(--s-8); } }

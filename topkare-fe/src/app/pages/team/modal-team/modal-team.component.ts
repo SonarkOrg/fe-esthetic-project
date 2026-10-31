@@ -13,7 +13,7 @@ export class ModalTeamComponent {
     public dialogRef: MatDialogRef<ModalTeamComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { name: string, firstName: string, location: string,
                                            position: string, content: string, funFact1: string,
-                                           funFact2: string }
+                                           funFact2: string, image?: string }
   ) {}
 
   closeModal(): void {
