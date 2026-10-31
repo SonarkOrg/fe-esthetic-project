@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { GlobalErrorHandler } from './global-error-handler';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -96,6 +97,7 @@ import { DescriptionServicesComponent } from './pages/services/description-servi
     provideClientHydration(),
     provideAnimationsAsync(),
     LoaderService,
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

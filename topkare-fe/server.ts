@@ -6,6 +6,21 @@ import { dirname, join, resolve } from 'node:path';
 import AppServerModule from './src/main.server';
 import { RESPONSE } from './src/app/response.token';
 
+const ERROR_PAGE = `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Something went wrong | Topkare</title>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fefae0;color:#1d2a21;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center;padding:1.5rem}
+main{max-width:34rem}h1{margin:0 0 1rem;color:#3a5a40;font-size:clamp(1.6rem,5vw,2.4rem)}
+p{margin:0 0 1.5rem;font-size:1.1rem;line-height:1.6}
+a{display:inline-block;padding:.8rem 2rem;border-radius:999px;background:#3a5a40;color:#fefae0;font-weight:700;text-decoration:none}
+a:hover{background:#2f4a34}
+</style></head><body><main>
+<h1>Something went wrong</h1>
+<p>Please try again in a moment. If the problem continues, come back a little later.</p>
+<a href="/">Back to home</a>
+</main></body></html>`;
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
@@ -41,7 +56,10 @@ export function app(): express.Express {
         ],
       })
       .then((html) => res.send(html))
-      .catch((err) => next(err));
+      .catch((err) => {
+        console.error('SSR render failed for', originalUrl, err);
+        res.status(500).type('html').send(ERROR_PAGE);
+      });
   });
 
   return server;

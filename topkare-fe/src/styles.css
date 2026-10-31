@@ -401,3 +401,6 @@ html.js [data-reveal='right']:not(.is-revealed) { transform: translate3d(40px, 0
 @media (prefers-reduced-motion: reduce) {
   .svc-card:hover, .svc-card:focus-visible { transform: none; }
 }
+
+/* Anchored content must not hide under the sticky header (anchorScrolling). */
+[id] { scroll-margin-top: calc(var(--header-h) + var(--s-4)); }
