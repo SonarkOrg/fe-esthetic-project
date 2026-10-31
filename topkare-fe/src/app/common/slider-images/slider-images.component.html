@@ -13,8 +13,16 @@
   </div>
   <div class="hero__shade" aria-hidden="true"></div>
 
-  <div class="hero__content" *ngIf="ctaLabel">
-    <a class="pill pill--lg hero__cta" [routerLink]="ctaLink">{{ ctaLabel }}</a>
+  <div class="hero__content wrap" *ngIf="heading || ctaLabel">
+    <div class="hero__copy">
+      <p class="hero__eyebrow" *ngIf="eyebrow" appReveal revealVariant="fade">{{ eyebrow }}</p>
+      <h1 class="hero__title" *ngIf="heading" [appReveal]="80">{{ heading }}</h1>
+      <p class="hero__lead" *ngIf="lead" [appReveal]="160">{{ lead }}</p>
+      <div class="hero__actions" [appReveal]="240">
+        <a *ngIf="ctaLabel" class="pill pill--lg hero__cta" [routerLink]="ctaLink">{{ ctaLabel }}</a>
+        <a *ngIf="secondaryLabel" class="pill pill--lg hero__cta2" [routerLink]="secondaryLink">{{ secondaryLabel }}</a>
+      </div>
+    </div>
   </div>
 
   <button *ngIf="controls" type="button" class="hero__arrow hero__arrow--prev" aria-label="Previous slide" (click)="onPrev()">

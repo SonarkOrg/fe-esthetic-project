@@ -1,4 +1,5 @@
-<section *ngIf="testimonies && testimonies.length > 0" class="testi wrap" aria-roledescription="carousel" aria-label="Client testimonials">
+<section *ngIf="testimonies && testimonies.length > 0" class="testi" aria-roledescription="carousel" aria-label="Client testimonials">
+  <div class="wrap">
   <h2 class="section-title" appReveal>What they say about us</h2>
 
   <div class="testi__card" appReveal revealVariant="zoom">
@@ -9,7 +10,7 @@
         [class.is-active]="selectedIndex === i"
         [attr.aria-hidden]="selectedIndex === i ? null : 'true'"
       >
-        <img class="testi__avatar" [src]="item.img" [alt]="'Portrait of ' + item.name" loading="lazy" />
+        <span class="testi__avatar" aria-hidden="true">{{ initials(item.name) }}</span>
         <i class="fa-solid fa-quote-left testi__quote-icon" aria-hidden="true"></i>
         <blockquote class="testi__text">{{ item.desc }}</blockquote>
         <figcaption class="testi__who">
@@ -37,5 +38,6 @@
         (click)="selectImg(i)"
       ></button>
     </div>
+  </div>
   </div>
 </section>

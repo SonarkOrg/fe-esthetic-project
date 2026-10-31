@@ -1,4 +1,4 @@
-.details { display: flex; flex-direction: column; gap: var(--s-8); padding-block: var(--section-y) var(--s-6); }
+.details { display: flex; flex-direction: column; gap: var(--s-8); padding-block: var(--section-y); }
 .detail { display: grid; gap: var(--s-6); align-items: center; }
 .detail__img {
   aspect-ratio: 4 / 5;

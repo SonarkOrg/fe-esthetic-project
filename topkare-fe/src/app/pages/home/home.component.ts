@@ -60,11 +60,5 @@ export class HomeComponent {
     {id: 3, img: 'assets/img/home/home-3.jpg', alt: 'Jade facial roller being used on skin'}
   ]
 
-  carouselItems = [
-    { id: 1, imageUrl: 'assets/img/services/service-1.jpg', title: 'Laser' },
-    { id: 2, imageUrl: 'assets/img/services/service-2.jpg', title: 'Lashes' },
-    { id: 3, imageUrl: 'assets/img/services/service-3.jpg', title: 'Nails', },
-    // Add more items as needed
-  ];
 
 }

@@ -3,18 +3,21 @@
     "id": 1,
     "imageUrl": "assets/img/services/service-1.jpg",
     "title": "Laser",
-    "desc": "Our laser services offer cutting-edge solutions for a variety of skin concerns and hair removal needs. Utilizing the latest in laser technology, we provide safe, effective, and non-invasive treatments tailored to your unique skin type and goals. From rejuvenating laser facials that promote a radiant complexion to precise hair removal for silky-smooth skin, our skilled specialists ensure a comfortable and satisfying experience. Our treatments are designed to deliver long-lasting results, reducing the need for frequent maintenance. Trust us to enhance your natural beauty with our professional laser services, where your comfort and satisfaction are our top priorities."
+    "desc": "Our laser services offer cutting-edge solutions for a variety of skin concerns and hair removal needs. Utilizing the latest in laser technology, we provide safe, effective, and non-invasive treatments tailored to your unique skin type and goals. From rejuvenating laser facials that promote a radiant complexion to precise hair removal for silky-smooth skin, our skilled specialists ensure a comfortable and satisfying experience. Our treatments are designed to deliver long-lasting results, reducing the need for frequent maintenance. Trust us to enhance your natural beauty with our professional laser services, where your comfort and satisfaction are our top priorities.",
+    "shortDesc": "Gentle, modern laser treatments for smooth, radiant skin."
   },
   {
     "id": 2,
     "imageUrl": "assets/img/services/service-2.jpg",
     "title": "LASHES",
-    "desc": "Enhance your natural beauty with our specialized lash services. From classic extensions to volume-boosting lifts and tints, we provide a variety of options to elevate your look. Our expert lash technicians work meticulously to create a customized appearance that complements your eye shape and lifestyle. We prioritize the health and safety of your natural lashes, using gentle techniques and superior products. Whether you desire a subtle enhancement or dramatic fullness, our lash treatments are designed to make your eyes stand out, offering effortless glamour and a confidence boost that lasts for weeks."
+    "desc": "Enhance your natural beauty with our specialized lash services. From classic extensions to volume-boosting lifts and tints, we provide a variety of options to elevate your look. Our expert lash technicians work meticulously to create a customized appearance that complements your eye shape and lifestyle. We prioritize the health and safety of your natural lashes, using gentle techniques and superior products. Whether you desire a subtle enhancement or dramatic fullness, our lash treatments are designed to make your eyes stand out, offering effortless glamour and a confidence boost that lasts for weeks.",
+    "shortDesc": "Classic, hybrid and volume sets, lifts and tints for effortless eyes."
   },
   {
     "id": 3,
     "imageUrl": "assets/img/services/service-3.jpg",
     "title": "NAILS",
-    "desc": "Our nail services cater to those looking for a touch of elegance and style in their daily lives. We offer a comprehensive range of treatments, including classic manicures, luxurious pedicures, and advanced nail art design. Using only the highest quality polishes and products, we ensure long-lasting results and a perfect finish. Our experienced technicians are committed to providing personalized care, ensuring each client's individual needs and preferences are met. Whether you're looking for a simple polish change, a soothing spa experience, or intricate nail designs, our salon is dedicated to perfecting your look with impeccable attention to detail."
+    "desc": "Our nail services cater to those looking for a touch of elegance and style in their daily lives. We offer a comprehensive range of treatments, including classic manicures, luxurious pedicures, and advanced nail art design. Using only the highest quality polishes and products, we ensure long-lasting results and a perfect finish. Our experienced technicians are committed to providing personalized care, ensuring each client's individual needs and preferences are met. Whether you're looking for a simple polish change, a soothing spa experience, or intricate nail designs, our salon is dedicated to perfecting your look with impeccable attention to detail.",
+    "shortDesc": "Manicures, gel and nail art finished with care and precision."
   }
 ]

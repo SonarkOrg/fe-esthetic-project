@@ -87,13 +87,13 @@
 .socials a {
   display: grid;
   place-items: center;
-  width: 44px; height: 44px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   background: var(--c-cream);
   transition: transform var(--t-base), background-color var(--t-fast);
 }
 .socials a:hover { background: var(--c-orange); transform: translateY(-4px); }
-.socials img { width: 24px; height: 24px; }
+.socials img { width: 26px; height: 26px; }
 
 .footer__bottom {
   display: flex;

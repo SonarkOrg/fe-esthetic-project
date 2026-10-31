@@ -1,4 +1,5 @@
-.cta { padding-block: 0 var(--section-y); }
+:host { display: block; background: var(--c-white); }
+.cta { padding-block: var(--section-y); }
 .cta__box {
   position: relative;
   display: flex;
@@ -9,15 +10,16 @@
   padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 5vw, 4rem);
   border-radius: var(--r-lg);
   background:
-    radial-gradient(500px 260px at 100% 0%, rgba(173, 193, 120, 0.28), transparent 70%),
-    radial-gradient(400px 240px at 0% 100%, rgba(221, 161, 94, 0.18), transparent 70%),
-    var(--c-green);
-  color: var(--c-cream);
+    radial-gradient(500px 260px at 100% 0%, rgba(173, 193, 120, 0.3), transparent 70%),
+    radial-gradient(400px 240px at 0% 100%, rgba(221, 161, 94, 0.16), transparent 70%),
+    var(--c-cream);
+  border: 1px solid var(--c-line);
+  color: var(--c-ink);
   text-align: center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }
-.cta__eyebrow { margin: 0 0 var(--s-2); font-family: var(--font-display); font-size: var(--fs-small); letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-sage); }
-.cta__title { margin-bottom: var(--s-5); font-size: var(--fs-h1); }
-.cta__text { max-width: 58ch; margin-bottom: var(--s-6); opacity: 0.9; }
+.cta__eyebrow { margin: 0 0 var(--s-2); font-family: var(--font-display); font-size: var(--fs-small); letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-orange-600); }
+.cta__title { margin-bottom: var(--s-5); font-size: var(--fs-h1); color: var(--c-green); }
+.cta__text { max-width: 58ch; margin-bottom: var(--s-6); color: var(--c-muted); }
 .cta__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-3); }
 .cta__buttons .pill { min-width: 170px; }

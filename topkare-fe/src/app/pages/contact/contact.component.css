@@ -1,5 +1,5 @@
-.contact { display: grid; gap: var(--s-7); padding-block: var(--section-y) 0; }
-.contact__lead { font-family: var(--font-display); font-size: var(--fs-h3); text-transform: uppercase; line-height: 1.4; color: var(--c-green); }
+.contact { display: grid; gap: var(--s-7); padding-block: var(--section-y); }
+.contact__lead { font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.4; color: var(--c-green); }
 .contact__lines { margin: var(--s-6) 0; font-family: var(--font-display); font-size: var(--fs-small); text-transform: uppercase; line-height: 2; }
 .contact__lines a { color: var(--c-green); text-underline-offset: 4px; }
 .contact__lines a:hover { color: var(--c-orange-600); }
